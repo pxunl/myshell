@@ -6,13 +6,13 @@
 
 
 #Source file
-SRC = button.c
+SRC = mainWindow.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
 
 #Output execution file
-PROGRAM = button
+PROGRAM = myshell
 
 #Compiler
 CC = gcc
