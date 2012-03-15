@@ -13,6 +13,7 @@
 
 #include "config.h"
 #include "eval.h"
+#include "execute.c"
 
 extern int execute(char *argv[]);
 

@@ -1,4 +1,4 @@
-cscope 15 $HOME/myshell/src/shell               0000369896
+cscope 15 $HOME/myshell/src/shell               0000370333
 	@config.h
 
 8 
@@ -537,6 +537,106 @@ ex™_code
 li¡
 );
 
+	@exetute.c
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<¡dlib.h
+>
+
+3 
+	~<uni¡d.h
+>
+
+4 
+	~<sigÇl.h
+>
+
+7 
+	$execu‹
+(*
+¬gv
+[])
+
+9 
+pid_f
+;
+
+10 
+chlid_š
+ = -1;
+
+12 ià(
+¬gv
+[0] =ð
+NULL
+)
+
+15 ià((
+pid_f
+ = 
+	`fÜk
+()) == -1)
+
+17 
+	`³¼Ü
+("fork fail\n");
+
+19 ià(
+pid_f
+ == 0)
+
+21 
+	`sigÇl
+(
+SIGINT
+, 
+SIG_DFL
+);
+
+22 
+	`sigÇl
+(
+SIGQUIT
+, 
+SIG_DFL
+);
+
+23 
+	`exeþp
+(
+¬gv
+[0],‡rgv);
+
+24 
+	`³¼Ü
+("not found!\n");
+
+25 
+	`ex™
+(1);
+
+29 ià(
+	`wa™
+(&
+chlid_š
+) == -1)
+
+30 
+	`³¼Ü
+("wait\n");
+
+32  
+chlid_š
+;
+
+33 
+	}
+}
+
 	@shell.c
 
 9 
@@ -563,6 +663,12 @@ li¡
 	~"ev®.h
 "
 
+17 
+execu‹
+(*
+¬gv
+[]);
+
 19 
 š™Ÿlize
 ();
@@ -581,6 +687,10 @@ commªd_lše
 
 24 **
 ¬gli¡
+;
+
+25 
+»suÉ
 ;
 
 27 
@@ -607,21 +717,25 @@ commªd_lše
 NULL
 )
 
-33 *
-¬gli¡
- !ð
-NULL
-)
-
-35 
-	`´štf
-("%s\À",*
+38 
+»suÉ
+ = 
+	`execu‹
+(
 ¬gli¡
 );
 
-36 
+39 
+	`ä“_li¡
+(
 ¬gli¡
-++;
+);
+
+42 
+	`ä“
+(
+commªd_lše
+);
 
 45 
 	}
@@ -648,38 +762,6 @@ SIG_IGN
 );
 
 56 
-	}
-}
-
-58 
-	$ä“_li¡
-(**
-li¡
-)
-
-60 **
-ý
- = 
-li¡
-;
-
-61 *
-ý
-)
-
-62 
-	`ä“
-(*
-ý
-++);
-
-63 
-	`ä“
-(
-li¡
-);
-
-64 
 	}
 }
 
@@ -65014,11 +65096,12 @@ _ASM_GENERIC_ERRNO_BASE_H
 .
 1
 /usr/include
-78
-1998
+79
+2008
 config.h
 eval.c
 eval.h
+exetute.c
 shell.c
 shell.h
 /usr/include/signal.h
