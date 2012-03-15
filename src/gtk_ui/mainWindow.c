@@ -15,8 +15,9 @@ void destroy(GtkWidget *widget, gpointer data);
 int main(int argc, char *argv[])
 {
 	GtkWidget *main_window;
-	/*GtkWidget *button;*/
-	/*GtkWidget *exit_area;*/
+	GtkWidget *textview;
+	GtkWidget *scrolled_window;
+	GtkWidget *v_box;
 	GtkWidget *menu_vbox;
 	GtkWidget *menubar;
 	GtkWidget *filemenu;
@@ -39,7 +40,10 @@ int main(int argc, char *argv[])
 	gtk_signal_connect(GTK_OBJECT(main_window), "destroy", 
 			G_CALLBACK(destroy), NULL);
 	gtk_window_set_title(GTK_WINDOW(main_window), "Myshell");
+	gtk_window_set_position(GTK_WINDOW(main_window), GTK_WIN_POS_CENTER);
 	gtk_window_set_default_size(GTK_WINDOW(main_window), 730, 533);
+	gtk_container_set_border_width(GTK_CONTAINER(main_window), 5);
+	GTK_WINDOW(main_window)->allow_shrink = TRUE;
 
 	//vbox for menubar
 	menu_vbox = gtk_vbox_new(FALSE, 0);
@@ -89,6 +93,17 @@ int main(int argc, char *argv[])
 	// bing the signal quit to close the window
 	g_signal_connect(G_OBJECT(quit), "activate", 
 			G_CALLBACK(destroy), NULL);
+
+
+	/*textview for editing or showing information*/
+	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+	textview = gtk_text_view_new();
+	gtk_container_add(GTK_CONTAINER(scrolled_window), textview);
+
+	v_box = gtk_vbox_new(FALSE, 5);
+	gtk_box_pack_start(GTK_BOX(menu_vbox), scrolled_window, TRUE, TRUE, 5);
+
+	/*gtk_container_add(GTK_CONTAINER(main_window), v_box);*/
 
 	//show all windows
 	gtk_widget_show_all(main_window);

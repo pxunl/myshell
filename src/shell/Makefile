@@ -6,26 +6,20 @@
 
 
 #Source file
-SRC = mainWindow.c
+SRC =  shell.c eval.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
 
 #Output execution file
-PROGRAM = myshell
+PROGRAM = shell
 
 #Compiler
 CC = gcc
 
 
-#Include
 
-
-#Libs
-LIBS= --libs gtk+-2.0
-
-
-CFLAGS = `pkg-config --cflags ${LIBS}` -g -Wall
+CFLAGS = -g -Wall
 
 
 
@@ -45,4 +39,4 @@ ${OBJS}:%.o:%.c
 clean:
 	-rm *.o
 
-rebuild: clean all
+r: clean all
