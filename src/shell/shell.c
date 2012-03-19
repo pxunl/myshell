@@ -31,13 +31,13 @@ int main(int argc, const char *argv[])
 	{	
 		if ((arglist = spiltline(command_line)) != NULL) 
 		{	
-			/*while (*arglist != NULL) */
-			/*{*/
-				/*printf("%s\n ",*arglist);*/
-				/*arglist++;*/
-			/*}*/
-			result = execute(arglist);
-			free_list(arglist);
+			while (*arglist != NULL)
+			{
+				printf("%s\n ",*arglist);
+				arglist++;
+			}
+			/*result = execute(arglist);*/
+			/*free_list(arglist);*/
 		}
 
 		free(command_line);
