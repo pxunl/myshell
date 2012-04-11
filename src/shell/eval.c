@@ -1,10 +1,21 @@
-/**
- *eval.c
- *contain function spiltline read_command ...
- *2012-3-14
+/*
+ ************************************************************************************
  *
+ * Copyright (c),  2011-2014 dd.pangxie@gmail.com
+ *
+ ************************************************************************************
+ * Filename     :  eval.c
+ * Version      :  1.0
+ * Author       :  Jason Zhong 
+ * Created      :  Saturday, March 03, 2012 10:13:00 HKT
+ * Description  :  To read the command line and spilt them.
+ *
+ * History      :
+ * Revision     :  none
+ * Compiler     :  gcc
+ *
+ *************************************************************************************
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -106,8 +117,8 @@ char * create_str(char *begin, int len)
 {
 	char *new_str = emalloc(len+1);
 
-	new_str[len] = '\0';
 	strncpy(new_str, begin, len);
+	new_str[len] = '\0';
 	return new_str;
 }
 
@@ -121,50 +132,52 @@ char * create_str(char *begin, int len)
  */
 char **spiltline(char *cmdline)
 {
-	char **args;
-	int pots = 0;
-	int buf_num = 0;
-	int arg_num = 0;
-	char *str= cmdline;
-	char *start;
-	int length;
-
 	if (cmdline == NULL) 
 	{
 		return NULL;	
 	}
 
+	char **args;
+	int  pots    = 0;
+	int  buf_num = 0;
+	int  arg_num = 0;
+	char *str    = cmdline;
+	char *start;
+	int  length;
+
 	args = emalloc(BUFSIZE);
 	buf_num = BUFSIZE;
-	pots = BUFSIZE/sizeof(char *);
+	pots = BUFSIZE / sizeof(char *);
 
 	while (*str != '\0') 
 	{
 		/*take away the usefull head chars*/
 		while (is_none_c(*str)) 
+		{
 			str++;
+		}
 
 		if (*str == '\0') 
+		{
 			break;
+		}
 	
 		/*no enough space in args*/
 		if (arg_num+1 >= pots) 
 		{
-			args = erealloc(args, buf_num+BUFSIZE);
+			args = erealloc(args, buf_num + BUFSIZE);
 			buf_num += BUFSIZE;
 			pots += (BUFSIZE/sizeof(char*));
 		}
 
 		start = str;
 		length = 1;
-		while (*++str != '\0' && !is_none_c(*str)) 
+		while ((*(++str) != '\0') && (!is_none_c(*str)))
+		{
 			length++;
-
+		}
 		args[arg_num++] = create_str(start, length);
-
-		str++; /*next char*/
 	}
-
 	args[arg_num] = NULL;
 	return args;
 }
@@ -176,4 +189,5 @@ void free_list(char **list)
 	while (*cp)
 		free(*cp++);
 	free(list);
+	list = NULL;	
 }

@@ -7,9 +7,9 @@
  * Filename     :  commit.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
- * Created      :  Saturday, March 03, 2012 9:13:00 HK
+ * Created      :  Saturday, April 07, 2012 12:13:00 HKT
  * Description  :  
- 	
+ *
  * History      :
  * Revision     :  none
  * Compiler     :  gcc
@@ -17,14 +17,3 @@
  *************************************************************************************
  */
 
-#define BUFSIZE 128
-
-char * create_str(char *begin, int len);
-
-char **spiltline(char *cmdline);
-
-char * read_command(FILE *fp);
-
-void fatal(char *str_err, char *str_error, int exit_code);
-
-void free_list(char **list);
