@@ -1,7 +1,1043 @@
-cscope 15 $HOME/myshell/src/shell               0000378626
-	@commit.c
+cscope 15 $HOME/myshell               0000384400
+	@src/gtk_ui/example/box.c
 
-	@config.h
+5 
+	~<gtk/gtk.h
+>
+
+8 
+	$cb_buâ⁄
+(
+GtkWidgë
+ *
+widgë
+, 
+gpoöãr
+ 
+d©a
+)
+
+10 
+	`g_¥öt
+("‰Ω†ÂçïÂáª‰∫ÜÊåâÈíÆ\n");
+
+11 
+	`gtk_maö_quô
+();
+
+12 
+	}
+}
+
+14 
+	$maö
+(
+¨gc
+, *
+¨gv
+[])
+
+16 
+GtkWidgë
+ *
+maö_wödow
+;
+
+17 
+GtkWidgë
+ *
+hbox
+, *
+buâ⁄
+, *
+edô‹
+;
+
+19 
+	`gtk_öô
+(&
+¨gc
+, &
+¨gv
+);
+
+21 
+maö_wödow
+ = 
+	`gtk_wödow_√w
+(
+GTK_WINDOW_TOPLEVEL
+);
+
+22 
+	`g_sig«l_c⁄√˘
+(
+	`G_OBJECT
+(
+maö_wödow
+), "de°roy",
+	`G_CALLBACK
+(
+gtk_maö_quô
+), 
+NULL
+);
+
+23 
+	`gtk_wödow_£t_tôÀ
+(
+	`GTK_WINDOW
+(
+maö_wödow
+),"Myshell");
+
+24 
+	`gtk_wödow_£t_deÁu…_size
+(
+	`GTK_WINDOW
+(
+maö_wödow
+),400,250);
+
+25 
+buâ⁄
+ = 
+	`gtk_buâ⁄_√w_wôh_œbñ
+("ÈÄÄÂá∫Á®ãÂ∫è");
+
+26 
+	`g_sig«l_c⁄√˘
+(
+	`G_OBJECT
+(
+buâ⁄
+), "˛icked",
+	`G_CALLBACK
+(
+cb_buâ⁄
+),
+NULL
+);
+
+27 
+edô‹
+ = 
+	`gtk_íåy_√w
+();
+
+28 
+hbox
+ = 
+	`gtk_hbox_√w
+(
+FALSE
+, 30);
+
+29 
+	`gtk_box_∑ck_°¨t
+(
+	`GTK_BOX
+(
+hbox
+), 
+edô‹
+, 
+TRUE
+, TRUE, 10);
+
+30 
+	`gtk_box_∑ck_°¨t
+(
+	`GTK_BOX
+(
+hbox
+), 
+buâ⁄
+, 
+FALSE
+, FALSE, 10);
+
+31 
+	`gtk_c⁄èöî_add
+(
+	`GTK_CONTAINER
+(
+maö_wödow
+), 
+hbox
+);
+
+32 
+	`gtk_widgë_show_Æl
+(
+maö_wödow
+);
+
+33 
+	`gtk_maö
+();
+
+35 
+	}
+}
+
+	@src/gtk_ui/example/button.c
+
+4 
+	~<gtk/gtk.h
+>
+
+6 
+	$cb_buâ⁄
+(
+GtkWidgë
+ *
+widgë
+, 
+gpoöãr
+ 
+d©a
+)
+
+8 
+	`gtk_maö_quô
+();
+
+9 
+	}
+}
+
+11 
+	$maö
+(
+¨gc
+, *
+¨gv
+[])
+
+13 
+GtkWidgë
+ *
+maö_wödow
+;
+
+14 
+GtkWidgë
+ *
+buâ⁄
+;
+
+16 
+	`gtk_öô
+(&
+¨gc
+, &
+¨gv
+);
+
+17 
+maö_wödow
+ = 
+	`gtk_wödow_√w
+(
+GTK_WINDOW_TOPLEVEL
+);
+
+18 
+	`gtk_wödow_£t_tôÀ
+(
+	`GTK_WINDOW
+(
+maö_wödow
+),"Hello,ubuntu2!");
+
+20 
+	`gtk_wödow_£t_deÁu…_size
+(
+	`GTK_WINDOW
+(
+maö_wödow
+),200,50);
+
+21 
+buâ⁄
+ = 
+	`gtk_buâ⁄_√w_wôh_œbñ
+("ÈÄÄÂá∫Á®ãÂ∫è");
+
+22 
+	`gtk_c⁄èöî_add
+(
+	`GTK_CONTAINER
+(
+maö_wödow
+), 
+buâ⁄
+);
+
+24 
+	`g_sig«l_c⁄√˘
+(
+	`G_OBJECT
+(
+buâ⁄
+), "˛icked",
+	`G_CALLBACK
+(
+cb_buâ⁄
+),
+NULL
+);
+
+25 
+	`g_sig«l_c⁄√˘
+(
+	`G_OBJECT
+(
+maö_wödow
+), "de°roy", 
+	`G_CALLBACK
+(
+cb_buâ⁄
+), 
+NULL
+);
+
+27 
+	`gtk_widgë_show
+(
+buâ⁄
+);
+
+28 
+	`gtk_widgë_show
+(
+maö_wödow
+);
+
+30 
+	`gtk_maö
+();
+
+32 
+	}
+}
+
+	@src/gtk_ui/example/example_windows.c
+
+1 
+	~<gtk/gtk.h
+>
+
+3 
+	$hñlo
+(
+GtkWidgë
+ *
+widgë
+,
+gpoöãr
+ 
+d©a
+)
+
+5 
+	`g_¥öt
+("Hello Ubuntu!\n");
+
+6 
+	}
+}
+
+9 
+göt
+ 
+	$dñëe_evít
+(
+GtkWidgë
+ *
+widgë
+,
+GdkEvít
+ *
+evít
+,
+gpoöãr
+ 
+d©a
+)
+
+11 
+	`g_¥öt
+ ("deleteÉvent occurred\n");
+
+12 (
+TRUE
+);
+
+13 
+	}
+}
+
+16 
+	$de°roy
+(
+GtkWidgë
+ *
+widgë
+,
+gpoöãr
+ 
+d©a
+)
+
+18 
+	`gtk_maö_quô
+();
+
+19 
+	}
+}
+
+22 
+	$maö
+–
+¨gc
+, *
+¨gv
+[] )
+
+24 
+GtkWidgë
+ *
+wödow
+;
+
+25 
+GtkWidgë
+ *
+buâ⁄
+;
+
+26 
+	`gtk_öô
+ (&
+¨gc
+, &
+¨gv
+);
+
+27 
+wödow
+=
+	`gtk_wödow_√w
+ (
+GTK_WINDOW_TOPLEVEL
+);
+
+28 
+	`gtk_sig«l_c⁄√˘
+ (
+	`GTK_OBJECT
+(
+wödow
+),"dñëe_evít",
+	`GTK_SIGNAL_FUNC
+(
+dñëe_evít
+),
+NULL
+);
+
+29 
+	`gtk_sig«l_c⁄√˘
+ (
+	`GTK_OBJECT
+ (
+wödow
+), "de°roy",
+	`GTK_SIGNAL_FUNC
+ (
+de°roy
+), 
+NULL
+);
+
+30 
+	`gtk_c⁄èöî_£t_b‹dî_width
+ (
+	`GTK_CONTAINER
+ (
+wödow
+), 10);
+
+31 
+buâ⁄
+ = 
+	`gtk_buâ⁄_√w_wôh_œbñ
+ ("Hello Ubuntu!");
+
+32 
+	`gtk_sig«l_c⁄√˘
+ (
+	`GTK_OBJECT
+ (
+buâ⁄
+), "˛icked",
+	`GTK_SIGNAL_FUNC
+ (
+hñlo
+), 
+NULL
+);
+
+33 
+	`gtk_sig«l_c⁄√˘_obje˘
+ (
+	`GTK_OBJECT
+ (
+buâ⁄
+), "˛icked",
+	`GTK_SIGNAL_FUNC
+ (
+gtk_widgë_de°roy
+),GTK_OBJECT (
+wödow
+));
+
+34 
+	`gtk_c⁄èöî_add
+ (
+	`GTK_CONTAINER
+ (
+wödow
+), 
+buâ⁄
+);
+
+35 
+	`gtk_widgë_show
+ (
+buâ⁄
+);
+
+36 
+	`gtk_widgë_show
+ (
+wödow
+);
+
+37 
+	`gtk_maö
+();
+
+39 
+	}
+}
+
+	@src/gtk_ui/mainWindow.c
+
+9 
+	~<gtk/gtk.h
+>
+
+10 
+	~<gdk/gdkkeysyms.h
+>
+
+12 
+de°roy
+(
+GtkWidgë
+ *
+widgë
+, 
+gpoöãr
+ 
+d©a
+);
+
+15 
+	$maö
+(
+¨gc
+, *
+¨gv
+[])
+
+17 
+GtkWidgë
+ *
+maö_wödow
+;
+
+18 
+GtkWidgë
+ *
+ãxtvõw
+;
+
+19 
+GtkWidgë
+ *
+s¸ﬁÀd_wödow
+;
+
+20 
+GtkWidgë
+ *
+v_box
+;
+
+21 
+GtkWidgë
+ *
+míu_vbox
+;
+
+22 
+GtkWidgë
+ *
+míub¨
+;
+
+23 
+GtkWidgë
+ *
+fûemíu
+;
+
+24 
+GtkWidgë
+ *
+√w
+;
+
+25 
+GtkWidgë
+ *
+fûe
+;
+
+26 
+GtkWidgë
+ *
+quô
+;
+
+27 
+GtkWidgë
+ *
+£p
+;
+
+28 
+GtkWidgë
+ *
+›ti⁄
+;
+
+29 
+GtkWidgë
+ *
+edô
+;
+
+30 
+GtkWidgë
+ *
+hñp
+;
+
+32 
+GtkAc˚lGroup
+ *
+ac˚l_group
+ = 
+NULL
+;
+
+34 
+	`gtk_öô
+(&
+¨gc
+, &
+¨gv
+);
+
+37 
+maö_wödow
+ = 
+	`gtk_wödow_√w
+(
+GTK_WINDOW_TOPLEVEL
+);
+
+40 
+	`gtk_sig«l_c⁄√˘
+(
+	`GTK_OBJECT
+(
+maö_wödow
+), "destroy",
+
+41 
+	`G_CALLBACK
+(
+de°roy
+), 
+NULL
+);
+
+42 
+	`gtk_wödow_£t_tôÀ
+(
+	`GTK_WINDOW
+(
+maö_wödow
+), "Myshell");
+
+43 
+	`gtk_wödow_£t_posôi⁄
+(
+	`GTK_WINDOW
+(
+maö_wödow
+), 
+GTK_WIN_POS_CENTER
+);
+
+44 
+	`gtk_wödow_£t_deÁu…_size
+(
+	`GTK_WINDOW
+(
+maö_wödow
+), 730, 533);
+
+45 
+	`gtk_c⁄èöî_£t_b‹dî_width
+(
+	`GTK_CONTAINER
+(
+maö_wödow
+), 5);
+
+46 
+	`GTK_WINDOW
+(
+maö_wödow
+)->
+Ælow_shrök
+ = 
+TRUE
+;
+
+49 
+míu_vbox
+ = 
+	`gtk_vbox_√w
+(
+FALSE
+, 0);
+
+50 
+	`gtk_c⁄èöî_add
+(
+	`GTK_CONTAINER
+(
+maö_wödow
+), 
+míu_vbox
+);
+
+52 
+míub¨
+ = 
+	`gtk_míu_b¨_√w
+();
+
+53 
+fûemíu
+ = 
+	`gtk_míu_√w
+();
+
+56 
+ac˚l_group
+ = 
+	`gtk_ac˚l_group_√w
+();
+
+57 
+	`gtk_wödow_add_ac˚l_group
+(
+	`GTK_WINDOW
+(
+maö_wödow
+), 
+ac˚l_group
+);
+
+60 
+fûe
+ = 
+	`gtk_míu_ôem_√w_wôh_m√m⁄ic
+("_File");
+
+61 
+edô
+ = 
+	`gtk_míu_ôem_√w_wôh_m√m⁄ic
+("_Edit");
+
+62 
+›ti⁄
+ = 
+	`gtk_míu_ôem_√w_wôh_m√m⁄ic
+("_Option");
+
+63 
+hñp
+ = 
+	`gtk_míu_ôem_√w_wôh_m√m⁄ic
+("_Help");
+
+64 
+√w
+ = 
+	`gtk_image_míu_ôem_√w_‰om_°ock
+(
+GTK_STOCK_NEW
+, 
+NULL
+);
+
+66 
+quô
+ = 
+	`gtk_image_míu_ôem_√w_‰om_°ock
+(
+GTK_STOCK_QUIT
+, 
+ac˚l_group
+);
+
+69 
+£p
+ = 
+	`gtk_£∑øt‹_míu_ôem_√w
+();
+
+76 
+	`gtk_widgë_add_ac˚Àøt‹
+(
+quô
+, "a˘iv©e", 
+ac˚l_group
+,
+
+77 
+GDK_q
+, 
+GDK_CONTROL_MASK
+, 
+GTK_ACCEL_VISIBLE
+);
+
+80 
+	`gtk_míu_ôem_£t_submíu
+(
+	`GTK_MENU_ITEM
+(
+fûe
+), 
+fûemíu
+);
+
+83 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+fûemíu
+), 
+√w
+);
+
+84 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+fûemíu
+), 
+quô
+);
+
+85 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+fûemíu
+), 
+£p
+);
+
+86 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+míub¨
+), 
+fûe
+);
+
+87 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+míub¨
+), 
+edô
+);
+
+88 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+míub¨
+), 
+›ti⁄
+);
+
+89 
+	`gtk_míu_shñl_≠≥nd
+(
+	`GTK_MENU_SHELL
+(
+míub¨
+), 
+hñp
+);
+
+90 
+	`gtk_box_∑ck_°¨t
+(
+	`GTK_BOX
+(
+míu_vbox
+), 
+míub¨
+, 
+FALSE
+, FALSE, 3);
+
+94 
+	`g_sig«l_c⁄√˘
+(
+	`G_OBJECT
+(
+quô
+), "activate",
+
+95 
+	`G_CALLBACK
+(
+de°roy
+), 
+NULL
+);
+
+99 
+s¸ﬁÀd_wödow
+ = 
+	`gtk_s¸ﬁÀd_wödow_√w
+(
+NULL
+, NULL);
+
+100 
+ãxtvõw
+ = 
+	`gtk_ãxt_võw_√w
+();
+
+101 
+	`gtk_c⁄èöî_add
+(
+	`GTK_CONTAINER
+(
+s¸ﬁÀd_wödow
+), 
+ãxtvõw
+);
+
+103 
+v_box
+ = 
+	`gtk_vbox_√w
+(
+FALSE
+, 5);
+
+104 
+	`gtk_box_∑ck_°¨t
+(
+	`GTK_BOX
+(
+míu_vbox
+), 
+s¸ﬁÀd_wödow
+, 
+TRUE
+, TRUE, 5);
+
+109 
+	`gtk_widgë_show_Æl
+(
+maö_wödow
+);
+
+110 
+	`gtk_maö
+();
+
+113 
+	}
+}
+
+117 
+	$de°roy
+(
+GtkWidgë
+ *
+widgë
+, 
+gpoöãr
+ 
+d©a
+)
+
+119 
+	`g_¥öt
+("\nended...\n");
+
+120 
+	`gtk_maö_quô
+();
+
+121 
+	}
+}
+
+	@src/shell/commit.c
+
+	@src/shell/config.h
 
 8 
 	#DEF_PROMPT
@@ -9,7 +1045,7 @@ cscope 15 $HOME/myshell/src/shell               0000378626
 
 	)
 
-	@eval.c
+	@src/shell/eval.c
 
 19 
 	~<°dio.h
@@ -495,7 +1531,7 @@ NULL
 	}
 }
 
-	@eval.h
+	@src/shell/eval.h
 
 20 
 	#BUFSIZE
@@ -541,7 +1577,7 @@ exô_code
 li°
 );
 
-	@execute.c
+	@src/shell/execute.c
 
 20 
 	~<°dio.h
@@ -665,7 +1701,7 @@ TRUE
 	}
 }
 
-	@process.c
+	@src/shell/process.c
 
 20 
 	~<°dio.h
@@ -675,173 +1711,59 @@ TRUE
 	~"shñl.h
 "
 
-25 
-	mNATRULE
-,
-
-26 
-	mWANT_THEN
-,
-
-27 
-	mTHEN_BLOCK
-
-
-28 }
-	tSèãs
-;
-
-32 
-	mSUCCESS
-,
-
-33 
-	mFAIL
-
-
-34 } 
-	tResu…s
-;
-
-37 
-	gif_°©e
- = 
-NATRULE
-;
-
-38 
-	gif_ªsu…
- = 
-SUCCESS
-;
-
-39 
-	gœ°_°©e
- = 0;
-
-41 
+23 
 Do_C⁄åﬁ_Comm™d
 (**);
 
-42 
+24 
 Ok_To_Execuã
 ();
 
-43 
+25 
 Is_C⁄åﬁ_Comm™d
-(*
-°r
-);
+(*);
 
-53 
+35 
 	$Pro˚ss
 (**
 öput
 )
 
-55 
+37 
 Êag
  = 0;
 
-56 i‡(
+38 i‡(
 NULL
  =
 öput
 [0])
 
-58 
+40 
 Êag
 = 0;
 
-60 i‡(
+42 i‡(
 	`Is_C⁄tﬁ_Comm™d
 (
 öput
 [0]))
 
-62 
+44 
 Êag
  = 
-	`Do_C⁄åﬁ_Comm™d
-(
-öput
-);
+do_
 
-64 i‡(
-	`Ok_To_Execuã
-())
 
-66 
-Êag
- = 
-	`execuã
-(
-öput
-);
-
-69  
-Êag
-;
-
-70 
+47 
 	}
 }
 
-80 
-	$Is_C⁄åﬁ_Comm™d
-(*
-°r
-)
+49 
+Is_C⁄åﬁ_Comm™d
+(*);
 
-82  ((
-	`°rcmp
-(
-s
- "if"Ë=0Ë|| (°rcmp(s, "thí"Ë=0Ë|| (°rcmp(
-°r
-, "fi") == 0));
-
-83 
-	}
-}
-
-93 
-	$Do_C⁄åﬁ_Comm™d
-(**
-öput
-)
-
-95 *
-cmd
- = 
-öput
-[0];
-
-96 
-Êag
- = -1;
-
-98 i‡(
-	`°rcmp
-(
-cmd
-, "if") == 0)
-
-100 i‡(
-if_°©e
- !
-NA
-)
-
-107 
-	}
-}
-
-108 
-Ok_To_Execuã
-();
-
-	@shell.c
+	@src/shell/shell.c
 
 20 
 	~<°dio.h
@@ -989,7 +1911,7 @@ SIG_IGN
 	}
 }
 
-	@shell.h
+	@src/shell/shell.h
 
 21 
 Pro˚ss
@@ -997,7 +1919,7 @@ Pro˚ss
 öput
 );
 
-	@varlib.c
+	@src/shell/varlib.c
 
 19 
 	~<°dio.h
@@ -66592,17 +67514,21 @@ _ASM_GENERIC_ERRNO_BASE_H
 .
 1
 /usr/include
-85
-2117
-commit.c
-config.h
-eval.c
-eval.h
-execute.c
-process.c
-shell.c
-shell.h
-varlib.c
+89
+2321
+src/gtk_ui/example/box.c
+src/gtk_ui/example/button.c
+src/gtk_ui/example/example_windows.c
+src/gtk_ui/mainWindow.c
+src/shell/commit.c
+src/shell/config.h
+src/shell/eval.c
+src/shell/eval.h
+src/shell/execute.c
+src/shell/process.c
+src/shell/shell.c
+src/shell/shell.h
+src/shell/varlib.c
 /usr/include/signal.h
 /usr/include/stdio.h
 /usr/include/stdlib.h

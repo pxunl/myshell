@@ -163,7 +163,7 @@ char **spiltline(char *cmdline)
 		}
 	
 		/*no enough space in args*/
-		if (arg_num+1 >= pots) 
+		if (arg_num+1 >= pots) //+1 for NULL
 		{
 			args = erealloc(args, buf_num + BUFSIZE);
 			buf_num += BUFSIZE;

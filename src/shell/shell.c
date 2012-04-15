@@ -32,7 +32,7 @@
 extern int execute(char *argv[]);
 
 void initialize();
-
+iniy
 int main(int argc, const char *argv[])
 {
 	char *command_line;

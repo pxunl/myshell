@@ -1,15 +1,14 @@
-
 /*
  ************************************************************************************
  *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
  *
  ************************************************************************************
- * Filename     :  shell.h 
+ * Filename     :  varlib.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
- * Created      :  Saturday, April 11, 2012 12:13:00 HKT
- * Description  :  some inportant functions for shell (main)
+ * Created      :  Wednesday, April 11, 2012 09:31:09 HKT
+ * Description  :  system varlables
  *
  * History      :
  * Revision     :  none
@@ -17,5 +16,6 @@
  *
  *************************************************************************************
  */
- 
-int Process(char **input);
+#include <stdio.h>
+#include <stdlib.h>
+

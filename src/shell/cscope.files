@@ -1,0 +1,9 @@
+./eval.h
+./process.c
+./eval.c
+./execute.c
+./shell.c
+./config.h
+./commit.c
+./varlib.c
+./shell.h

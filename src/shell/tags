@@ -4,13 +4,31 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+ARG_LEN	shell.c	30;"	d	file:
 BUFSIZE	eval.h	20;"	d
 CC	Makefile	/^CC = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -g -Wall$/;"	m
 DEF_PROMPT	config.h	8;"	d
+Do_Control_Command	process.c	/^int Do_Control_Command(char **);$/;"	p	file:	signature:(char **)
+Do_Control_Command	process.c	/^int Do_Control_Command(char **input)$/;"	f	signature:(char **input)
+FAIL	execute.c	28;"	d	file:
+FAIL	process.c	/^	FAIL$/;"	e	enum:__anon2	file:
+Is_Control_Command	process.c	/^int Is_Control_Command(char *str)$/;"	f	signature:(char *str)
+Is_Control_Command	process.c	/^int Is_Control_Command(char *str);$/;"	p	file:	signature:(char *str)
+MAX_ARGS	shell.c	29;"	d	file:
+NATRULE	process.c	/^	NATRULE,$/;"	e	enum:__anon1	file:
 OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+Ok_To_Execute	process.c	/^int Ok_To_Execute();$/;"	p	file:
 PROGRAM	Makefile	/^PROGRAM = shell$/;"	m
+Process	process.c	/^int Process(char **input)$/;"	f	signature:(char **input)
+Process	shell.h	/^int Process(char **input);$/;"	p	signature:(char **input)
+Results	process.c	/^} Results;$/;"	t	typeref:enum:__anon2	file:
 SRC	Makefile	/^SRC =  shell.c eval.c$/;"	m
+SUCCESS	process.c	/^	SUCCESS,$/;"	e	enum:__anon2	file:
+States	process.c	/^}States;$/;"	t	typeref:enum:__anon1	file:
+THEN_BLOCK	process.c	/^	THEN_BLOCK$/;"	e	enum:__anon1	file:
+TRUE	execute.c	29;"	d	file:
+WANT_THEN	process.c	/^	WANT_THEN,$/;"	e	enum:__anon1	file:
 create_str	eval.c	/^char * create_str(char *begin, int len)$/;"	f	signature:(char *begin, int len)
 create_str	eval.h	/^char * create_str(char *begin, int len);$/;"	p	signature:(char *begin, int len)
 emalloc	eval.c	/^void *emalloc(size_t n)$/;"	f	signature:(size_t n)
@@ -21,9 +39,12 @@ fatal	eval.c	/^void fatal(char *str_err, char *str_error, int exit_code)$/;"	f	s
 fatal	eval.h	/^void fatal(char *str_err, char *str_error, int exit_code);$/;"	p	signature:(char *str_err, char *str_error, int exit_code)
 free_list	eval.c	/^void free_list(char **list)$/;"	f	signature:(char **list)
 free_list	eval.h	/^void free_list(char **list);$/;"	p	signature:(char **list)
+if_result	process.c	/^static int if_result  = SUCCESS;$/;"	v	file:
+if_state	process.c	/^static int if_state   = NATRULE;$/;"	v	file:
 initialize	shell.c	/^void initialize()$/;"	f
 initialize	shell.c	/^void initialize();$/;"	p	file:
 is_none_c	eval.c	26;"	d	file:
+last_state	process.c	/^static int last_state = 0;$/;"	v	file:
 main	shell.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
 read_command	eval.c	/^char * read_command(FILE *fp)$/;"	f	signature:(FILE *fp)
 read_command	eval.h	/^char * read_command(FILE *fp);$/;"	p	signature:(FILE *fp)
