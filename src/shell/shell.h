@@ -18,4 +18,12 @@
  *************************************************************************************
  */
  
+#ifndef __SHELL_H__
+#define __SHELL_H__
+
 int Process(char **input);
+
+int execute(char *argv[]);
+void fatal(char *str_err, char *str_error, int exit_code);
+
+#endif

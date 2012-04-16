@@ -4,49 +4,70 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ARG_LEN	shell.c	30;"	d	file:
-BUFSIZE	eval.h	20;"	d
+ARG_LEN	shell.c	31;"	d	file:
+BUFSIZE	eval.h	22;"	d
+Buildin_Cmd	builin_command.c	/^int Buildin_Cmd(char **args, int *presult)$/;"	f	signature:(char **args, int *presult)
 CC	Makefile	/^CC = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -g -Wall$/;"	m
-DEF_PROMPT	config.h	8;"	d
-Do_Control_Command	process.c	/^int Do_Control_Command(char **);$/;"	p	file:	signature:(char **)
-Do_Control_Command	process.c	/^int Do_Control_Command(char **input)$/;"	f	signature:(char **input)
+Check_Name	valuelib.h	/^int Check_Name(char *ck);$/;"	p	signature:(char *ck)
+DEF_PROMPT	config.h	9;"	d
+Do_Control_Cmd	process.c	/^int Do_Control_Cmd(char **);$/;"	p	file:	signature:(char **)
+Do_Control_Cmd	process.c	/^int Do_Control_Cmd(char **args)$/;"	f	signature:(char **args)
 FAIL	execute.c	28;"	d	file:
 FAIL	process.c	/^	FAIL$/;"	e	enum:__anon2	file:
-Is_Control_Command	process.c	/^int Is_Control_Command(char *str)$/;"	f	signature:(char *str)
-Is_Control_Command	process.c	/^int Is_Control_Command(char *str);$/;"	p	file:	signature:(char *str)
-MAX_ARGS	shell.c	29;"	d	file:
+Is_Control_Cmd	process.c	/^int Is_Control_Cmd(char *input);$/;"	p	file:	signature:(char *input)
+Is_Control_Cmd	process.c	/^int Is_Control_Cmd(char *str)$/;"	f	signature:(char *str)
+MAX_ARGS	shell.c	30;"	d	file:
+MAX_VALUE_NUM	valuelib.h	23;"	d
 NATRULE	process.c	/^	NATRULE,$/;"	e	enum:__anon1	file:
 OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
-Ok_To_Execute	process.c	/^int Ok_To_Execute();$/;"	p	file:
+Ok_Execute	process.c	/^int Ok_Execute()$/;"	f
+Ok_Execute	process.c	/^int Ok_Execute();$/;"	p	file:
 PROGRAM	Makefile	/^PROGRAM = shell$/;"	m
 Process	process.c	/^int Process(char **input)$/;"	f	signature:(char **input)
 Process	shell.h	/^int Process(char **input);$/;"	p	signature:(char **input)
 Results	process.c	/^} Results;$/;"	t	typeref:enum:__anon2	file:
-SRC	Makefile	/^SRC =  shell.c eval.c$/;"	m
+SRC	Makefile	/^SRC =  shell.c eval.c execute.c process.c$/;"	m
 SUCCESS	process.c	/^	SUCCESS,$/;"	e	enum:__anon2	file:
-States	process.c	/^}States;$/;"	t	typeref:enum:__anon1	file:
+States	process.c	/^} States;$/;"	t	typeref:enum:__anon1	file:
+Syntax_Error	process.c	/^int Syntax_Error(char *ckstr)$/;"	f	signature:(char *ckstr)
+Syntax_Error	process.c	/^int Syntax_Error(char *ckstr);$/;"	p	file:	signature:(char *ckstr)
 THEN_BLOCK	process.c	/^	THEN_BLOCK$/;"	e	enum:__anon1	file:
 TRUE	execute.c	29;"	d	file:
+Value	valuelib.h	/^}Value;$/;"	v	typeref:struct:tag_ValueLib
+Value_Add	valuelib.h	/^int Value_Add();$/;"	p	signature:()
+Value_Del	valuelib.h	/^int Value_Del();$/;"	p	signature:()
+Value_List	valuelib.h	/^int Value_List();$/;"	p	signature:()
 WANT_THEN	process.c	/^	WANT_THEN,$/;"	e	enum:__anon1	file:
+__CONFIG_H	config.h	7;"	d
+__EVAL_H__	eval.h	20;"	d
+__SHELL_H__	shell.h	22;"	d
+__VALUE_LIB_H	valuelib.h	19;"	d
 create_str	eval.c	/^char * create_str(char *begin, int len)$/;"	f	signature:(char *begin, int len)
 create_str	eval.h	/^char * create_str(char *begin, int len);$/;"	p	signature:(char *begin, int len)
 emalloc	eval.c	/^void *emalloc(size_t n)$/;"	f	signature:(size_t n)
 erealloc	eval.c	/^void *erealloc(void *point, size_t n)$/;"	f	signature:(void *point, size_t n)
 execute	execute.c	/^int execute(char *argv[])$/;"	f	signature:(char *argv[])
 execute	shell.c	/^extern int execute(char *argv[]);$/;"	p	file:	signature:(char *argv[])
+execute	shell.h	/^int execute(char *argv[]);$/;"	p	signature:(char *argv[])
 fatal	eval.c	/^void fatal(char *str_err, char *str_error, int exit_code)$/;"	f	signature:(char *str_err, char *str_error, int exit_code)
 fatal	eval.h	/^void fatal(char *str_err, char *str_error, int exit_code);$/;"	p	signature:(char *str_err, char *str_error, int exit_code)
+fatal	shell.h	/^void fatal(char *str_err, char *str_error, int exit_code);$/;"	p	signature:(char *str_err, char *str_error, int exit_code)
 free_list	eval.c	/^void free_list(char **list)$/;"	f	signature:(char **list)
 free_list	eval.h	/^void free_list(char **list);$/;"	p	signature:(char **list)
+global	valuelib.h	/^	int global;$/;"	m	struct:tag_ValueLib	access:public
 if_result	process.c	/^static int if_result  = SUCCESS;$/;"	v	file:
 if_state	process.c	/^static int if_state   = NATRULE;$/;"	v	file:
 initialize	shell.c	/^void initialize()$/;"	f
 initialize	shell.c	/^void initialize();$/;"	p	file:
-is_none_c	eval.c	26;"	d	file:
+is_none_c	eval.c	28;"	d	file:
 last_state	process.c	/^static int last_state = 0;$/;"	v	file:
 main	shell.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
 read_command	eval.c	/^char * read_command(FILE *fp)$/;"	f	signature:(FILE *fp)
 read_command	eval.h	/^char * read_command(FILE *fp);$/;"	p	signature:(FILE *fp)
 spiltline	eval.c	/^char **spiltline(char *cmdline)$/;"	f	signature:(char *cmdline)
 spiltline	eval.h	/^char **spiltline(char *cmdline);$/;"	p	signature:(char *cmdline)
+tag_ValueLib	valuelib.h	/^struct tag_ValueLib $/;"	s
+tag_ValueLib::global	valuelib.h	/^	int global;$/;"	m	struct:tag_ValueLib	access:public
+tag_ValueLib::value	valuelib.h	/^	char *value;$/;"	m	struct:tag_ValueLib	access:public
+value	valuelib.h	/^	char *value;$/;"	m	struct:tag_ValueLib	access:public

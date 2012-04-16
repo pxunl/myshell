@@ -1,4 +1,4 @@
-cscope 15 $HOME/myshell               0000384400
+cscope 15 $HOME/myshell               0000384972
 	@src/gtk_ui/example/box.c
 
 5 
@@ -1711,57 +1711,171 @@ TRUE
 	~"shñl.h
 "
 
-23 
+25 
+	mNATRULE
+,
+
+26 
+	mWANT_THEN
+,
+
+27 
+	mTHEN_BLOCK
+
+
+28 }
+	tSèãs
+;
+
+32 
+	mSUCCESS
+,
+
+33 
+	mFAIL
+
+
+34 } 
+	tResu…s
+;
+
+37 
+	gif_°©e
+ = 
+NATRULE
+;
+
+38 
+	gif_ªsu…
+ = 
+SUCCESS
+;
+
+39 
+	gœ°_°©e
+ = 0;
+
+41 
 Do_C⁄åﬁ_Comm™d
 (**);
 
-24 
+42 
 Ok_To_Execuã
 ();
 
-25 
+43 
 Is_C⁄åﬁ_Comm™d
-(*);
+(*
+°r
+);
 
-35 
+53 
 	$Pro˚ss
 (**
 öput
 )
 
-37 
+55 
 Êag
  = 0;
 
-38 i‡(
+56 i‡(
 NULL
  =
 öput
 [0])
 
-40 
+58 
 Êag
 = 0;
 
-42 i‡(
+60 i‡(
 	`Is_C⁄tﬁ_Comm™d
 (
 öput
 [0]))
 
-44 
+62 
 Êag
  = 
-do_
+	`Do_C⁄åﬁ_Comm™d
+(
+öput
+);
 
+64 i‡(
+	`Ok_To_Execuã
+())
 
-47 
+66 
+Êag
+ = 
+	`execuã
+(
+öput
+);
+
+69  
+Êag
+;
+
+70 
 	}
 }
 
-49 
-Is_C⁄åﬁ_Comm™d
-(*);
+80 
+	$Is_C⁄åﬁ_Comm™d
+(*
+°r
+)
+
+82  ((
+	`°rcmp
+(
+s
+ "if"Ë=0Ë|| (°rcmp(s, "thí"Ë=0Ë|| (°rcmp(
+°r
+, "fi") == 0));
+
+83 
+	}
+}
+
+93 
+	$Do_C⁄åﬁ_Comm™d
+(**
+öput
+)
+
+95 *
+cmd
+ = 
+öput
+[0];
+
+96 
+Êag
+ = -1;
+
+98 i‡(
+	`°rcmp
+(
+cmd
+, "if") == 0)
+
+100 i‡(
+if_°©e
+ !
+NA
+)
+
+107 
+	}
+}
+
+108 
+Ok_To_Execuã
+();
 
 	@src/shell/shell.c
 

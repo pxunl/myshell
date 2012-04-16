@@ -24,7 +24,8 @@
 
 #include "config.h"
 #include "eval.h"
-#include "execute.c"
+#include "shell.h"
+
 
 #define MAX_ARGS   50
 #define ARG_LEN    100
@@ -32,7 +33,6 @@
 extern int execute(char *argv[]);
 
 void initialize();
-iniy
 int main(int argc, const char *argv[])
 {
 	char *command_line;
@@ -52,7 +52,8 @@ int main(int argc, const char *argv[])
 				/*arglist++;*/
 			/*}*/
 			/*printf("%s\n",*(arglist+1));*/
-			result = execute(arglist);
+			/*result = execute(arglist);*/
+			result = Process(arglist);
 			free_list(arglist);
 		}
 		free(command_line);

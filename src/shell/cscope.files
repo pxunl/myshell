@@ -1,9 +1,11 @@
+./builin_command.c
 ./eval.h
 ./process.c
 ./eval.c
 ./execute.c
 ./shell.c
+./valuelib.h
+./valuelib.c
 ./config.h
 ./commit.c
-./varlib.c
 ./shell.h

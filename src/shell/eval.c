@@ -22,6 +22,8 @@
 #include <unistd.h>
 #include "eval.h"
 #include "config.h"
+#include "shell.h"
+
 
 #define is_none_c(x) ((x)==' ' || (x)=='\t')
 

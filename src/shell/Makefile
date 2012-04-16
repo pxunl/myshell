@@ -1,12 +1,24 @@
 #
-#Author:PXunL
-#dd.pangxie@gmil.com
-#2012-3-6
-#Makefile for compile gtk program
-
+ ####################################################################################
+ #
+ # Copyright (c),  2011-2014 dd.pangxie@gmail.com
+ #
+ ####################################################################################
+ # Filename     :  Makefile
+ # Version      :  1.0
+ # Author       :  Jason Zhong 
+ # Created      :  Saturday, March 07, 2012 12:13:00 HKT
+ # Description  :  Makefile for project myshell
+ #
+ # History      :
+ # Revision     :  none
+ # Compiler     :  gcc
+ #
+ #####################################################################################
+ #
 
 #Source file
-SRC =  shell.c eval.c
+SRC =  shell.c eval.c execute.c process.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
