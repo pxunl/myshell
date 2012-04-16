@@ -21,6 +21,16 @@
 #ifndef __SHELL_H__
 #define __SHELL_H__
 
+#define MAX_ARGS   50
+#define ARG_LEN    100
+
+#define SUCESS   1
+#define FAIL    -1
+#define TRUE     1
+#define FALSE   -1
+
+
+
 int Process(char **input);
 
 int execute(char *argv[]);

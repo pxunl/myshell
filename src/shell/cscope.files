@@ -1,5 +1,6 @@
 ./builin_command.c
 ./eval.h
+./builin_command.h
 ./process.c
 ./eval.c
 ./execute.c

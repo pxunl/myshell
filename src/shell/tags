@@ -4,20 +4,23 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ARG_LEN	shell.c	31;"	d	file:
+ARG_LEN	shell.h	25;"	d
 BUFSIZE	eval.h	22;"	d
 Buildin_Cmd	builin_command.c	/^int Buildin_Cmd(char **args, int *presult)$/;"	f	signature:(char **args, int *presult)
 CC	Makefile	/^CC = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -g -Wall$/;"	m
+Check_Name	builin_command.c	/^int Check_Name(char *str)$/;"	f	signature:(char *str)
 Check_Name	valuelib.h	/^int Check_Name(char *ck);$/;"	p	signature:(char *ck)
 DEF_PROMPT	config.h	9;"	d
 Do_Control_Cmd	process.c	/^int Do_Control_Cmd(char **);$/;"	p	file:	signature:(char **)
 Do_Control_Cmd	process.c	/^int Do_Control_Cmd(char **args)$/;"	f	signature:(char **args)
-FAIL	execute.c	28;"	d	file:
-FAIL	process.c	/^	FAIL$/;"	e	enum:__anon2	file:
+FAIL	shell.h	28;"	d
+FALSE	shell.h	30;"	d
+IS_Buildin_Cmd	process.c	/^int IS_Buildin_Cmd(char **input)$/;"	f	signature:(char **input)
+Is_Buildin_Cmd	process.c	/^int Is_Buildin_Cmd(char **input);$/;"	p	file:	signature:(char **input)
 Is_Control_Cmd	process.c	/^int Is_Control_Cmd(char *input);$/;"	p	file:	signature:(char *input)
 Is_Control_Cmd	process.c	/^int Is_Control_Cmd(char *str)$/;"	f	signature:(char *str)
-MAX_ARGS	shell.c	30;"	d	file:
+MAX_ARGS	shell.h	24;"	d
 MAX_VALUE_NUM	valuelib.h	23;"	d
 NATRULE	process.c	/^	NATRULE,$/;"	e	enum:__anon1	file:
 OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
@@ -26,23 +29,28 @@ Ok_Execute	process.c	/^int Ok_Execute();$/;"	p	file:
 PROGRAM	Makefile	/^PROGRAM = shell$/;"	m
 Process	process.c	/^int Process(char **input)$/;"	f	signature:(char **input)
 Process	shell.h	/^int Process(char **input);$/;"	p	signature:(char **input)
-Results	process.c	/^} Results;$/;"	t	typeref:enum:__anon2	file:
+Process_Buildin_Cmd	process.c	/^void Process_Buildin_Cmd(char **cmd)$/;"	f	signature:(char **cmd)
+Process_Buildin_Cmd	process.c	/^void Process_Buildin_Cmd(char **cmd);$/;"	p	file:	signature:(char **cmd)
+R_FALSE	config.h	12;"	d
+R_OK	config.h	11;"	d
 SRC	Makefile	/^SRC =  shell.c eval.c execute.c process.c$/;"	m
-SUCCESS	process.c	/^	SUCCESS,$/;"	e	enum:__anon2	file:
+SUCESS	shell.h	27;"	d
 States	process.c	/^} States;$/;"	t	typeref:enum:__anon1	file:
-Syntax_Error	process.c	/^int Syntax_Error(char *ckstr)$/;"	f	signature:(char *ckstr)
-Syntax_Error	process.c	/^int Syntax_Error(char *ckstr);$/;"	p	file:	signature:(char *ckstr)
+Syntax_Error	process.c	/^void Syntax_Error(char *ckstr)$/;"	f	signature:(char *ckstr)
+Syntax_Error	process.c	/^void Syntax_Error(char *ckstr);$/;"	p	file:	signature:(char *ckstr)
 THEN_BLOCK	process.c	/^	THEN_BLOCK$/;"	e	enum:__anon1	file:
-TRUE	execute.c	29;"	d	file:
+TRUE	shell.h	29;"	d
 Value	valuelib.h	/^}Value;$/;"	v	typeref:struct:tag_ValueLib
 Value_Add	valuelib.h	/^int Value_Add();$/;"	p	signature:()
 Value_Del	valuelib.h	/^int Value_Del();$/;"	p	signature:()
-Value_List	valuelib.h	/^int Value_List();$/;"	p	signature:()
+Value_List	valuelib.c	/^void Value_List()$/;"	f
+Value_List	valuelib.h	/^void Value_List();$/;"	p	signature:()
 WANT_THEN	process.c	/^	WANT_THEN,$/;"	e	enum:__anon1	file:
 __CONFIG_H	config.h	7;"	d
 __EVAL_H__	eval.h	20;"	d
 __SHELL_H__	shell.h	22;"	d
 __VALUE_LIB_H	valuelib.h	19;"	d
+assign	builin_command.c	/^int assign(char *str)$/;"	f	signature:(char *str)
 create_str	eval.c	/^char * create_str(char *begin, int len)$/;"	f	signature:(char *begin, int len)
 create_str	eval.h	/^char * create_str(char *begin, int len);$/;"	p	signature:(char *begin, int len)
 emalloc	eval.c	/^void *emalloc(size_t n)$/;"	f	signature:(size_t n)
@@ -56,7 +64,7 @@ fatal	shell.h	/^void fatal(char *str_err, char *str_error, int exit_code);$/;"	p
 free_list	eval.c	/^void free_list(char **list)$/;"	f	signature:(char **list)
 free_list	eval.h	/^void free_list(char **list);$/;"	p	signature:(char **list)
 global	valuelib.h	/^	int global;$/;"	m	struct:tag_ValueLib	access:public
-if_result	process.c	/^static int if_result  = SUCCESS;$/;"	v	file:
+if_result	process.c	/^static int if_result  = R_OK;$/;"	v	file:
 if_state	process.c	/^static int if_state   = NATRULE;$/;"	v	file:
 initialize	shell.c	/^void initialize()$/;"	f
 initialize	shell.c	/^void initialize();$/;"	p	file:

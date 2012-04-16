@@ -23,24 +23,25 @@
 #include <sys/wait.h>
 #include <signal.h>
 #include <sys/types.h>
+#include "shell.h"
+#include <config.h>
 
 
-#define FAIL  -1
-#define TRUE   0
+
 
 int execute(char *argv[])
 {
 	int pid_f;
-	int chlid_in = -1;
+	int chlid_in = R_FALSE;
 
 	if (argv[0] == NULL)
-		return 0;
+		return R_FALSE;
 	
 	/*fork a new procee to execute the command*/
 	if ((pid_f = fork()) == -1)
 	{
 		perror("fork fail\n");
-		return FAIL;
+		return R_FALSE;
 	}
 
 	/*child process*/
@@ -57,9 +58,13 @@ int execute(char *argv[])
 	else
 	{	
 		if (wait(&chlid_in) == -1)
+		{
+			child_in = R_FALSE;
 			perror("wait\n");
+		}
+		child_in = (WIFEXITED(chlid_in)? R_OK: R_FALSE);
 	}
 
-	/*return chlid_in;*/
-	return TRUE;
+
+	return chlid_in;
 }

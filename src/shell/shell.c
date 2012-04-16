@@ -27,9 +27,6 @@
 #include "shell.h"
 
 
-#define MAX_ARGS   50
-#define ARG_LEN    100
-
 extern int execute(char *argv[]);
 
 void initialize();
@@ -37,7 +34,7 @@ int main(int argc, const char *argv[])
 {
 	char *command_line;
 	char **arglist;
-	int  result;
+	int  result = 0;
 
 	initialize();
 

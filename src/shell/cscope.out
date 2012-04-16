@@ -1,4 +1,4 @@
-cscope 15 $HOME/myshell/src/shell               0000380750
+cscope 15 $HOME/myshell/src/shell               0000382557
 	@builin_command.c
 
 19 
@@ -90,7 +90,7 @@ NULL
  !
 ¨gs
 [1]Ë&& (
-	`VÆôy_Name
+	`Check_Name
 (args[1])))
 
 51 *
@@ -117,6 +117,94 @@ NULL
 	}
 }
 
+70 
+	$assign
+(*
+°r
+)
+
+72 *
+˝
+;
+
+73 
+Êag
+ = 0;
+
+75 
+˝
+ = 
+	`°rchr
+(
+°r
+,'=');
+
+76 *
+˝
+ = '\0';
+
+77 
+rv
+ = (
+	`Check_Name
+(
+°r
+)? 
+	`VÆue_St‹e
+(°r,
+˝
++1) : -1 );
+
+78 *
+˝
+ = '=';
+
+79  
+rv
+;
+
+80 
+	}
+}
+
+87 
+	$Check_Name
+(*
+°r
+)
+
+89 *
+˝
+;
+
+91 
+˝
+ = 
+°r
+; *cp; cp++ ){
+
+92 i‡–(
+	`isdigô
+(*
+˝
+Ë&& cp==
+°r
+Ë|| !(
+	`iß um
+(*cp) || *cp=='_' ))
+
+95  ( 
+˝
+ !
+°r
+ );
+
+96 
+	}
+}
+
+	@builin_command.h
+
 	@commit.c
 
 	@config.h
@@ -134,6 +222,18 @@ __CONFIG_H
 9 
 	#DEF_PROMPT
  "#"
+
+	)
+
+11 
+	#R_OK
+ 1
+
+	)
+
+12 
+	#R_FALSE
+ -1
 
 	)
 
@@ -709,57 +809,59 @@ li°
 	~<sys/ty≥s.h
 >
 
-28 
-	#FAIL
- -1
+26 
+	~"shñl.h
+"
 
-	)
+27 
+	~<c⁄fig.h
+>
 
-29 
-	#TRUE
- 0
-
-	)
-
-31 
+32 
 	$execuã
 (*
 ¨gv
 [])
 
-33 
+34 
 pid_f
 ;
 
-34 
+35 
 chlid_ö
- = -1;
+ = 
+R_FALSE
+;
 
-36 i‡(
+37 i‡(
 ¨gv
 [0] =
 NULL
 )
 
-40 i‡((
+38  
+R_FALSE
+;
+
+41 i‡((
 pid_f
  = 
 	`f‹k
 ()) == -1)
 
-42 
+43 
 	`≥º‹
 ("fork fail\n");
 
-43  
-FAIL
+44  
+R_FALSE
 ;
 
-47 i‡(
+48 i‡(
 pid_f
  == 0)
 
-49 
+50 
 	`sig«l
 (
 SIGINT
@@ -767,7 +869,7 @@ SIGINT
 SIG_DFL
 );
 
-50 
+51 
 	`sig«l
 (
 SIGQUIT
@@ -775,35 +877,53 @@ SIGQUIT
 SIG_DFL
 );
 
-51 
+52 
 	`execvp
 (
 ¨gv
 [0],árgv);
 
-52 
+53 
 	`≥º‹
 ("not found!\n");
 
-53 
+54 
 	`exô
 (1);
 
-59 i‡(
+60 i‡(
 	`waô
 (&
 chlid_ö
 ) == -1)
 
-60 
+62 
+chûd_ö
+ = 
+R_FALSE
+;
+
+63 
 	`≥º‹
 ("wait\n");
 
-64  
-TRUE
+65 
+chûd_ö
+ = (
+	`WIFEXITED
+(
+chlid_ö
+)? 
+R_OK
+: 
+R_FALSE
+);
+
+69  
+chlid_ö
 ;
 
-65 
+70 
 	}
 }
 
@@ -825,97 +945,105 @@ TRUE
 	~<°rög.h
 >
 
-28 
+24 
+	~<c⁄fig.h
+>
+
+29 
 	mNATRULE
 ,
 
-29 
+30 
 	mWANT_THEN
 ,
 
-30 
+31 
 	mTHEN_BLOCK
 
 
-31 } 
+32 } 
 	tSèãs
 ;
 
-35 
-	mSUCCESS
-,
-
-36 
-	mFAIL
-
-
-37 } 
-	tResu…s
-;
-
-40 
+36 
 	gif_°©e
  = 
 NATRULE
 ;
 
-41 
+37 
 	gif_ªsu…
  = 
-SUCCESS
+R_OK
 ;
 
-42 
+38 
 	gœ°_°©e
  = 0;
 
-44 
+40 
 Is_C⁄åﬁ_Cmd
 (*
 öput
 );
 
-45 
+41 
 Do_C⁄åﬁ_Cmd
 (**);
 
-46 
+42 
 Ok_Execuã
 ();
 
-47 
+43 
 Sy¡ax_Eº‹
 (*
 ck°r
 );
 
-57 
+44 
+Is_Buûdö_Cmd
+(**
+öput
+);
+
+45 
+Pro˚ss_Buûdö_Cmd
+(**
+cmd
+);
+
+55 
 	$Pro˚ss
 (**
 öput
 )
 
-59 
+57 
 Êag
- = 0;
+ = 
+R_FALSE
+;
 
-61 i‡(
+59 i‡(
 NULL
  =
 öput
 [0])
 
-63 
+61 
 Êag
- = 0;
+ = 
+R_FALSE
+;
 
-65 i‡(
+63 i‡(
 	`Is_C⁄åﬁ_Cmd
 (
 öput
 [0]))
 
-67 
+65 
 Êag
  = 
 	`Do_C⁄åﬁ_Cmd
@@ -923,11 +1051,19 @@ NULL
 öput
 );
 
-69 i‡(
+67 i‡(
 	`Ok_Execuã
 ())
 
+69 i‡(
+	`Is_Buûdö_Cmd
+())
+
 71 
+	`Pro˚ss_Buûdö_Cmd
+();
+
+75 
 Êag
  = 
 	`execuã
@@ -935,71 +1071,89 @@ NULL
 öput
 );
 
-74  
+79 
+Êag
+ = 
+	`execuã
+(
+öput
+);
+
+82  
 Êag
 ;
 
-75 
+83 
 	}
 }
 
-87 
+95 
 	$Is_C⁄åﬁ_Cmd
 (*
 °r
 )
 
-89  ((
+97 i‡((
 	`°rcmp
 (
 °r
 , "if") == 0) || (strcmp(str, "then") == 0)
 
-90 || (
+98 || (
 	`°rcmp
 (
 °r
-, "else") == 0) || (strcmp(str, "fi") == 0 ));
+, "else") == 0) || (strcmp(str, "fi") == 0 ))
 
-91 
+100  
+R_OK
+;
+
+102  
+R_FALSE
+;
+
+103 
 	}
 }
 
-103 
+115 
 	$Do_C⁄åﬁ_Cmd
 (**
 ¨gs
 )
 
-105 *
+117 *
 cmd
  = 
 ¨gs
 [0];
 
-106 
+118 
 Êag
- = -1;
+ = 
+R_FALSE
+;
 
-109 i‡(
+121 i‡(
 	`°rcmp
 (
 cmd
 , "if") == 0)
 
-111 i‡(
+123 i‡(
 if_°©e
  !
 NATRULE
 )
 
-113 
+125 
 Êag
  = 
 	`Sy¡ax_Eº‹
 ("if unexpected!");
 
-117 
+129 
 œ°_°©e
  = 
 	`Pro˚ss
@@ -1007,167 +1161,189 @@ NATRULE
 ¨gs
  + 1);
 
-118 
+130 
 if_ªsu…
  = (
 œ°_°©e
  =0)? 
-SUCCESS
+R_OK
  : 
-FAIL
+R_FALSE
 ;
-
-119 
-if_°©e
- = 
-WANT_THEN
-;
-
-120 
-Êag
- = 0;
-
-123 i‡(
-	`°rcmp
-(
-cmd
-, "then") == 0)
-
-125 i‡(
-if_°©e
- !
-WANT_THEN
-)
-
-127 
-Êag
- = 
-	`Sy¡ax_Eº‹
-("then unexpected");
 
 131 
 if_°©e
  = 
-THEN_BLOCK
+WANT_THEN
 ;
 
 132 
 Êag
- = 0;
+ = 
+R_OK
+;
 
 135 i‡(
 	`°rcmp
 (
 cmd
-, "fi") == 0)
+, "then") == 0)
 
 137 i‡(
+if_°©e
+ !
+WANT_THEN
+)
+
+139 
+	`Sy¡ax_Eº‹
+("then unexpected");
+
+140 
+Êag
+ = 
+R_FALSE
+;
+
+144 
+if_°©e
+ = 
+THEN_BLOCK
+;
+
+145 
+Êag
+ = 
+R_OK
+;
+
+148 i‡(
+	`°rcmp
+(
+cmd
+, "fi") == 0)
+
+150 i‡(
 if_°©e
  !
 THEN_BLOCK
 )
 
-139 
-Êag
- = 
+152 
 	`Sy¡ax_Eº‹
 ("fi unexpected");
 
-144 
+153 
+Êag
+ = 
+R_FALSE
+;
+
+158 
 if_°©e
  = 
 NATRULE
 ;
 
-145 
+159 
 Êag
- = 0;
+ = 
+R_OK
+;
 
-150 
+164 
 	`Áèl
 ("öã∫ÆÉº‹:", 
 cmd
 , 2);
 
-153  
+167  
 Êag
 ;
 
-154 
+168 
 	}
 }
 
-163 
+177 
 	$Ok_Execuã
 ()
 
-165 
+179 
 Êag
- = 1;
+ = 
+R_FALSE
+;
 
-168 i‡(
+182 i‡(
 WANT_THEN
  =
 if_°©e
 )
 
-170 
+184 
 	`Sy¡ax_Eº‹
 ("thenÉxpected");
 
-171 
+185 
 Êag
- = 0;
+ = 
+R_FALSE
+;
 
-174 i‡((
+188 i‡((
 THEN_BLOCK
  =
 if_°©e
 Ë&& (
-SUCCESS
+R_OK
  =
 if_ªsu…
 ))
 
-176 
+190 
 Êag
- = 1;
+ = 
+R_OK
+;
 
-178 i‡((
+192 i‡((
 THEN_BLOCK
  =
 if_°©e
 Ë&& (
-FAIL
+R_FALSE
  =
 if_ªsu…
 ))
 
-180 
+194 
 Êag
- = 0;
+ = 
+R_FALSE
+;
 
-183  
+197  
 Êag
 ;
 
-184 
+198 
 	}
 }
 
-187 
+201 
 	$Sy¡ax_Eº‹
 (*
 ck°r
 )
 
-189 
+203 
 if_°©e
  = 
 NATRULE
 ;
 
-190 
+204 
 	`Ârötf
 (
 °dîr
@@ -1175,7 +1351,103 @@ NATRULE
 ck°r
 );
 
-192 
+205 
+	}
+}
+
+207 
+	$IS_Buûdö_Cmd
+(**
+öput
+)
+
+209 i‡((
+öput
+[0], "set") == 0)
+
+210 || (
+	`°rchr
+(
+öput
+[0], '='Ë!
+NULL
+)
+
+211 || (
+	`°rcmp
+(
+öput
+[0], "export"))
+
+213  
+R_OK
+;
+
+217  
+R_FALSE
+;
+
+220  
+R_FALSE
+;
+
+221 
+	}
+}
+
+224 
+	$Pro˚ss_Buûdö_Cmd
+(**
+cmd
+)
+
+226 i‡(
+	`°rcmp
+(
+cmd
+[0], "iset") == 0)
+
+228 
+	`VÆue_Li°
+();
+
+230 i‡(
+	`°rcmp
+(
+cmd
+[0], "iexport") == 0)
+
+232 i‡((
+cmd
+[1] !
+NULL
+Ë&& (
+	`Check_Name
+(
+¨gs
+[1])))
+
+234 
+	`VÆue_Exp‹t
+(
+cmd
+[1]);
+
+238 i‡(
+	`°rchr
+(
+cmd
+[0], '='Ë!
+NULL
+)
+
+240 
+	`VÆue_Assign
+(
+cmd
+);
+
+242 
 	}
 }
 
@@ -1209,29 +1481,17 @@ ck°r
 	~"shñl.h
 "
 
-30 
-	#MAX_ARGS
- 50
-
-	)
-
-31 
-	#ARG_LEN
- 100
-
-	)
-
-33 
+30 
 execuã
 (*
 ¨gv
 []);
 
-35 
+32 
 öôülize
 ();
 
-36 
+33 
 	$maö
 (
 ¨gc
@@ -1239,23 +1499,23 @@ execuã
 ¨gv
 [])
 
-38 *
+35 *
 comm™d_löe
 ;
 
-39 **
+36 **
 ¨gli°
 ;
 
-40 
+37 
 ªsu…
-;
+ = 0;
 
-42 
+39 
 	`öôülize
 ();
 
-45 (
+42 (
 comm™d_löe
  = 
 	`ªad_comm™d
@@ -1265,7 +1525,7 @@ comm™d_löe
 NULL
 )
 
-47 i‡((
+44 i‡((
 ¨gli°
  = 
 	`•ûéöe
@@ -1275,7 +1535,7 @@ comm™d_löe
 NULL
 )
 
-56 
+53 
 ªsu…
  = 
 	`Pro˚ss
@@ -1283,27 +1543,27 @@ NULL
 ¨gli°
 );
 
-57 
+54 
 	`‰ì_li°
 (
 ¨gli°
 );
 
-59 
+56 
 	`‰ì
 (
 comm™d_löe
 );
 
-62 
+59 
 	}
 }
 
-69 
+66 
 	$öôülize
 ()
 
-71 
+68 
 	`sig«l
 (
 SIGINT
@@ -1311,7 +1571,7 @@ SIGINT
 SIG_IGN
 );
 
-72 
+69 
 	`sig«l
 (
 SIGQUIT
@@ -1319,7 +1579,7 @@ SIGQUIT
 SIG_IGN
 );
 
-73 
+70 
 	}
 }
 
@@ -1335,19 +1595,55 @@ __SHELL_H__
 
 	)
 
-24 
+24 
+	#MAX_ARGS
+ 50
+
+	)
+
+25 
+	#ARG_LEN
+ 100
+
+	)
+
+27 
+	#SUCESS
+ 1
+
+	)
+
+28 
+	#FAIL
+ -1
+
+	)
+
+29 
+	#TRUE
+ 1
+
+	)
+
+30 
+	#FALSE
+ -1
+
+	)
+
+34 
 Pro˚ss
 (**
 öput
 );
 
-26 
+36 
 execuã
 (*
 ¨gv
 []);
 
-27 
+37 
 Áèl
 (*
 °r_îr
@@ -1366,6 +1662,88 @@ exô_code
 20 
 	~<°dlib.h
 >
+
+21 
+	~<°rög.h
+>
+
+22 
+	~"vÆuñib.h
+"
+
+24 
+VÆue
+ 
+g_VÆue
+[
+MAX_VALUE_NUM
+];
+
+26 
+	$VÆue_Li°
+()
+
+28 i‡(!
+g_VÆue
+)
+
+30 
+	`Áèl
+("nÿ™y vÆue!\n", 
+NULL
+, 2);
+
+33 
+i
+ = 0;
+
+34 * 
+v¨_out
+ = 
+g_VÆue
+;
+
+36 (
+NULL
+ !
+v¨_out
+Ë&& (
+i
+ < 
+MAX_VALUE_NUM
+))
+
+38 i‡(
+v¨_out
+[
+i
+].
+globÆ
+)
+
+40 
+	`¥ötf
+("* %s\n", 
+v¨_out
+[
+i
+]);
+
+44 
+	`¥ötf
+(" %s\n", 
+v¨_out
+[
+i
+]);
+
+46 
+i
+++;
+
+49 
+	}
+}
 
 	@valuelib.h
 
@@ -1401,7 +1779,7 @@ __VALUE_LIB_H
 	gVÆue
 ;
 
-31 
+31 
 VÆue_Li°
 ();
 
@@ -67004,9 +67382,10 @@ _ASM_GENERIC_ERRNO_BASE_H
 .
 1
 /usr/include
-87
-2147
+88
+2164
 builin_command.c
+builin_command.h
 commit.c
 config.h
 eval.c
