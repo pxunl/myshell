@@ -22,6 +22,8 @@
 #include "shell.h"
 #include <string.h>
 #include <config.h>
+#include <ctype.h>
+
 
 
 typedef enum 
@@ -41,7 +43,7 @@ int Do_Control_Cmd(char **);
 int Ok_Execute();
 void Syntax_Error(char *ckstr);
 int Is_Buildin_Cmd(char **input);
-void Process_Buildin_Cmd(char **cmd);
+int Process_Buildin_Cmd(char **cmd);
 
 
 /**
@@ -67,13 +69,12 @@ int Process(char **input)
 	{
 		if (Is_Buildin_Cmd()) 
 		{
-			Process_Buildin_Cmd(input);
+			flag = Process_Buildin_Cmd(input);
 		}
 		else 
 		{
 			flag = execute(input);
 		}
-		flag = execute(input);
 	}
 	
 	return flag;
@@ -204,22 +205,63 @@ void Syntax_Error(char *ckstr)
 
 int IS_Buildin_Cmd(char **input)
 {
-	if ((input[0], "set") == 0) 
-		|| (strchr(input[0], '=') != NULL) 
-		|| (strcmp(input[0], "export")) 
-	{ 
-		return R_OK;
-	} 
-	else 
+	if (NULL == input) 
 	{
 		return R_FALSE;
 	}
 	
+	if ((input[0], "iset") == 0) 
+		|| (strchr(input[0], '=') != NULL) 
+		|| (strcmp(input[0], "iexport")) 
+	{ 
+		return R_OK;
+	} 
+	
 	return R_FALSE;
 }
-	
 
-void Process_Buildin_Cmd(char **cmd)
+
+
+/**
+ * @Check_Name 
+ * description: check name
+ *            : valid----[0-9] in head, or contains ' ' ,'=',','  or contains a none-char
+ *
+ * @name: input string
+ * @return : R_OK or R_FALSE
+ */
+int Check_Name(char *name)
+{
+	if (!name) 
+	{
+		return R_FALSE;
+	}
+
+	char * ck = name;
+
+	if (isdigit(*ck))
+	{
+		return R_FALSE;
+	}
+
+	while (*ck)
+	{
+		if (*ck == ' ' || *ck == '=' || !(isalnum(*ck))) 
+		{
+			return R_FALSEl
+		}
+		ck++;	
+	}
+	return R_OK;
+}
+
+
+/**
+ * @Process_Buildin_Cmd 
+ * description: process the buildin commands of iset , iexport and  string that contains '='
+ * @cmd: original command
+ */
+int Process_Buildin_Cmd(char **cmd)
 {
 	if (strcmp(cmd[0], "iset") == 0) 
 	{
