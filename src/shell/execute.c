@@ -28,7 +28,11 @@
 
 
 
-
+/**
+ * @execute 
+ * @argv[]: command string
+ * @return : R_OK or R_FALE
+ */
 int execute(char *argv[])
 {
 	int pid_f;

@@ -28,10 +28,9 @@ int Buildin_Cmd(char **args, int *presult)
 {
 	int flag = 0;
 
-	if (strcmp(args[0], "set") == 0) 
+	if (strcmp(args[0], "iset") == 0) 
 	{
 		Value_List();
-		*presult = 0;
 		flag = 1;
 	}
 	else if (strchr(args[0], '=') != NULL) 
@@ -39,22 +38,21 @@ int Buildin_Cmd(char **args, int *presult)
 		*presult = assign(args[0]);
 		if (*presult != -1) 
 		{
-			flag = 1;
+			flag = R_OK;
 		}
 		
 	}
-	else if (strcmp(args[0], "export") == 0) 
+	else if (strcmp(args[0], "iexport") == 0) 
 	{
 		/*if it is vality name, export it*/
 		if ((NULL != args[1]) && (Check_Name(args[1]))) 
 		{
-			*presult = Value_Export(args[1]);
+			flag = Value_Export(args[1]);
 		}
 		else
 		{
-			*presult = 1;
+			flag = R_OK;
 		}
-		flag = 1;
 	}
 
 	return flag;

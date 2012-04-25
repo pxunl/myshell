@@ -25,7 +25,6 @@
 #include <ctype.h>
 
 
-
 typedef enum 
 {
 	NATRULE,
@@ -36,7 +35,7 @@ typedef enum
 
 static int if_state   = NATRULE;
 static int if_result  = R_OK;
-static int last_state = 0;
+static int last_state = R_FALSE;
 
 int Is_Control_Cmd(char *input);
 int Do_Control_Cmd(char **);
@@ -99,8 +98,6 @@ int Is_Control_Cmd(char *str)
 	}
 	return R_FALSE;
 }
-
-
 
 
 /**
@@ -196,7 +193,6 @@ int Ok_Execute()
 	return flag;
 }
 
-
 void Syntax_Error(char *ckstr)
 {
 	if_state = NATRULE;
@@ -219,7 +215,6 @@ int IS_Buildin_Cmd(char **input)
 	
 	return R_FALSE;
 }
-
 
 
 /**
@@ -263,21 +258,28 @@ int Check_Name(char *name)
  */
 int Process_Buildin_Cmd(char **cmd)
 {
+	int flag = R_FALSE;
 	if (strcmp(cmd[0], "iset") == 0) 
 	{
 		Value_List();
+		flag = R_OK;
 	}
 	else if (strcmp(cmd[0], "iexport") == 0) 
 	{
 		if ((cmd[1] != NULL) && (Check_Name(args[1]))) 
 		{
-			Value_Export(cmd[1]);
+			flag = Value_Export(cmd[1]);
 		}
-		
+		else 
+		{
+			flag = R_FALSE;
+		}
 	}
 	else if (strchr(cmd[0], '=') != NULL) 
 	{
-		Value_Assign(cmd);
+		flag = Value_Assign(cmd);
 	}
+
+	return flag;
 }
 
