@@ -19,11 +19,12 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include "shell.h"
 #include <string.h>
-#include <config.h>
 #include <ctype.h>
-
+#include "valuelib.h"
+#include "process.h"
+#include "config.h"
+#include "shell.h"
 
 typedef enum 
 {
@@ -32,17 +33,11 @@ typedef enum
 	THEN_BLOCK
 } States;
 
+/*extern struct Value g_Value[MAX_ARGS];*/
 
 static int if_state   = NATRULE;
-static int if_result  = R_OK;
+static int if_result  = R_TRUE;
 static int last_state = R_FALSE;
-
-int Is_Control_Cmd(char *input);
-int Do_Control_Cmd(char **);
-int Ok_Execute();
-void Syntax_Error(char *ckstr);
-int Is_Buildin_Cmd(char **input);
-int Process_Buildin_Cmd(char **cmd);
 
 
 /**
@@ -55,24 +50,23 @@ int Process_Buildin_Cmd(char **cmd);
 int Process(char **input)
 {
 	int flag = R_FALSE;
-
 	if (NULL == input[0]) 
 	{
-		flag = R_FALSE;
+		return R_FALSE;
 	}
-	else if (Is_Control_Cmd(input[0])) 
+	else if (Is_Control_Cmd(input[0]) == R_TRUE) 
 	{
 		flag = Do_Control_Cmd(input);
 	}
-	else if (Ok_Execute()) 
+	else if (Ok_Execute() == R_TRUE) 
 	{
-		if (Is_Buildin_Cmd()) 
+		if (IS_Buildin_Cmd(input) == R_TRUE)
 		{
 			flag = Process_Buildin_Cmd(input);
 		}
 		else 
 		{
-			flag = execute(input);
+			flag = Execute(input);
 		}
 	}
 	
@@ -94,7 +88,7 @@ int Is_Control_Cmd(char *str)
 	if ((strcmp(str, "if") == 0) || (strcmp(str, "then") == 0)  
 		|| (strcmp(str, "else") == 0) || (strcmp(str, "fi") == 0 ))
 	{
-		return R_OK;
+		return R_TRUE;
 	}
 	return R_FALSE;
 }
@@ -122,10 +116,12 @@ int Do_Control_Cmd(char **args)
 		}
 		else 
 		{
+			/*any backspace in "if_string" is inadmissibility,
+			 otherwise it will be divide into a few conditions*/
 			last_state = Process(args + 1);
 			if_result = last_state;
 			if_state = WANT_THEN;
-			flag = R_OK;
+			flag = R_TRUE;
 		}
 	}
 	else if (strcmp(cmd, "then") == 0) 
@@ -138,7 +134,7 @@ int Do_Control_Cmd(char **args)
 		else 
 		{
 			if_state = THEN_BLOCK;
-			flag = R_OK;
+			flag = R_TRUE;
 		}
 	}
 	else if (strcmp(cmd, "fi") == 0) 
@@ -152,7 +148,7 @@ int Do_Control_Cmd(char **args)
 		{
 			//enter NATRULE area agian
 			if_state = NATRULE;
-			flag = R_OK;
+			flag = R_TRUE;
 		}
 	}
 	else 
@@ -172,18 +168,18 @@ int Do_Control_Cmd(char **args)
  */
 int Ok_Execute()
 {
-	int flag = R_FALSE;
+	int flag = R_TRUE;
 	
 	/*if in THEN_BLOCK then syntax error*/
-	if (WANT_THEN == if_state) 
+	if (WANT_THEN == if_state)
 	{
 		Syntax_Error("then expected");
 		flag = R_FALSE;
 	}
-	/*if in THEN_BLOCK and if_result is R_OK then yes else no*/
-	else if ((THEN_BLOCK == if_state) && (R_OK == if_result))
+	/*if in THEN_BLOCK and if_result is R_TRUE then yes else no*/
+	else if ((THEN_BLOCK == if_state) && (R_TRUE == if_result))
 	{
-		flag = R_OK;
+		flag = R_TRUE;
 	}
 	else if ((THEN_BLOCK == if_state) && (R_FALSE == if_result))
 	{
@@ -206,50 +202,15 @@ int IS_Buildin_Cmd(char **input)
 		return R_FALSE;
 	}
 	
-	if ((input[0], "iset") == 0) 
+	if ((strcmp(input[0], "iset") == 0) 
 		|| (strchr(input[0], '=') != NULL) 
-		|| (strcmp(input[0], "iexport")) 
+		|| (strcmp(input[0], "iexport") == 0))
 	{ 
-		return R_OK;
+		return R_TRUE;
 	} 
 	
 	return R_FALSE;
 }
-
-
-/**
- * @Check_Name 
- * description: check name
- *            : valid----[0-9] in head, or contains ' ' ,'=',','  or contains a none-char
- *
- * @name: input string
- * @return : R_OK or R_FALSE
- */
-int Check_Name(char *name)
-{
-	if (!name) 
-	{
-		return R_FALSE;
-	}
-
-	char * ck = name;
-
-	if (isdigit(*ck))
-	{
-		return R_FALSE;
-	}
-
-	while (*ck)
-	{
-		if (*ck == ' ' || *ck == '=' || !(isalnum(*ck))) 
-		{
-			return R_FALSEl
-		}
-		ck++;	
-	}
-	return R_OK;
-}
-
 
 /**
  * @Process_Buildin_Cmd 
@@ -262,13 +223,13 @@ int Process_Buildin_Cmd(char **cmd)
 	if (strcmp(cmd[0], "iset") == 0) 
 	{
 		Value_List();
-		flag = R_OK;
+		flag = R_TRUE;
 	}
 	else if (strcmp(cmd[0], "iexport") == 0) 
 	{
-		if ((cmd[1] != NULL) && (Check_Name(args[1]))) 
+		if ((cmd[1] != NULL) && (Check_Name(cmd[1]))) 
 		{
-			flag = Value_Export(cmd[1]);
+			/*flag = Value_Export(cmd[1);*/
 		}
 		else 
 		{
@@ -277,7 +238,7 @@ int Process_Buildin_Cmd(char **cmd)
 	}
 	else if (strchr(cmd[0], '=') != NULL) 
 	{
-		flag = Value_Assign(cmd);
+		flag = Value_Store(cmd[0]);
 	}
 
 	return flag;

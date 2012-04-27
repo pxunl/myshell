@@ -37,7 +37,7 @@
  */
 void fatal(char *str_err, char *str_error, int exit_code)
 {
-	fprintf(stderr, "Error: %s,%s\n", str_err, str_error);
+	fprintf(stderr, "Error: %s %s\n", str_err, str_error);
 	exit(exit_code);
 }
 

@@ -8,7 +8,7 @@
 
 #define DEF_PROMPT   "#"
 
-#define R_OK       1
-#define R_FALSE   -1
+#define R_TRUE      1
+#define R_FALSE   	-1
 
 #endif

@@ -15,8 +15,14 @@
  * Compiler      :  gcc
  ************************************************************************************
  */
+#ifndef __VALUELIB_H__
+#define __VALUELIB_H__
 
 void Value_List();
 void Value_Export(char *name);
-int Value_Store(char *name, char *value); 
-int Value_Assign();
+int Value_Store(char *var);
+int Check_Name(char *str);
+int Env_To_Table(char *env[]);
+char **Table_To_Env();
+
+#endif

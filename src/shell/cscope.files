@@ -1,6 +1,4 @@
-./builin_command.c
 ./eval.h
-./builin_command.h
 ./process.c
 ./eval.c
 ./execute.c
@@ -8,6 +6,5 @@
 ./valuelib.h
 ./valuelib.c
 ./config.h
-./commit.c
 ./process.h
 ./shell.h

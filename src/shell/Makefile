@@ -18,7 +18,7 @@
  #
 
 #Source file
-SRC =  shell.c eval.c execute.c process.c
+SRC =  shell.c eval.c execute.c process.c valuelib.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
@@ -30,9 +30,7 @@ PROGRAM = shell
 CC = gcc
 
 
-
 CFLAGS = -g -Wall
-
 
 
 ##########################################################

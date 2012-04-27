@@ -16,20 +16,23 @@
  *
  *************************************************************************************
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
+#include <sys/wait.h>
+
 
 #include "config.h"
 #include "eval.h"
 #include "shell.h"
-
+#include "valuelib.h"
+/*#include "execute.c"*/
 
 extern int execute(char *argv[]);
 
 void initialize();
+
 int main(int argc, const char *argv[])
 {
 	char *command_line;
@@ -65,6 +68,8 @@ int main(int argc, const char *argv[])
  */
 void initialize()
 {
+	extern char **environ;
+	Env_To_Table(environ);
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 }

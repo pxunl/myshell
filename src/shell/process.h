@@ -15,4 +15,9 @@
  * Compiler      :  gcc
  ************************************************************************************
  */
-
+int Is_Control_Cmd(char *input);
+int Do_Control_Cmd(char **);
+int Ok_Execute();
+void Syntax_Error(char *ckstr);
+int Process_Buildin_Cmd(char **cmd);
+int IS_Buildin_Cmd(char **input);
