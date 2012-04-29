@@ -27,9 +27,11 @@ GtkTextIter   iter;
 GtkTextIter   start_iter;
 GtkTextIter   end_iter;
 GtkTextBuffer *buffer;
-
+static gchar  g_buf_cmd[512];
+static gint   count = 0;
 static void destroy(GtkWidget *widget, gpointer data);
-static gboolean enter_event(GtkWidget *widget, GdkEventKey *event, gpointer data);
+
+static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data);
 
 int main(int argc, char *argv[])
 {
@@ -51,6 +53,8 @@ int main(int argc, char *argv[])
 	GtkAccelGroup *accel_group = NULL;
 	
 	gtk_init(&argc, &argv);
+
+	memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
 
 	//Create main window
 	main_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -112,7 +116,6 @@ int main(int argc, char *argv[])
 	g_signal_connect(G_OBJECT(quit), "activate", 
 			G_CALLBACK(destroy), NULL);
 
-
 	//////////////////////////////////////////////
 	/*text_view for editing or showing information*/
 	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -126,7 +129,7 @@ int main(int argc, char *argv[])
 	gtk_text_buffer_insert(buffer, &iter, "pxunl@lnuxp.#", -1);
 	/*gtk_text_buffer_get_start_iter(buffer, &start_iter);*/
 
-	gtk_signal_connect(G_OBJECT(text_view), "key-press-event", G_CALLBACK(enter_event), NULL);
+	gtk_signal_connect(G_OBJECT(text_view), "key-press-event", G_CALLBACK(virtual_keyboard_drive), NULL);
 		
 	//////////////////////////////////////////////
 	gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
@@ -139,34 +142,32 @@ int main(int argc, char *argv[])
 }
 
 //typedef  void* gpointer
-//
-static gboolean enter_event(GtkWidget *widget, GdkEventKey *event, gpointer data)
-{
-	/*gchar *str;*/
-	if (event->keyval == GDK_Return)
-	{
-		gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(buffer), &start_iter, &end_iter);
-		cur_str = gtk_text_buffer_get_text(buffer, &start_iter, &end_iter, FALSE);
-		
-		str = cur_str + strlen(cur_str) - 1;
-		g_print("  %d", strlen(cur_str));
-		while ((*str != NULL)  && (*str!='#'))
-		{
-			str--;
-		}
-		str++;
-		
-		/*Shell_Main(cur_str);*/
-
-		gtk_text_buffer_get_end_iter(buffer, &iter);
-		gtk_text_buffer_insert(buffer, &iter, "\npxunl@lnuxp.#", -1);
-	}
-	return FALSE;
-}
-
 //close the main window and exit programg
 static void destroy(GtkWidget *widget, gpointer data)
 {
 	g_print("\nended...\n");
 	gtk_main_quit();
+}
+
+static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data)
+{
+	if (event->keyval == GDK_Return)
+	{
+		g_buf_cmd[count] = '\0';
+		g_print("  --|| %s ||--  ", g_buf_cmd);
+		Shell_Main(g_buf_cmd);
+		count = 0;
+		memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
+	}
+	// ignore signal "Alt"
+	else if (event->keyval == GDK_Alt_L)
+	{
+		return FALSE;
+	}
+	else 
+	{
+		g_buf_cmd[count++] = event->keyval;
+	}
+	
+	return FALSE;
 }

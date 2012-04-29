@@ -1,4 +1,11 @@
+./eval.h
+./process.c
+./eval.c
+./execute.c
+./shell.c
 ./mainWindow.c
-./example/box.c
-./example/example_windows.c
-./example/button.c
+./valuelib.h
+./valuelib.c
+./config.h
+./process.h
+./shell.h
