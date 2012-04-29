@@ -20,7 +20,6 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
-/*#include "../shell/eval.h"*/
 #include "shell.h"
 
 
@@ -143,14 +142,22 @@ int main(int argc, char *argv[])
 //
 static gboolean enter_event(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
-	gchar *str;
+	/*gchar *str;*/
 	if (event->keyval == GDK_Return)
 	{
 		gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(buffer), &start_iter, &end_iter);
-		str = gtk_text_buffer_get_text(buffer, &start_iter, &end_iter, FALSE);
+		cur_str = gtk_text_buffer_get_text(buffer, &start_iter, &end_iter, FALSE);
+		
+		str = cur_str + strlen(cur_str) - 1;
+		g_print("  %d", strlen(cur_str));
+		while ((*str != NULL)  && (*str!='#'))
+		{
+			str--;
+		}
+		str++;
+		
+		/*Shell_Main(cur_str);*/
 
-		g_print("%s", str);
-		Shell_Main(str);
 		gtk_text_buffer_get_end_iter(buffer, &iter);
 		gtk_text_buffer_insert(buffer, &iter, "\npxunl@lnuxp.#", -1);
 	}

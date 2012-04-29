@@ -1,24 +1,22 @@
 #
  ####################################################################################
- #
  # Copyright (c),  2011-2014 dd.pangxie@gmail.com
- #
  ####################################################################################
- # Filename     :  Makefile
+ # Filename     :  mainWindow.c
  # Version      :  1.0
  # Author       :  Jason Zhong 
- # Created      :  Saturday, March 07, 2012 12:13:00 HKT
- # Description  :  Makefile for project myshell
+ # Created      :  Tue, March 6, 2012 12:19:02 HKT
+ # Description  :  Makefile for compile gtk program
  #
  # History      :
  # Revision     :  none
  # Compiler     :  gcc
  #
  #####################################################################################
- #
+#
 
 #Source file
-SRC =  shell.c eval.c execute.c process.c valuelib.c
+SRC = mainWindow.c shell.c eval.c execute.c process.c valuelib.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
@@ -32,21 +30,29 @@ CC = gcc
 
 CFLAGS = -g -Wall
 
+#Include 
+INCLUDE = .
+
+#Libs
+LIBS= --libs gtk+-2.0
+
+CFLAGS = `pkg-config --cflags ${LIBS}` -g -Wall
+
 
 ##########################################################
 #dependency files (.o)
 all:${PROGRAM}
 
 ${PROGRAM}:${OBJS}
-	${CC} -o ${PROGRAM} ${OBJS} ${CFLAGS}
+	${CC} -o ${PROGRAM} ${OBJS} ${CFLAGS} -I $(INCLUDE)
 
-${OBJS}:%.o:%.c
+${OBJS}:%.o:%.c 
 	${CC} -c ${CFLAGS} $< -o $@
-
 
 
 .PHONY:clean
 clean:
 	-rm *.o
+
 
 r: clean all

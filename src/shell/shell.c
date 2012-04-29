@@ -33,32 +33,43 @@ extern int execute(char *argv[]);
 
 void initialize();
 
-int main(int argc, const char *argv[])
+void Shell_Main(char *command_line)
 {
-	char *command_line;
+	if (!command_line) 
+	{
+		return;
+	}
+	
+	/*char *command_line;*/
 	char **arglist;
 	int  result = 0;
 
 	initialize();
 
 	/*read command and execute them*/
-	while ((command_line = read_command(stdin)) != NULL)
+	/*while ((command_line = read_command(stdin)) != NULL)
 	{	
-		if ((arglist = spiltline(command_line)) != NULL) 
+		if ((arglist = spiltline(command_line)) != NULL)
 		{	
-			/*while (*arglist != NULL)*/
-			/*{*/
-				/*printf("%s\n",*arglist);*/
-				/*arglist++;*/
-			/*}*/
-			/*printf("%s\n",*(arglist+1));*/
-			/*result = execute(arglist);*/
+			while (*arglist != NULL)
+			{
+				printf("%s\n",*arglist);
+				arglist++;
+			}
+			printf("%s\n",*(arglist+1));
+			result = execute(arglist);
 			result = Process(arglist);
 			free_list(arglist);
 		}
 		free(command_line);
+	}*/
+
+	if ((arglist = spiltline(command_line)) != NULL)
+	{	
+		result = Process(arglist);
+		free_list(arglist);
 	}
-	return 0;
+	/*free(command_line);*/
 }
 
 

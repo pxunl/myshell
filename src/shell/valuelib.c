@@ -30,12 +30,29 @@ struct Value
 	int  global;
 };
 
-struct valuelib_t 
-{
-	/* data */
-} /* optional variable list */;
-
 static struct Value g_Value[MAX_ARGS];
+
+/**
+ * @Find_Item : find item by name in g_Value
+ * @name: var.name
+ * @return: address that should be changed it's value
+ */
+static struct Value *Find_Item( char *name)
+{
+	int i = 0;
+	int len = strlen(name);
+	
+	while ((i < MAX_ARGS) && (g_Value[i].str != NULL))
+	{
+		if (strncmp(g_Value[i].str, name, len) == 0) 
+		{
+			return &g_Value[i];
+		}
+		i++;
+	}
+	
+	return &g_Value[i];
+}
 
 
 /**
@@ -59,36 +76,36 @@ void Value_List()
 	
 }
 
-void Value_Export(char *name)
+/**
+ * @Value_Export :export a new var, create a new one if it does't exist
+ * 				  mark it to be global=1 if it already exist.
+ *
+ * @name: name for var
+ * return: R_FALSE or R_TRUE
+ */
+int Value_Export(char *name)
 {
-	return (void)0;
-}
+	struct Value *add_item;
+	int	flag = R_FALSE;
 
+	if ((add_item = Find_Item(name)) != NULL)
+	{
+		add_item->global = 1;
+		flag = R_TRUE;
+	}
+	else if (Value_Store(strcat(name, "=")) == R_FALSE)
+	{
+		/*flag = Value_Export(name);*/
+		flag = R_FALSE;
+	}
+
+	/*return R_FALSE, if it hasn't in g_Value*/
+	return flag;
+}
 
 /**
- * @Find_Item : find item by name in g_Value
- * @name: var.name
- * @return: address that should be change it's value
- */
-static struct Value *Find_Item( char *name)
-{
-	int i = 0;
-	int len = strlen(name);
-	
-	while ((i < MAX_ARGS) && (g_Value[i].str != NULL))
-	{
-		if (strncmp(g_Value[i].str, name, len) == 0) 
-		{
-			return &g_Value[i];
-		}
-		i++;
-	}
-	
-	return &g_Value[i];
-}
-
-/*
- * returns new string of form name=value or NULL on error
+ * @Create_Var : malloc memory for var
+ * @returns: new string of form name=value or NULL on error
  */
 char *Create_Var( char *name, char *var )
 {
@@ -101,6 +118,14 @@ char *Create_Var( char *name, char *var )
 }
 
 
+/**
+ * @Value_Store: store a new var, create a new one if it does't exist
+ * 				 replace it if it already exist.
+ *
+ * @var: var for setting.
+ *
+ * @return: R_FALSE or R_OK
+ */
 int Value_Store(char *var)
 {
 	if (!var) 
@@ -126,9 +151,9 @@ int Value_Store(char *var)
 	}
 	
 	if ((item = Find_Item(name)) != NULL
-			&& (new_var=Create_Var(name, value)) != NULL)
+			&& (new_var = Create_Var(name, value)) != NULL)
 	{
-		if (item->str) 
+		if (item->str)  /* clear and free it if it already exist */
 		{
 			free(item->str);
 		}
@@ -139,21 +164,7 @@ int Value_Store(char *var)
 	return flag;
 }
 
-
 /*
- * purpose: determines if a string is a legal variable name
- * returns: 0 for no, 1 for yes
- */
-/*  int Check_Name(char *str)
-{
-	char	*cp;
-	for(cp = str; *cp; cp++ ){
-		if ( (isdigit(*cp) && cp==str) || !(isalnum(*cp) || *cp=='_' ))
-			return 0;
-	}
-	return ( cp != str );	// no empty strings, either 
-}*/
-/**
  * @Check_Name 
  * description: check name
  *            : valid----[0-9] in head, or contains ' ' ,'=',','  or contains a none-char
@@ -185,7 +196,6 @@ int Check_Name(char *name)
 	}
 	return R_TRUE;
 }
-
 
 
 /**
@@ -224,23 +234,26 @@ int Env_To_Table(char *env[])
  */
 char **Table_To_Env()
 {
-	int	i;			/* index	*/
-	int j;			/* another index	*/
-	int n;			/* counter	*/
-	char **envtab;		/* array of pointers		*/
+	int	i;			/* index*/
+	int j;			/* another index*/
+	int cn;			/* counter*/
+	char **envtab;	/* array of pointers*/
 
-	/*
-	 * first, count the number of global variables
-	 */
-
+	/*first, count the number of global variables*/
 	for( i = 0 ; (i < MAX_ARGS && g_Value[i].str != NULL) ; i++ )
+	{
 		if (g_Value[i].global == 1)
-			n++;
+		{
+			cn++;
+		}
+	}
 
 	/* then, allocate space for that many variables	*/
-	envtab = (char **) malloc( (n+1) * sizeof(char *) );
+	envtab = (char **) malloc( (cn+1) * sizeof(char *) );
 	if ( envtab == NULL )
+	{
 		return NULL;
+	}
 
 	/* then, load the array with pointers		*/
 	for(i = 0, j = 0 ; (i < MAX_ARGS && g_Value[i].str != NULL) ; i++ )

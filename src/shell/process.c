@@ -225,17 +225,20 @@ int Process_Buildin_Cmd(char **cmd)
 		Value_List();
 		flag = R_TRUE;
 	}
+
+	/*we can only export a name not include the it's var*/
 	else if (strcmp(cmd[0], "iexport") == 0) 
 	{
 		if ((cmd[1] != NULL) && (Check_Name(cmd[1]))) 
 		{
-			/*flag = Value_Export(cmd[1);*/
+			flag = Value_Export(cmd[1]);
 		}
 		else 
 		{
 			flag = R_FALSE;
 		}
 	}
+	/*if it contains '='*/
 	else if (strchr(cmd[0], '=') != NULL) 
 	{
 		flag = Value_Store(cmd[0]);

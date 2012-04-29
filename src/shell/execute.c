@@ -28,7 +28,6 @@
 #include "valuelib.h"
 
 
-
 /**
  * @execute 
  * @argv[]: command string
@@ -46,8 +45,6 @@ int Execute(char *argv[])
 	/*fork a new procee to execute the command*/
 	if ((pid_f = fork()) == -1)
 	{
-		printf("---1\n" );
-		
 		perror("fork fail");
 		/*return R_FALSE;*/
 	}
@@ -55,12 +52,11 @@ int Execute(char *argv[])
 	/*child process*/
 	else if (pid_f == 0)
 	{
-		printf("---2\n" );
 		environ = Table_To_Env();
 		signal(SIGINT, SIG_DFL);
 		signal(SIGQUIT, SIG_DFL);
 		execvp(argv[0], argv);
-		perror("not found!\n");
+		perror("illegal command!\n");
 		exit(1);	
 	}
 
