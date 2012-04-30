@@ -24,7 +24,9 @@
 #include "valuelib.h"
 #include "process.h"
 #include "config.h"
-#include "shell.h"
+#include "eval.h"
+#include "execute.h"
+
 
 typedef enum 
 {
@@ -72,7 +74,6 @@ int Process(char **input)
 	
 	return flag;
 }
-
 
 
 /**
@@ -163,8 +164,7 @@ int Do_Control_Cmd(char **args)
 /**
  * @Ok_Execute 
  * description: 1 for yes, 0 for no
- * 
- * @
+ * @return: R_TRUE or R_FALSE
  */
 int Ok_Execute()
 {
@@ -195,6 +195,12 @@ void Syntax_Error(char *ckstr)
 	fprintf(stderr, "syntax error!: %s\n", ckstr);
 }
 
+
+/**
+ * @IS_Buildin_Cmd : check if it is buildin command("iset", "iexport", "=")
+ * @input: command line
+ * @return: R_TREU or R_FALSE
+ */
 int IS_Buildin_Cmd(char **input)
 {
 	if (NULL == input) 
@@ -246,4 +252,3 @@ int Process_Buildin_Cmd(char **cmd)
 
 	return flag;
 }
-

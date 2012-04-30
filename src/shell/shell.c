@@ -21,17 +21,11 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
-
-
 #include "config.h"
 #include "eval.h"
 #include "shell.h"
 #include "valuelib.h"
-/*#include "execute.c"*/
-
-extern int execute(char *argv[]);
-
-void initialize();
+#include "process.h"
 
 void Shell_Main(char *command_line)
 {
@@ -39,12 +33,8 @@ void Shell_Main(char *command_line)
 	{
 		return;
 	}
-	
-	/*char *command_line;*/
 	char **arglist;
 	int  result = 0;
-
-	initialize();
 
 	/*read command and execute them*/
 	/*while ((command_line = read_command(stdin)) != NULL)
@@ -63,25 +53,9 @@ void Shell_Main(char *command_line)
 		}
 		free(command_line);
 	}*/
-	
 	if ((arglist = spiltline(command_line)) != NULL)
 	{	
 		result = Process(arglist);
 		free_list(arglist);
 	}
-	/*free(command_line);*/
 }
-
-
-/**
- * @purpose:initialize shell
- * @return:nothing
- */
-void initialize()
-{
-	extern char **environ;
-	Env_To_Table(environ);
-	signal(SIGINT, SIG_IGN);
-	signal(SIGQUIT, SIG_IGN);
-}
-

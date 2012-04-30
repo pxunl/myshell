@@ -18,7 +18,7 @@ Do_Control_Cmd	process.h	/^int Do_Control_Cmd(char **);$/;"	p	signature:(char **
 Env_To_Table	valuelib.c	/^int Env_To_Table(char *env[])$/;"	f	signature:(char *env[])
 Env_To_Table	valuelib.h	/^int Env_To_Table(char *env[]);$/;"	p	signature:(char *env[])
 Execute	execute.c	/^int Execute(char *argv[])$/;"	f	signature:(char *argv[])
-Execute	shell.h	/^int Execute(char *argv[]);$/;"	p	signature:(char *argv[])
+Execute	shell.c	/^extern int Execute(char *argv[]);$/;"	p	file:	signature:(char *argv[])
 Find_Item	valuelib.c	/^static struct Value *Find_Item( char *name)$/;"	f	file:	signature:( char *name)
 INCLUDE	Makefile	/^INCLUDE = .$/;"	m
 IS_Buildin_Cmd	process.c	/^int IS_Buildin_Cmd(char **input)$/;"	f	signature:(char **input)
@@ -62,28 +62,25 @@ __EVAL_H__	eval.h	20;"	d
 __SHELL_H__	shell.h	22;"	d
 __VALUELIB_H__	valuelib.h	19;"	d
 buffer	mainWindow.c	/^GtkTextBuffer *buffer;$/;"	v
+count	mainWindow.c	/^static gint   count = 0;$/;"	v	file:
 create_str	eval.c	/^char * create_str(char *begin, int len)$/;"	f	signature:(char *begin, int len)
 create_str	eval.h	/^char * create_str(char *begin, int len);$/;"	p	signature:(char *begin, int len)
 destroy	mainWindow.c	/^static void destroy(GtkWidget *widget, gpointer data)$/;"	f	file:	signature:(GtkWidget *widget, gpointer data)
 destroy	mainWindow.c	/^static void destroy(GtkWidget *widget, gpointer data);$/;"	p	file:	signature:(GtkWidget *widget, gpointer data)
 emalloc	eval.c	/^void *emalloc(size_t n)$/;"	f	signature:(size_t n)
-end_iter	mainWindow.c	/^GtkTextIter   end_iter;$/;"	v
-enter_event	mainWindow.c	/^static gboolean enter_event(GtkWidget *widget, GdkEventKey *event, gpointer data)$/;"	f	file:	signature:(GtkWidget *widget, GdkEventKey *event, gpointer data)
-enter_event	mainWindow.c	/^static gboolean enter_event(GtkWidget *widget, GdkEventKey *event, gpointer data);$/;"	p	file:	signature:(GtkWidget *widget, GdkEventKey *event, gpointer data)
 erealloc	eval.c	/^void *erealloc(void *point, size_t n)$/;"	f	signature:(void *point, size_t n)
-execute	shell.c	/^extern int execute(char *argv[]);$/;"	p	file:	signature:(char *argv[])
 fatal	eval.c	/^void fatal(char *str_err, char *str_error, int exit_code)$/;"	f	signature:(char *str_err, char *str_error, int exit_code)
 fatal	eval.h	/^void fatal(char *str_err, char *str_error, int exit_code);$/;"	p	signature:(char *str_err, char *str_error, int exit_code)
 fatal	shell.h	/^void fatal(char *str_err, char *str_error, int exit_code);$/;"	p	signature:(char *str_err, char *str_error, int exit_code)
-flag	mainWindow.c	/^static gint flag = 0;$/;"	v	file:
 free_list	eval.c	/^void free_list(char **list)$/;"	f	signature:(char **list)
 free_list	eval.h	/^void free_list(char **list);$/;"	p	signature:(char **list)
 g_Value	valuelib.c	/^static struct Value g_Value[MAX_ARGS];$/;"	v	typeref:struct:Value	file:
+g_buf_cmd	mainWindow.c	/^static gchar  g_buf_cmd[512];$/;"	v	file:
 global	valuelib.c	/^	int  global;$/;"	m	struct:Value	file:	access:public
 if_result	process.c	/^static int if_result  = R_TRUE;$/;"	v	file:
 if_state	process.c	/^static int if_state   = NATRULE;$/;"	v	file:
-initialize	shell.c	/^void initialize()$/;"	f
-initialize	shell.c	/^void initialize();$/;"	p	file:
+initialize	mainWindow.c	/^void initialize()$/;"	f
+initialize	mainWindow.c	/^void initialize();$/;"	p	file:
 is_none_c	eval.c	28;"	d	file:
 iter	mainWindow.c	/^GtkTextIter   iter;$/;"	v
 last_state	process.c	/^static int last_state = R_FALSE;$/;"	v	file:
@@ -92,6 +89,6 @@ read_command	eval.c	/^char * read_command(FILE *fp)$/;"	f	signature:(FILE *fp)
 read_command	eval.h	/^char * read_command(FILE *fp);$/;"	p	signature:(FILE *fp)
 spiltline	eval.c	/^char **spiltline(char *cmdline)$/;"	f	signature:(char *cmdline)
 spiltline	eval.h	/^char **spiltline(char *cmdline);$/;"	p	signature:(char *cmdline)
-start_iter	mainWindow.c	/^GtkTextIter   start_iter;$/;"	v
 str	valuelib.c	/^	char *str;$/;"	m	struct:Value	file:	access:public
 virtual_keyboard_drive	mainWindow.c	/^static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data)$/;"	f	file:	signature:(GtkWidget *widget, GdkEventKey *event, gpointer data)
+virtual_keyboard_drive	mainWindow.c	/^static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data);$/;"	p	file:	signature:(GtkWidget *widget, GdkEventKey *event, gpointer data)

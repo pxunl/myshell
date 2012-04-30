@@ -1,13 +1,11 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014  dd.pangxie@gmail.com
- *
  ************************************************************************************
- * Filename      :  process.h
+ * Filename      :  execute.h
  * Version       :  1.0
  * Author        :  Jason Zhong
- * Created       :  Wednesday, April 25, 2012 09:44:37 HKT
+ * Created       :  Monday, April 30, 2012 02:22:20 HKT
  * Description   :  
  *
  * History       :
@@ -15,15 +13,9 @@
  * Compiler      :  gcc
  ************************************************************************************
  */
-#ifndef __PROCESS_H__
-#define __PROCESS_H__
+#ifndef __EXECUTE_H__
+#define __EXECUTE_H__
 
-int Is_Control_Cmd(char *input);
-int Do_Control_Cmd(char **);
-int Ok_Execute();
-void Syntax_Error(char *ckstr);
-int Process_Buildin_Cmd(char **cmd);
-int Process(char **input);
-int IS_Buildin_Cmd(char **input);
+int Execute(char *argv[]);
 
 #endif

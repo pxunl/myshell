@@ -1,4 +1,4 @@
-cscope 15 $HOME/myshell/src/shell               0000388669
+cscope 15 $HOME/myshell/src/shell               0000388885
 	@config.h
 
 6 #iâdeà
@@ -753,6 +753,10 @@ chlid_š
 	~"sh–l.h
 "
 
+24 
+	~"v®u–ib.h
+"
+
 26 
 GtkTextI‹r
  
@@ -760,30 +764,32 @@ GtkTextI‹r
 ;
 
 27 
-GtkTextI‹r
- 
-	g¡¬t_™”
-;
-
-28 
-GtkTextI‹r
- 
-	g’d_™”
-;
-
-29 
 GtkTextBufãr
  *
 	gbufãr
 ;
 
-31 
+28 
+gch¬
+ 
+	gg_buf_cmd
+[512];
+
+29 
 gšt
  
-	gæag
+	gcouÁ
  = 0;
 
-32 
+31 **
+’vœÚ
+;
+
+32 
+š™Ÿlize
+();
+
+34 
 de¡roy
 (
 GtkWidg‘
@@ -795,10 +801,10 @@ gpoš‹r
 d©a
 );
 
-33 
+35 
 gboŞ—n
  
-’‹r_ev’t
+vœtu®_keybßrd_drive
 (
 GtkWidg‘
  *
@@ -813,7 +819,7 @@ gpoš‹r
 d©a
 );
 
-35 
+37 
 	$maš
 (
 ¬gc
@@ -821,91 +827,91 @@ d©a
 ¬gv
 [])
 
-37 
+39 
 GtkWidg‘
  *
 maš_wšdow
 ;
 
-38 
-GtkTextV›w
- *
-‹xt_v›w
-;
-
-39 
-GtkWidg‘
- *
-süŞËd_wšdow
-;
-
 40 
 GtkWidg‘
  *
-v_box
+‹xt_v›w
 ;
 
 41 
 GtkWidg‘
  *
-m’u_vbox
+süŞËd_wšdow
 ;
 
 42 
 GtkWidg‘
  *
-m’ub¬
+v_box
 ;
 
 43 
 GtkWidg‘
  *
-fem’u
+m’u_vbox
 ;
 
 44 
 GtkWidg‘
  *
-Ãw
+m’ub¬
 ;
 
 45 
 GtkWidg‘
  *
-fe
+fem’u
 ;
 
 46 
 GtkWidg‘
  *
-qu™
+Ãw
 ;
 
 47 
 GtkWidg‘
  *
-£p
+fe
 ;
 
 48 
 GtkWidg‘
  *
-İtiÚ
+qu™
 ;
 
 49 
 GtkWidg‘
  *
-ed™
+£p
 ;
 
 50 
 GtkWidg‘
  *
-h–p
+İtiÚ
+;
+
+51 
+GtkWidg‘
+ *
+ed™
 ;
 
 52 
+GtkWidg‘
+ *
+h–p
+;
+
+53 
 GtkAcûlGroup
  *
 acûl_group
@@ -913,7 +919,7 @@ acûl_group
 NULL
 ;
 
-54 
+55 
 	`gtk_š™
 (&
 ¬gc
@@ -921,7 +927,17 @@ NULL
 ¬gv
 );
 
+56 
+	`š™Ÿlize
+();
+
 57 
+	`mem£t
+(
+g_buf_cmd
+, '\0', (g_buf_cmd));
+
+58 
 maš_wšdow
  = 
 	`gtk_wšdow_Ãw
@@ -945,7 +961,7 @@ de¡roy
 NULL
 );
 
-62 
+63 
 	`gtk_wšdow_£t_t™Ë
 (
 	`GTK_WINDOW
@@ -953,7 +969,7 @@ NULL
 maš_wšdow
 ), "Myshell");
 
-63 
+64 
 	`gtk_wšdow_£t_pos™iÚ
 (
 	`GTK_WINDOW
@@ -963,7 +979,7 @@ maš_wšdow
 GTK_WIN_POS_CENTER
 );
 
-64 
+65 
 	`gtk_wšdow_£t_deçuÉ_size
 (
 	`GTK_WINDOW
@@ -971,7 +987,7 @@ GTK_WIN_POS_CENTER
 maš_wšdow
 ), 730, 533);
 
-65 
+66 
 	`gtk_cÚš”_£t_bÜd”_width
 (
 	`GTK_CONTAINER
@@ -979,7 +995,7 @@ maš_wšdow
 maš_wšdow
 ), 5);
 
-66 
+67 
 	`GTK_WINDOW
 (
 maš_wšdow
@@ -989,7 +1005,7 @@ maš_wšdow
 TRUE
 ;
 
-69 
+70 
 m’u_vbox
  = 
 	`gtk_vbox_Ãw
@@ -997,7 +1013,7 @@ m’u_vbox
 FALSE
 , 0);
 
-70 
+71 
 	`gtk_cÚš”_add
 (
 	`GTK_CONTAINER
@@ -1007,25 +1023,25 @@ maš_wšdow
 m’u_vbox
 );
 
-72 
+73 
 m’ub¬
  = 
 	`gtk_m’u_b¬_Ãw
 ();
 
-73 
+74 
 fem’u
  = 
 	`gtk_m’u_Ãw
 ();
 
-76 
+77 
 acûl_group
  = 
 	`gtk_acûl_group_Ãw
 ();
 
-77 
+78 
 	`gtk_wšdow_add_acûl_group
 (
 	`GTK_WINDOW
@@ -1035,31 +1051,31 @@ maš_wšdow
 acûl_group
 );
 
-80 
+81 
 fe
  = 
 	`gtk_m’u_™em_Ãw_w™h_mÃmÚic
 ("_File");
 
-81 
+82 
 ed™
  = 
 	`gtk_m’u_™em_Ãw_w™h_mÃmÚic
 ("_Edit");
 
-82 
+83 
 İtiÚ
  = 
 	`gtk_m’u_™em_Ãw_w™h_mÃmÚic
 ("_Option");
 
-83 
+84 
 h–p
  = 
 	`gtk_m’u_™em_Ãw_w™h_mÃmÚic
 ("_Help");
 
-84 
+85 
 Ãw
  = 
 	`gtk_image_m’u_™em_Ãw_äom_¡ock
@@ -1069,7 +1085,7 @@ GTK_STOCK_NEW
 NULL
 );
 
-86 
+87 
 qu™
  = 
 	`gtk_image_m’u_™em_Ãw_äom_¡ock
@@ -1193,7 +1209,7 @@ m’ub¬
 FALSE
 , FALSE, 3);
 
-113 
+112 
 	`g_sigÇl_cÚÃù
 (
 	`G_OBJECT
@@ -1201,7 +1217,7 @@ FALSE
 qu™
 ), "activate",
 
-114 
+113 
 	`G_CALLBACK
 (
 de¡roy
@@ -1209,7 +1225,7 @@ de¡roy
 NULL
 );
 
-118 
+117 
 süŞËd_wšdow
  = 
 	`gtk_süŞËd_wšdow_Ãw
@@ -1217,13 +1233,13 @@ süŞËd_wšdow
 NULL
 , NULL);
 
-119 
+118 
 ‹xt_v›w
  = 
 	`gtk_‹xt_v›w_Ãw
 ();
 
-120 
+119 
 	`gtk_box_·ck_¡¬t
 (
 	`GTK_BOX
@@ -1235,15 +1251,17 @@ süŞËd_wšdow
 TRUE
 , TRUE, 5);
 
-122 
+120 
 bufãr
  = 
 	`gtk_‹xt_v›w_g‘_bufãr
-(
+((
+GtkTextV›w
+ *)
 ‹xt_v›w
 );
 
-124 
+122 
 	`gtk_‹xt_bufãr_g‘_’d_™”
 (
 bufãr
@@ -1251,7 +1269,7 @@ bufãr
 ™”
 );
 
-126 
+123 
 	`gtk_‹xt_bufãr_š£¹
 (
 bufãr
@@ -1259,21 +1277,21 @@ bufãr
 ™”
 , "pxunl@lnuxp.#", -1);
 
-129 
+126 
 	`gtk_sigÇl_cÚÃù
-(
-	`G_OBJECT
-(
+((
+GtkObjeù
+ *)
 ‹xt_v›w
-), "key-´ess-ev’t", 
+, "key-´ess-ev’t", 
 	`G_CALLBACK
 (
-’‹r_ev’t
+vœtu®_keybßrd_drive
 ), 
 NULL
 );
 
-132 
+130 
 	`gtk_cÚš”_add
 (
 	`GTK_CONTAINER
@@ -1283,7 +1301,7 @@ süŞËd_wšdow
 ‹xt_v›w
 );
 
-133 
+131 
 v_box
  = 
 	`gtk_vbox_Ãw
@@ -1291,127 +1309,21 @@ v_box
 FALSE
 , 5);
 
-135 
+133 
 	`gtk_widg‘_show_®l
 (
 maš_wšdow
 );
 
-136 
+134 
 	`gtk_maš
 ();
 
-139 
+137 
 	}
 }
 
-142 
-gboŞ—n
- 
-	$’‹r_ev’t
-(
-GtkWidg‘
- *
-widg‘
-, 
-GdkEv’tKey
- *
-ev’t
-, 
-gpoš‹r
- 
-d©a
-)
-
-145 ià(
-ev’t
-->
-keyv®
- =ğ
-GDK_R‘uº
-)
-
-147 
-	`gtk_‹xt_bufãr_g‘_bounds
-(
-	`GTK_TEXT_BUFFER
-(
-bufãr
-), &
-¡¬t_™”
-, &
-’d_™”
-);
-
-148 
-cur_¡r
- = 
-	`gtk_‹xt_bufãr_g‘_‹xt
-(
-bufãr
-, &
-¡¬t_™”
-, &
-’d_™”
-, 
-FALSE
-);
-
-150 
-¡r
- = 
-cur_¡r
- + 
-	`¡¾’
-(cur_str) - 1;
-
-151 
-	`g_´št
-(" %d", 
-	`¡¾’
-(
-cur_¡r
-));
-
-152 (*
-¡r
- !ğ
-NULL
-) && (*str!='#'))
-
-154 
-¡r
---;
-
-156 
-¡r
-++;
-
-160 
-	`gtk_‹xt_bufãr_g‘_’d_™”
-(
-bufãr
-, &
-™”
-);
-
-161 
-	`gtk_‹xt_bufãr_š£¹
-(
-bufãr
-, &
-™”
-, "\npxunl@lnuxp.#", -1);
-
-163  
-FALSE
-;
-
-164 
-	}
-}
-
-167 
+141 
 	$de¡roy
 (
 GtkWidg‘
@@ -1423,19 +1335,19 @@ gpoš‹r
 d©a
 )
 
-169 
+143 
 	`g_´št
 ("\nended...\n");
 
-170 
+144 
 	`gtk_maš_qu™
 ();
 
-171 
+145 
 	}
 }
 
-173 
+153 
 gboŞ—n
  
 	$vœtu®_keybßrd_drive
@@ -1453,19 +1365,191 @@ gpoš‹r
 d©a
 )
 
-177 ià(
+155 
+gušt
+ 
+key
+ = 
 ev’t
 ->
 keyv®
+;
+
+156 ià(
+key
  =ğ
 GDK_R‘uº
 )
 
-180  
+158 
+g_buf_cmd
+[
+couÁ
+] = '\0';
+
+162 
+	`Sh–l_Maš
+(
+g_buf_cmd
+);
+
+163 
+couÁ
+ = 0;
+
+164 
+	`mem£t
+(
+g_buf_cmd
+, '\0', (g_buf_cmd));
+
+165 
+	`gtk_‹xt_bufãr_g‘_’d_™”
+(
+bufãr
+, &
+™”
+);
+
+166 
+	`gtk_‹xt_bufãr_š£¹
+(
+bufãr
+, &
+™”
+, "\npxunl@lnuxp.#", -1);
+
+170 ià(
+key
+ =ğ
+GDK_BackS·û
+)
+
+172 ià(
+couÁ
+ > 0)
+
+174 
+g_buf_cmd
+[
+couÁ
+-1] = '\0';
+
+175 
+couÁ
+--;
+
+177  
 FALSE
 ;
 
-181 
+181 ià((
+key
+ =ğ
+GDK_Leá
+)
+
+182 || (
+key
+ =ğ
+GDK_AÉ_L
+)
+
+183 || (
+key
+ =ğ
+GDK_Right
+)
+
+184 || (
+key
+ =ğ
+GDK_Down
+)
+
+185 || (
+key
+ =ğ
+GDK_Up
+)
+
+186 || (
+key
+ =ğ
+GDK_Tab
+)
+
+187 || (
+key
+ =ğ
+GDK_Shiá_L
+)
+
+188 || (
+key
+ =ğ
+GDK_Shiá_R
+)
+
+189 || (
+key
+ =ğ
+GDK_C­s_Lock
+)
+
+190 || (
+key
+ =ğ
+GDK_CÚŒŞ_L
+))
+
+192  
+FALSE
+;
+
+196 
+g_buf_cmd
+[
+couÁ
+++] = 
+key
+;
+
+199  
+FALSE
+;
+
+200 
+	}
+}
+
+206 
+	$š™Ÿlize
+()
+
+208 
+	`Env_To_TabË
+(
+’vœÚ
+);
+
+209 
+	`sigÇl
+(
+SIGINT
+, 
+SIG_IGN
+);
+
+210 
+	`sigÇl
+(
+SIGQUIT
+, 
+SIG_IGN
+);
+
+211 
 	}
 }
 
@@ -2065,55 +2149,47 @@ IS_Budš_Cmd
 	~<sys/wa™.h
 >
 
-26 
+24 
 	~"cÚfig.h
 "
 
-27 
+25 
 	~"ev®.h
 "
 
-28 
+26 
 	~"sh–l.h
 "
 
-29 
+27 
 	~"v®u–ib.h
 "
 
-32 
-execu‹
+29 
+Execu‹
 (*
 ¬gv
 []);
 
-34 
-š™Ÿlize
-();
-
-36 
+31 
 	$Sh–l_Maš
 (*
 commªd_lše
 )
 
-38 ià(!
+33 ià(!
 commªd_lše
 )
 
-44 **
+39 **
 ¬gli¡
 ;
 
-45 
+40 
 »suÉ
  = 0;
 
-47 
-	`š™Ÿlize
-();
-
-67 ià((
+60 ià((
 ¬gli¡
  = 
 	`¥še
@@ -2123,7 +2199,7 @@ commªd_lše
 NULL
 )
 
-69 
+62 
 »suÉ
  = 
 	`Proûss
@@ -2131,47 +2207,13 @@ NULL
 ¬gli¡
 );
 
-70 
+63 
 	`ä“_li¡
 (
 ¬gli¡
 );
 
-73 
-	}
-}
-
-80 
-	$š™Ÿlize
-()
-
-82 **
-’vœÚ
-;
-
-83 
-	`Env_To_TabË
-(
-’vœÚ
-);
-
-84 
-	`sigÇl
-(
-SIGINT
-, 
-SIG_IGN
-);
-
-85 
-	`sigÇl
-(
-SIGQUIT
-, 
-SIG_IGN
-);
-
-86 
+65 
 	}
 }
 
@@ -2199,25 +2241,19 @@ __SHELL_H__
 
 	)
 
-28 
+27 
 Proûss
 (**
 šput
 );
 
-30 
+28 
 Sh–l_Maš
 (*
 commªd_lše
 );
 
-31 
-Execu‹
-(*
-¬gv
-[]);
-
-32 
+29 
 çl
 (*
 ¡r_”r

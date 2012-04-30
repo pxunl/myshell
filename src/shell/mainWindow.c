@@ -14,19 +14,29 @@
  *
  *************************************************************************************
  */
-
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include "shell.h"
+#include "valuelib.h"
 
+#define BUF_SIZ   2048
 
-GtkTextIter   iter;
-GtkTextBuffer *buffer;
+static GtkTextIter   iter;
+static GtkTextBuffer *buffer;
+static GtkTextIter   start_iter;
+static GtkTextIter   end_iter;
 static gchar  g_buf_cmd[512];
 static gint   count = 0;
+static gint   apipe[2] = {0,1};
+static gchar  buf[BUFSIZ];
+static guint  clear_count = 0;
+
+extern char **environ;
+void initialize();
 
 static void destroy(GtkWidget *widget, gpointer data);
 static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data);
@@ -50,7 +60,7 @@ int main(int argc, char *argv[])
 	GtkAccelGroup   *accel_group = NULL;
 	
 	gtk_init(&argc, &argv);
-	memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
+	initialize();
 	main_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	
 	gtk_signal_connect(GTK_OBJECT(main_window), "destroy", 
@@ -148,22 +158,57 @@ static void destroy(GtkWidget *widget, gpointer data)
  */
 static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+	
+	glong len = 0;
 	guint key = event->keyval;
 	if (key == GDK_Return)
 	{
 		g_buf_cmd[count] = '\0';
+
 		/* *debug */
 		/*g_print("  --|| %s ||-- \n ", g_buf_cmd);*/
 		/*g_print("  --|| %d ||--  ",count);*/
+	
 		Shell_Main(g_buf_cmd);
+
+		/* get  object information from stdout*/
+		if ((len = read(apipe[0], buf, BUF_SIZ)) == -1)
+		{
+			g_print("error,when reading from pipe\n");
+			exit(1);
+		}
+
+		/* initialize buffers */
 		count = 0;
 		memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
 		gtk_text_buffer_get_end_iter(buffer, &iter);
+		gtk_text_buffer_insert(buffer, &iter, buf, -1);
+		memset(buf, '\0', BUF_SIZ);
+
+		/* clear screan */
+		if ((clear_count++) > 10) 
+		{
+			gtk_text_buffer_get_bounds(buffer, &start_iter, &end_iter);
+			gtk_text_buffer_delete(buffer, &start_iter, &end_iter);
+			clear_count = 0;
+		}
+		gtk_text_buffer_get_end_iter(buffer, &iter);
 		gtk_text_buffer_insert(buffer, &iter, "\npxunl@lnuxp.#", -1);
 	}
+
+	/*delete backward */
+	else if (key == GDK_BackSpace) 
+	{
+		if (count > 0) 
+		{
+			g_buf_cmd[count-1] = '\0';
+			count--;
+		}
+		return FALSE;
+	}
+	
 	/* ignore some keys signals */
-	else if ((key == GDK_BackSpace) 
-			|| (key == GDK_Left) 
+	else if ((key == GDK_Left) 
 			|| (key == GDK_Alt_L)
 			|| (key == GDK_Right)
 			|| (key == GDK_Down)
@@ -183,3 +228,26 @@ static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gp
 	
 	return FALSE;
 }
+
+/**
+ * @purpose:initialize shell
+ * @return:nothing
+ */
+void initialize()
+{
+	memset(buf, '\0', BUF_SIZ);
+	memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
+	Env_To_Table(environ);
+	if (pipe(apipe) == -1) 
+	{
+		g_print("couldn't make pipe");
+		exit(1);
+	}
+
+	/* dup stdout to apipe[1] to get ouput for gtk_text_view */
+	close(1);
+	dup(apipe[1]);
+	signal(SIGINT, SIG_IGN);
+	signal(SIGQUIT, SIG_IGN);
+}
+

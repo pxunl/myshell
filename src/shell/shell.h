@@ -24,11 +24,6 @@
 #define MAX_ARGS   50
 #define ARG_LEN    100
 
-
-int Process(char **input);
-
 void Shell_Main(char *command_line);
-int Execute(char *argv[]);
-void fatal(char *str_err, char *str_error, int exit_code);
 
 #endif
