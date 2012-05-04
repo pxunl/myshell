@@ -182,6 +182,9 @@ static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gp
 		count = 0;
 		memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
 		gtk_text_buffer_get_end_iter(buffer, &iter);
+		gtk_text_buffer_insert(buffer, &iter, "\n", -1);
+
+		gtk_text_buffer_get_end_iter(buffer, &iter);
 		gtk_text_buffer_insert(buffer, &iter, buf, -1);
 		memset(buf, '\0', BUF_SIZ);
 
@@ -244,9 +247,10 @@ void initialize()
 		exit(1);
 	}
 
-	/* dup stdout to apipe[1] to get ouput for gtk_text_view */
-	close(1);
-	dup(apipe[1]);
+	/* dup stdout and stderr to apipe[1] to get ouput for gtk_text_view */
+	dup2(apipe[1], 1);
+	dup2(apipe[1], 2);
+	/*close(1);*/
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 }

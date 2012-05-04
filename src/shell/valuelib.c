@@ -20,9 +20,12 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <gtk/gtk.h>
 #include "config.h"
 #include "shell.h"
 #include "valuelib.h"
+#include "eval.h"
+
 
 struct Value
 {
@@ -62,18 +65,17 @@ static struct Value *Find_Item( char *name)
 void Value_List()
 {
 	int i;
-	for (i = 0; (i < MAX_ARGS && g_Value[i].str != NULL); i++) 
+	for (i = 0; (i < MAX_ARGS && g_Value[i].str != NULL); i++)
 	{
-		if (g_Value[i].global) 
+		if (g_Value[i].global)
 		{
-			printf(" * %s\n", g_Value[i].str);
+			g_print(" * %s\n", g_Value[i].str);
 		}
 		else
 		{
-			printf("   %s\n", g_Value[i].str);
+			g_print("   %s\n", g_Value[i].str);
 		}
 	}
-	
 }
 
 /**
@@ -88,18 +90,12 @@ int Value_Export(char *name)
 	struct Value *add_item;
 	int	flag = R_FALSE;
 
-	if ((add_item = Find_Item(name)) != NULL)
+	if ((add_item = Find_Item(name)) != NULL && (add_item->str))
 	{
 		add_item->global = 1;
 		flag = R_TRUE;
 	}
-	else if (Value_Store(strcat(name, "=")) == R_FALSE)
-	{
-		/*flag = Value_Export(name);*/
-		flag = R_FALSE;
-	}
 
-	/*return R_FALSE, if it hasn't in g_Value*/
 	return flag;
 }
 
@@ -116,7 +112,6 @@ char *Create_Var( char *name, char *var )
 		sprintf(add_var, "%s=%s", name, var);
 	return add_var;
 }
-
 
 /**
  * @Value_Store: store a new var, create a new one if it does't exist
@@ -142,7 +137,7 @@ int Value_Store(char *var)
 	char *new_var;
 
 	equal = strchr(var, '=');
-	*equal = '\0';
+	name = create_str(var, strlen(var) - strlen(equal));
 	value = equal + 1;
 
 	if ((!name) || (!value) || (!Check_Name(name))) 

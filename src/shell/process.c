@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <gtk/gtk.h>
 #include "valuelib.h"
 #include "process.h"
 #include "config.h"
@@ -32,6 +33,7 @@ typedef enum
 {
 	NATRULE,
 	WANT_THEN,
+#include <gtk/gtk.h>
 	THEN_BLOCK
 } States;
 
@@ -243,12 +245,30 @@ int Process_Buildin_Cmd(char **cmd)
 		{
 			flag = R_FALSE;
 		}
+
+		/* check if succeed*/
+		if (flag == R_FALSE) 
+		{
+			g_print("Fail.");
+		}
+		else 
+		{
+			g_print("Succeed.");
+		}
 	}
 	/*if it contains '='*/
 	else if (strchr(cmd[0], '=') != NULL) 
 	{
 		flag = Value_Store(cmd[0]);
-	}
 
+		if (flag == R_FALSE) 
+		{
+			g_print("Fail.");
+		}
+		else 
+		{
+			g_print("Succeed.");
+		}
+	}
 	return flag;
 }
