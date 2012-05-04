@@ -23,33 +23,39 @@
 #include <sys/wait.h>
 #include <signal.h>
 #include <sys/types.h>
+#include "config.h"
+#include "valuelib.h"
 
 
-#define FAIL  -1
-#define TRUE   0
-
-int execute(char *argv[])
+/**
+ * @execute 
+ * @argv[]: command string
+ * @return : R_TRUE or R_FALE
+ */
+int Execute(char *argv[])
 {
 	int pid_f;
-	int chlid_in = -1;
+	int chlid_in = R_FALSE;
+	extern char **environ;
 
 	if (argv[0] == NULL)
-		return 0;
+		return R_FALSE;
 	
 	/*fork a new procee to execute the command*/
 	if ((pid_f = fork()) == -1)
 	{
-		perror("fork fail\n");
-		return FAIL;
+		perror("fork fail");
+		/*return R_FALSE;*/
 	}
 
 	/*child process*/
 	else if (pid_f == 0)
 	{
+		environ = Table_To_Env();
 		signal(SIGINT, SIG_DFL);
 		signal(SIGQUIT, SIG_DFL);
 		execvp(argv[0], argv);
-		perror("not found!\n");
+		perror("illegal command!\n");
 		exit(1);	
 	}
 
@@ -57,9 +63,12 @@ int execute(char *argv[])
 	else
 	{	
 		if (wait(&chlid_in) == -1)
+		{
+			chlid_in = R_FALSE;
 			perror("wait\n");
+		}
+		chlid_in = (WIFEXITED(chlid_in)? R_TRUE: R_FALSE);
 	}
 
-	/*return chlid_in;*/
-	return TRUE;
+	return chlid_in;
 }

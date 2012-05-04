@@ -22,6 +22,8 @@
 #include <unistd.h>
 #include "eval.h"
 #include "config.h"
+#include "shell.h"
+
 
 #define is_none_c(x) ((x)==' ' || (x)=='\t')
 
@@ -35,7 +37,7 @@
  */
 void fatal(char *str_err, char *str_error, int exit_code)
 {
-	fprintf(stderr, "Error: %s,%s\n", str_err, str_error);
+	fprintf(stderr, "Error: %s %s\n", str_err, str_error);
 	exit(exit_code);
 }
 
@@ -163,7 +165,7 @@ char **spiltline(char *cmdline)
 		}
 	
 		/*no enough space in args*/
-		if (arg_num+1 >= pots) 
+		if (arg_num+1 >= pots) //+1 for NULL
 		{
 			args = erealloc(args, buf_num + BUFSIZE);
 			buf_num += BUFSIZE;

@@ -16,13 +16,13 @@
 #
 
 #Source file
-SRC = mainWindow.c shell.c eval.c execute.c process.c valuelib.c
+SRC = ils.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
 
 #Output execution file
-PROGRAM = shell
+PROGRAM = ils 
 
 #Compiler
 CC = gcc
@@ -34,9 +34,9 @@ CFLAGS = -g -Wall
 INCLUDE = .
 
 #Libs
-LIBS= --libs gtk+-2.0
+#LIBS= --libs gtk+-2.0
 
-CFLAGS = `pkg-config --cflags ${LIBS}` -g -Wall
+#CFLAGS = `pkg-config --cflags ${LIBS}` -g -Wall
 
 
 ##########################################################
@@ -50,8 +50,8 @@ ${OBJS}:%.o:%.c
 	${CC} -c ${CFLAGS} $< -o $@
 
 
-.PHONY:clean
-clean:
+.PHONY:c
+c:
 	-rm *.o
 
 

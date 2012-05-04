@@ -16,58 +16,46 @@
  *
  *************************************************************************************
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
-
+#include <sys/wait.h>
 #include "config.h"
 #include "eval.h"
-#include "execute.c"
+#include "shell.h"
+#include "valuelib.h"
+#include "process.h"
 
-#define MAX_ARGS   50
-#define ARG_LEN    100
-
-extern int execute(char *argv[]);
-
-void initialize();
-
-int main(int argc, const char *argv[])
+void Shell_Main(char *command_line)
 {
-	char *command_line;
+	if (!command_line) 
+	{
+		return;
+	}
 	char **arglist;
-	int  result;
-
-	initialize();
+	int  result = 0;
 
 	/*read command and execute them*/
-	while ((command_line = read_command(stdin)) != NULL)
+	/*while ((command_line = read_command(stdin)) != NULL)
 	{	
-		if ((arglist = spiltline(command_line)) != NULL) 
+		if ((arglist = spiltline(command_line)) != NULL)
 		{	
-			/*while (*arglist != NULL)*/
-			/*{*/
-				/*printf("%s\n",*arglist);*/
-				/*arglist++;*/
-			/*}*/
-			/*printf("%s\n",*(arglist+1));*/
+			while (*arglist != NULL)
+			{
+				printf("%s\n",*arglist);
+				arglist++;
+			}
+			printf("%s\n",*(arglist+1));
 			result = execute(arglist);
+			result = Process(arglist);
 			free_list(arglist);
 		}
 		free(command_line);
+	}*/
+	if ((arglist = spiltline(command_line)) != NULL)
+	{	
+		result = Process(arglist);
+		free_list(arglist);
 	}
-	return 0;
 }
-
-
-/**
- * @purpose:initialize shell
- * @return:nothing
- */
-void initialize()
-{
-	signal(SIGINT, SIG_IGN);
-	signal(SIGQUIT, SIG_IGN);
-}
-
