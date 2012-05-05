@@ -1,0 +1,13 @@
+*ls
+*who
+*pwd
+*cp
+mkdir
+rm
+mv
+echo
+cat
+free
+ps
+cd
+more

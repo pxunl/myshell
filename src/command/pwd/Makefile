@@ -16,13 +16,13 @@
 #
 
 #Source file
-SRC = ils.c
+SRC = ipwd.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
 
 #Output execution file
-PROGRAM = ils 
+PROGRAM = ipwd 
 
 #Compiler
 CC = gcc

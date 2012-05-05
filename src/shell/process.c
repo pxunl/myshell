@@ -233,7 +233,12 @@ int Process_Buildin_Cmd(char **cmd)
 		Value_List();
 		flag = R_TRUE;
 	}
-
+	
+	/*else if (strcmp(cmd[0], "iwho")) */
+	/*{*/
+		/*system(cmd[0]);*/
+	/*}*/
+	
 	/*we can only export a name not include the it's var*/
 	else if (strcmp(cmd[0], "iexport") == 0) 
 	{
