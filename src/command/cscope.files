@@ -1,0 +1,11 @@
+./cp/icp.c
+./more/more.c
+./mkdir/imkdir.c
+./who/iwho.c
+./ls/fileinfo.c
+./ls/filesize.c
+./ls/dir/te.c
+./ls/dir/filesize.c
+./ls/ils.c
+./rm/irm.c
+./pwd/ipwd.c

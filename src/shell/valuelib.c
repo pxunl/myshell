@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  valuelib.c
  * Version      :  1.0
@@ -130,14 +128,13 @@ int Value_Store(char *var)
 	
 	int flag = R_FALSE;
 
-	char *name = var;
+	char *name  = var;
 	char *value = var;
 	char *equal = NULL;
-	struct Value *item = NULL;
 	char *new_var;
-
+	struct Value *item = NULL;
 	equal = strchr(var, '=');
-	name = create_str(var, strlen(var) - strlen(equal));
+	name  = create_str(var, strlen(var) - strlen(equal));
 	value = equal + 1;
 
 	if ((!name) || (!value) || (!Check_Name(name))) 

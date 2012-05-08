@@ -25,5 +25,5 @@ void Syntax_Error(char *ckstr);
 int Process_Buildin_Cmd(char **cmd);
 int Process(char **input);
 int IS_Buildin_Cmd(char **input);
-
+void usage();
 #endif

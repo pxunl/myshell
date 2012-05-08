@@ -1,0 +1,112 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BUF_SIZE	cp/icp.c	29;"	d	file:
+CC	cp/Makefile	/^CC = gcc$/;"	m
+CC	ls/Makefile	/^CC = gcc$/;"	m
+CC	mkdir/Makefile	/^CC = gcc$/;"	m
+CC	more/Makefile	/^CC = gcc$/;"	m
+CC	pwd/Makefile	/^CC = gcc$/;"	m
+CC	rm/Makefile	/^CC = gcc$/;"	m
+CC	who/Makefile	/^CC = gcc$/;"	m
+CFLAGS	cp/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	ls/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	mkdir/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	more/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	pwd/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	rm/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	who/Makefile	/^CFLAGS = -g -Wall$/;"	m
+Exit_Code	cp/icp.c	/^}Exit_Code;$/;"	t	typeref:enum:__anon1	file:
+Exit_Code	mkdir/imkdir.c	/^}Exit_Code;$/;"	t	typeref:enum:__anon2	file:
+FAIL	cp/icp.c	/^	FAIL,$/;"	e	enum:__anon1	file:
+INCLUDE	cp/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	ls/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	mkdir/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	more/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	pwd/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	rm/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	who/Makefile	/^INCLUDE = .$/;"	m
+LINELEN	more/more.c	31;"	d	file:
+OBJS	cp/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	ls/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	mkdir/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	more/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	pwd/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	rm/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	who/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+PROGRAM	cp/Makefile	/^PROGRAM = icp$/;"	m
+PROGRAM	ls/Makefile	/^PROGRAM = ils $/;"	m
+PROGRAM	mkdir/Makefile	/^PROGRAM = imkdir$/;"	m
+PROGRAM	more/Makefile	/^PROGRAM = imore $/;"	m
+PROGRAM	pwd/Makefile	/^PROGRAM = ipwd $/;"	m
+PROGRAM	rm/Makefile	/^PROGRAM = irm $/;"	m
+PROGRAM	who/Makefile	/^PROGRAM = iwho$/;"	m
+R_FALSE	mkdir/imkdir.c	/^	R_FALSE$/;"	e	enum:__anon2	file:
+R_FALSE	rm/irm.c	28;"	d	file:
+R_TRUE	mkdir/imkdir.c	/^	R_TRUE,$/;"	e	enum:__anon2	file:
+R_TRUE	rm/irm.c	27;"	d	file:
+SRC	cp/Makefile	/^SRC = icp.c$/;"	m
+SRC	ls/Makefile	/^SRC = ils.c$/;"	m
+SRC	mkdir/Makefile	/^SRC = imkdir.c$/;"	m
+SRC	more/Makefile	/^SRC = more.c$/;"	m
+SRC	pwd/Makefile	/^SRC = ipwd.c$/;"	m
+SRC	rm/Makefile	/^SRC = irm.c$/;"	m
+SRC	who/Makefile	/^SRC = iwho.c$/;"	m
+SUCCEED	cp/icp.c	/^	SUCCEED$/;"	e	enum:__anon1	file:
+Show_Info	who/iwho.c	/^void Show_Info(struct utmp *buf_fp)$/;"	f	signature:(struct utmp *buf_fp)
+Show_Info	who/iwho.c	/^void Show_Info(struct utmp *buf_fp);$/;"	p	file:	signature:(struct utmp *buf_fp)
+check_name	mkdir/imkdir.c	/^int check_name(char *name)$/;"	f	signature:(char *name)
+check_name	mkdir/imkdir.c	/^int check_name(char *name);$/;"	p	file:	signature:(char *name)
+copy_file	cp/icp.c	/^void copy_file(char *src, char *dest)$/;"	f	signature:(char *src, char *dest)
+copy_file	cp/icp.c	/^void copy_file(char *src, char *dest);$/;"	p	file:	signature:(char *src, char *dest)
+do_copy	cp/icp.c	/^int do_copy(char *src, char *dest)$/;"	f	signature:(char *src, char *dest)
+do_copy	cp/icp.c	/^int do_copy(char *src, char *dest);$/;"	p	file:	signature:(char *src, char *dest)
+do_ls	ls/ils.c	/^void do_ls(const char dirname[], int flag)$/;"	f	signature:(const char dirname[], int flag)
+do_ls	ls/ils.c	/^void do_ls(const char dirname[], int flag);$/;"	p	file:	signature:(const char dirname[], int flag)
+do_mkdir	mkdir/imkdir.c	/^void do_mkdir(char *dir)$/;"	f	signature:(char *dir)
+do_mkdir	mkdir/imkdir.c	/^void do_mkdir(char *dir);$/;"	p	file:	signature:(char *dir)
+do_more	more/more.c	/^void do_more(FILE *);  $/;"	p	file:	signature:(FILE *)
+do_more	more/more.c	/^void do_more(FILE *fp)  $/;"	f	signature:(FILE *fp)
+do_rm_empty_dirs	rm/irm.c	/^int do_rm_empty_dirs(char *dir)$/;"	f	signature:(char *dir)
+do_rm_files	rm/irm.c	/^int do_rm_files(char *file)$/;"	f	signature:(char *file)
+do_rm_no_empty_dirs	rm/irm.c	/^int do_rm_no_empty_dirs(char *dir)$/;"	f	signature:(char *dir)
+do_stat	ls/ils.c	/^void do_stat( char *filename)$/;"	f	signature:( char *filename)
+do_stat	ls/ils.c	/^void do_stat(char *);$/;"	p	file:	signature:(char *)
+get_inode	pwd/ipwd.c	/^ino_t	get_inode(char *);$/;"	p	file:	signature:(char *)
+get_inode	pwd/ipwd.c	/^ino_t get_inode( char *fname )$/;"	f	signature:( char *fname )
+gid_to_name	ls/ils.c	/^char *gid_to_name( gid_t );$/;"	p	file:
+gid_to_name	ls/ils.c	/^char *gid_to_name( gid_t gid )$/;"	f	signature:( gid_t gid )
+inum_to_name	pwd/ipwd.c	/^void    inum_to_name(ino_t , char *, int );$/;"	p	file:	signature:(ino_t , char *, int )
+inum_to_name	pwd/ipwd.c	/^void inum_to_name(ino_t inode_to_find , char *namebuf, int buflen)$/;"	f	signature:(ino_t inode_to_find , char *namebuf, int buflen)
+main	cp/icp.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	ls/dir/filesize.c	/^int main()$/;"	f
+main	ls/fileinfo.c	/^int main(int ac, char *av[])$/;"	f	signature:(int ac, char *av[])
+main	ls/filesize.c	/^int main()$/;"	f
+main	ls/ils.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
+main	mkdir/imkdir.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	more/more.c	/^int main ( int argc, char *argv[] )  $/;"	f	signature:( int argc, char *argv[] )
+main	pwd/ipwd.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
+main	rm/irm.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+main	who/iwho.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
+mode_to_letters	ls/ils.c	/^void mode_to_letters( int , char [] );$/;"	p	file:	signature:( int , char [] )
+mode_to_letters	ls/ils.c	/^void mode_to_letters( int mode, char str[] )$/;"	f	signature:( int mode, char str[] )
+noneprint	more/more.c	/^void noneprint(int flag)  $/;"	f	signature:(int flag)
+noneprint	more/more.c	/^void noneprint(int); \/* To control the terminal echo *\/  $/;"	p	file:	signature:(int)
+pr_winsize	more/more.c	/^static void pr_winsize(int fd)  $/;"	f	file:	signature:(int fd)
+pr_winsize	more/more.c	/^static void pr_winsize(int);  $/;"	p	file:	signature:(int)
+printpathto	pwd/ipwd.c	/^void    printpathto(ino_t);$/;"	p	file:
+printpathto	pwd/ipwd.c	/^void printpathto( ino_t this_inode )$/;"	f	signature:( ino_t this_inode )
+see_more	more/more.c	/^int see_more(FILE *);  $/;"	p	file:	signature:(FILE *)
+see_more	more/more.c	/^int see_more(FILE *cmd)  $/;"	f	signature:(FILE *cmd)
+show_file_info	ls/ils.c	/^void show_file_info( char *, struct stat *);$/;"	p	file:	signature:( char *, struct stat *)
+show_file_info	ls/ils.c	/^void show_file_info( char *filename, struct stat *info_p )$/;"	f	signature:( char *filename, struct stat *info_p )
+show_stat_info	ls/fileinfo.c	/^void show_stat_info(char *, struct stat *);$/;"	p	file:	signature:(char *, struct stat *)
+show_stat_info	ls/fileinfo.c	/^void show_stat_info(char *fname, struct stat *buf)$/;"	f	signature:(char *fname, struct stat *buf)
+sig_winch	more/more.c	/^static void sig_winch(int signo)  $/;"	f	file:	signature:(int signo)
+sig_winch	more/more.c	/^static void sig_winch(int);  $/;"	p	file:	signature:(int)
+size	more/more.c	/^struct winsize size;  $/;"	v	typeref:struct:winsize
+uid_to_name	ls/ils.c	/^char *uid_to_name( uid_t );$/;"	p	file:
+uid_to_name	ls/ils.c	/^char *uid_to_name(uid_t uid)$/;"	f	signature:(uid_t uid)

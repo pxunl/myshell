@@ -8,7 +8,8 @@
 
 #define DEF_PROMPT   "#"
 
-#define R_TRUE      1
-#define R_FALSE   	-1
+#define R_TRUE        1
+#define R_FALSE   	  -1
+#define CUR_USER      "pxunl@lnuxp"
 
 #endif

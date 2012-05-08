@@ -1,13 +1,20 @@
 *ls
 *who
 *pwd
-*cp
-mkdir
-rm
+#cp
+*mkdir
+*rm
 mv
-echo
+*echo
 cat
 free
 ps
 cd
-more
+#more
+man
+{
+	set
+	export
+	=
+	clear
+}

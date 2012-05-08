@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  execute.c
  * Version      :  1.0
@@ -58,8 +56,6 @@ int Execute(char *argv[])
 		perror("illegal command!\n");
 		exit(1);	
 	}
-
-	/*father process*/
 	else
 	{	
 		if (wait(&chlid_in) == -1)

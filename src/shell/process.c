@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  process.c
  * Version      :  1.0
@@ -22,18 +20,19 @@
 #include <string.h>
 #include <ctype.h>
 #include <gtk/gtk.h>
+#include <dirent.h>
 #include "valuelib.h"
 #include "process.h"
 #include "config.h"
 #include "eval.h"
 #include "execute.h"
 
+#define HOME_DIR   "/home/pxunl/myshell/src/shell/"
 
 typedef enum 
 {
 	NATRULE,
 	WANT_THEN,
-#include <gtk/gtk.h>
 	THEN_BLOCK
 } States;
 
@@ -212,7 +211,8 @@ int IS_Buildin_Cmd(char **input)
 	
 	if ((strcmp(input[0], "iset") == 0) 
 		|| (strchr(input[0], '=') != NULL) 
-		|| (strcmp(input[0], "iexport") == 0))
+		|| (strcmp(input[0], "iexport") == 0)
+		|| (strcmp(input[0], "icd") == 0))
 	{ 
 		return R_TRUE;
 	} 
@@ -228,16 +228,31 @@ int IS_Buildin_Cmd(char **input)
 int Process_Buildin_Cmd(char **cmd)
 {
 	int flag = R_FALSE;
-	if (strcmp(cmd[0], "iset") == 0) 
+	if (strcmp(cmd[0], "icd") == 0 && cmd[1] != NULL) 
+	{
+		if (chdir(cmd[1]) == R_FALSE)
+		{
+			usage();
+			return R_FALSE;
+		}
+		flag = R_TRUE;
+		g_print("%s", cmd[1]);
+	}
+	else if (strcmp(cmd[0], "icd") == 0 && cmd[1] == NULL) 
+	{
+		if (chdir(HOME_DIR) == R_FALSE)
+		{
+			usage();
+			return R_FALSE;
+		}
+		flag = R_TRUE;
+		g_print("pxunl@lnuxp.#");
+	}
+	else if (strcmp(cmd[0], "iset") == 0) 
 	{
 		Value_List();
 		flag = R_TRUE;
 	}
-	
-	/*else if (strcmp(cmd[0], "iwho")) */
-	/*{*/
-		/*system(cmd[0]);*/
-	/*}*/
 	
 	/*we can only export a name not include the it's var*/
 	else if (strcmp(cmd[0], "iexport") == 0) 
@@ -276,4 +291,9 @@ int Process_Buildin_Cmd(char **cmd)
 		}
 	}
 	return flag;
+}
+
+void usage()
+{
+	g_print("Usage: cd [OPTIONS] DIRECTORY\nicd --help\n");
 }
