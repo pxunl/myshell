@@ -6,15 +6,16 @@
 *rm
 mv
 *echo
-cat
 free
-ps
-cd
+----ps
 #more
+*proc
+*cat
 man
 {
-	set
-	export
+	iset
+	iexport
 	=
-	clear
+	icd
+	iclear
 }

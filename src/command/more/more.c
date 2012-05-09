@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  more.c
  * Version      :  1.0
@@ -18,10 +16,9 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-
-#include  <unistd.h>
-#include   <string.h>
-#include   <sys/types.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
 #include <dirent.h>
 #include <signal.h>
 #include <sys/ioctl.h>
@@ -38,53 +35,69 @@ static void pr_winsize(int);
 
 struct winsize size;  
 
-int main ( int argc, char *argv[] )  
+int main (int argc, char *argv[])  
 {  
 	FILE *fp; /* File Descriptor */  
-	if(signal(SIGWINCH,sig_winch)==SIG_ERR)  
-		perror("Signal Error");  
+	if(signal(SIGWINCH,sig_winch) == SIG_ERR)  
+	{
+		perror("Signal Error");
+	}
 	pr_winsize(1);  
-	if ( argc ==1 ) /* If no files exist,use the keyboard */  
-		do_more(stdin);   
+	if ( argc == 1 ) /* If no files exist,use the keyboard */  
+	{
+		do_more(stdin);  
+   	}
 	/* Through this method,a program may support pipe '|' */  
-	else  
+	else
+	{	
 		while(--argc)  
-			if((fp=fopen(*++argv,"r"))!=NULL)  
+		{
+			if((fp=fopen(*++argv,"r")) != NULL)  
 			{  
 				do_more(fp);  
 				fclose(fp);  
 			}  
-			else  
+			else 
+			{	
 				exit(1);  
+			}
+		}
+	}
 	return EXIT_SUCCESS;  
 } /* ---------- end of function main ---------- */  
 
+
+
+/**
+ * @do_more : output from descriptor fp
+ */
 void do_more(FILE *fp)  
 {  
 	char line[LINELEN];  
-	int num_of_lines=0;  
+	int num_of_lines = 0;  
 	int reply;  
 	FILE *fp_tty;  
 	fp_tty = fopen( "/dev/tty" , "r");  
-	if (fp_tty==NULL)  
+	if (fp_tty == NULL)  
 		exit(1);  
 
 	while(fgets( line,LINELEN,fp))  
 	{  
-		if( num_of_lines == (size.ws_row-2))  
+		if( num_of_lines == (size.ws_row - 2))  
 		{  
 			reply = see_more(fp_tty);  
 			noneprint(0);  
-			if( reply == 0)  
+			if( reply == 0) 
+			{	
 				break;  
+			}
 			num_of_lines-=reply;  
 		}  
 
-		if( fputs (line,stdout)==EOF)  
+		if(fputs (line,stdout) == EOF)  
 			exit(1);  
 		num_of_lines++;  
 	}  
-
 }  
 
 int see_more(FILE *cmd)  
@@ -93,7 +106,7 @@ int see_more(FILE *cmd)
 	system ("stty -F /dev/tty cbreak");/*打开/dev/tty作为输入终端，并且控制属性为不需要回车*/  
 	printf("/033[7m more? /033[m");  
 	noneprint(1);  
-	while((c=getc(cmd))!=EOF)  
+	while((c=getc(cmd)) != EOF)  
 	{  
 		if(c == 'q')  
 		{  
@@ -127,7 +140,7 @@ void noneprint(int flag)
 		exit (1);  
 	}  
 	pend_setting = init_setting;  
-	if(flag==1)  
+	if(flag == 1)  
 		pend_setting.c_lflag &= ~ECHO;  
 	else  
 		pend_setting.c_lflag |= ECHO;  
@@ -136,8 +149,10 @@ void noneprint(int flag)
 
 static void pr_winsize(int fd)  
 {  
-	if(ioctl(fd,TIOCGWINSZ, (char *)&size)<0)  
+	if(ioctl(fd,TIOCGWINSZ, (char *)&size) < 0)  
+	{
 		perror("TIOCGWINSZ Error!");  
+	}
 }  
 
 static void sig_winch(int signo)  

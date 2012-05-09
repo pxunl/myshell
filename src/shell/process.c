@@ -236,7 +236,10 @@ int Process_Buildin_Cmd(char **cmd)
 			return R_FALSE;
 		}
 		flag = R_TRUE;
+
+		///////////////////////
 		g_print("%s", cmd[1]);
+		//////////////////////
 	}
 	else if (strcmp(cmd[0], "icd") == 0 && cmd[1] == NULL) 
 	{
@@ -246,7 +249,9 @@ int Process_Buildin_Cmd(char **cmd)
 			return R_FALSE;
 		}
 		flag = R_TRUE;
+		///////////////////////
 		g_print("pxunl@lnuxp.#");
+		///////////////////////
 	}
 	else if (strcmp(cmd[0], "iset") == 0) 
 	{

@@ -1,0 +1,18 @@
+-e !_TAG_FILE_SORTED	2	/2=foldcase/
+config.h	./config.h	1
+cscope.files	./cscope.files	1
+cscope.out	./cscope.out	1
+eval.c	./eval.c	1
+eval.h	./eval.h	1
+execute.c	./execute.c	1
+execute.h	./execute.h	1
+filenametags	./filenametags	1
+mainWindow.c	./mainWindow.c	1
+Makefile	./Makefile	1
+process.c	./process.c	1
+process.h	./process.h	1
+shell.c	./shell.c	1
+shell.h	./shell.h	1
+tags	./tags	1
+valuelib.c	./valuelib.c	1
+valuelib.h	./valuelib.h	1
