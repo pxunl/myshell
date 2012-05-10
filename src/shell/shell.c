@@ -6,8 +6,8 @@
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 12:13:00 HKT
- * Description  :  the main function of my shell 
- *
+ * Description  :  the main function of my shell, Shell_Main() call function Process to
+ * 				   process command lines(string), spilt command line through function spiltline
  * History      :
  * Revision     :  none
  * Compiler     :  gcc

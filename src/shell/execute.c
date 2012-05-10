@@ -6,7 +6,7 @@
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 11:13:00 HKT
- * Description  :  
+ * Description  :  Execute command by fork a new process
  *
  * History      :
  * Revision     :  none

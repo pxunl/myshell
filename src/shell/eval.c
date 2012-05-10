@@ -9,6 +9,7 @@
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 10:13:00 HKT
  * Description  :  To read the command line and spilt them.
+ * 				   recommand basic funuctions for process.c
  *
  * History      :
  * Revision     :  none

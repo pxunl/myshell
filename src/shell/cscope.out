@@ -1,4 +1,4 @@
-cscope 15 $HOME/myshell/src/shell               0000401092
+cscope 15 $HOME/myshell/src/shell               0000401377
 	@config.h
 
 6 #i‚de‡
@@ -35,37 +35,43 @@ __CONFIG_H
 
 	)
 
+14 
+	#BUF_SIZE
+ 2048
+
+	)
+
 	@eval.c
 
-19 
+20 
 	~<°dio.h
 >
 
-20 
+21 
 	~<°dlib.h
 >
 
-21 
+22 
 	~<°rög.h
 >
 
-22 
+23 
 	~<uni°d.h
 >
 
-23 
+24 
 	~"evÆ.h
 "
 
-24 
+25 
 	~"c⁄fig.h
 "
 
-25 
+26 
 	~"shñl.h
 "
 
-28 
+29 
 	#is_n⁄e_c
 (
 x
@@ -73,7 +79,7 @@ x
 
 	)
 
-38 
+39 
 	$Áèl
 (*
 °r_îr
@@ -83,7 +89,7 @@ x
 exô_code
 )
 
-40 
+41 
 	`Ârötf
 (
 °dîr
@@ -93,17 +99,17 @@ exô_code
 °r_îr‹
 );
 
-41 
+42 
 	`exô
 (
 exô_code
 );
 
-42 
+43 
 	}
 }
 
-44 *
+45 *
 	$emÆloc
 (
 size_t
@@ -111,11 +117,11 @@ size_t
 n
 )
 
-46 *
+47 *
 rv
 ;
 
-47 i‡((
+48 i‡((
 rv
  = 
 	`mÆloc
@@ -125,19 +131,19 @@ n
 NULL
 )
 
-48 
+49 
 	`Áèl
 ("out of memory!\n", "", 1);
 
-49  
+50  
 rv
 ;
 
-50 
+51 
 	}
 }
 
-52 *
+53 *
 	$îóŒoc
 (*
 poöt
@@ -147,11 +153,11 @@ size_t
 n
 )
 
-54 *
+55 *
 rv
 ;
 
-55 i‡((
+56 i‡((
 rv
  = 
 	`ªÆloc
@@ -163,19 +169,19 @@ n
 NULL
 )
 
-57 
+58 
 	`Áèl
 ("realloc() fail!", "" , 1);
 
-60  
+61  
 rv
 ;
 
-61 
+62 
 	}
 }
 
-69 * 
+70 * 
 	$ªad_comm™d
 (
 FILE
@@ -183,29 +189,29 @@ FILE
 Â
 )
 
-71 *
+72 *
 buf
 ;
 
-72 
+73 
 buf_•a˚
  = 0;
 
-73 
+74 
 posi⁄
  = 0;
 
-74 
+75 
 c
 ;
 
-76 
+77 
 	`¥ötf
 ("%s\n", 
 DEF_PROMPT
 );
 
-77 (
+78 (
 c
  = 
 	`gëc
@@ -215,17 +221,17 @@ c
 EOF
 )
 
-80 i‡(
+81 i‡(
 posi⁄
 +1 >
 buf_•a˚
 )
 
-82 i‡(
+83 i‡(
 buf_•a˚
  == 0)
 
-84 
+85 
 buf
  = (*)
 	`emÆloc
@@ -233,7 +239,7 @@ buf
 BUFSIZE
 );
 
-88 
+89 
 buf
  = (*)
 	`îóŒoc
@@ -243,17 +249,17 @@ buf_•a˚
 BUFSIZE
 );
 
-90 
+91 
 buf_•a˚
  +
 BUFSIZE
 ;
 
-94 i‡(
+95 i‡(
 c
  == '\n')
 
-98 
+99 
 buf
 [
 posi⁄
@@ -261,7 +267,7 @@ posi⁄
 c
 ;
 
-101 i‡(
+102 i‡(
 c
  =
 EOF
@@ -269,25 +275,25 @@ EOF
 posi⁄
  == 0)
 
-103  
+104  
 NULL
 ;
 
-106 
+107 
 buf
 [
 posi⁄
 ] = '\0';
 
-107  
+108  
 buf
 ;
 
-108 
+109 
 	}
 }
 
-118 * 
+119 * 
 	$¸óã_°r
 (*
 begö
@@ -295,7 +301,7 @@ begö
 Àn
 )
 
-120 *
+121 *
 √w_°r
  = 
 	`emÆloc
@@ -303,7 +309,7 @@ begö
 Àn
 +1);
 
-122 
+123 
 	`°∫˝y
 (
 √w_°r
@@ -313,67 +319,67 @@ begö
 Àn
 );
 
-123 
+124 
 √w_°r
 [
 Àn
 ] = '\0';
 
-124  
+125  
 √w_°r
 ;
 
-125 
+126 
 	}
 }
 
-135 **
+136 **
 	$•ûéöe
 (*
 cmdlöe
 )
 
-137 i‡(
+138 i‡(
 cmdlöe
  =
 NULL
 )
 
-139  
+140  
 NULL
 ;
 
-142 **
+143 **
 ¨gs
 ;
 
-143 
+144 
 pŸs
  = 0;
 
-144 
+145 
 buf_num
  = 0;
 
-145 
+146 
 ¨g_num
  = 0;
 
-146 *
+147 *
 °r
  = 
 cmdlöe
 ;
 
-147 *
+148 *
 °¨t
 ;
 
-148 
+149 
 Àngth
 ;
 
-150 
+151 
 ¨gs
  = 
 	`emÆloc
@@ -381,43 +387,43 @@ cmdlöe
 BUFSIZE
 );
 
-151 
+152 
 buf_num
  = 
 BUFSIZE
 ;
 
-152 
+153 
 pŸs
  = 
 BUFSIZE
  / (*);
 
-154 *
+155 *
 °r
  != '\0')
 
-157 
+158 
 	`is_n⁄e_c
 (*
 °r
 ))
 
-159 
+160 
 °r
 ++;
 
-162 i‡(*
+163 i‡(*
 °r
  == '\0')
 
-168 i‡(
+169 i‡(
 ¨g_num
 +1 >
 pŸs
 )
 
-170 
+171 
 ¨gs
  = 
 	`îóŒoc
@@ -427,39 +433,39 @@ buf_num
 BUFSIZE
 );
 
-171 
+172 
 buf_num
  +
 BUFSIZE
 ;
 
-172 
+173 
 pŸs
  +(
 BUFSIZE
 /(*));
 
-175 
+176 
 °¨t
  = 
 °r
 ;
 
-176 
+177 
 Àngth
  = 1;
 
-177 (*(++
+178 (*(++
 °r
 Ë!'\0'Ë&& (!
 	`is_n⁄e_c
 (*str)))
 
-179 
+180 
 Àngth
 ++;
 
-181 
+182 
 ¨gs
 [
 ¨g_num
@@ -471,7 +477,7 @@ BUFSIZE
 Àngth
 );
 
-183 
+184 
 ¨gs
 [
 ¨g_num
@@ -479,49 +485,49 @@ BUFSIZE
 NULL
 ;
 
-184  
+185  
 ¨gs
 ;
 
-185 
+186 
 	}
 }
 
-188 
+189 
 	$‰ì_li°
 (**
 li°
 )
 
-190 **
+191 **
 ˝
  = 
 li°
 ;
 
-191 *
+192 *
 ˝
 )
 
-192 
+193 
 	`‰ì
 (*
 ˝
 ++);
 
-193 
+194 
 	`‰ì
 (
 li°
 );
 
-194 
+195 
 li°
  = 
 NULL
 ;
 
-195 
+196 
 	}
 }
 
@@ -749,47 +755,41 @@ Execuã
 
 	@mainWindow.c
 
-17 
+18 
 	~<°rög.h
 >
 
-18 
+19 
 	~<°dlib.h
 >
 
-19 
+20 
 	~<°dio.h
 >
 
-20 
+21 
 	~<uni°d.h
 >
 
-21 
+22 
 	~<gtk/gtk.h
 >
 
-22 
+23 
 	~<gdk/gdkkeysyms.h
 >
 
-23 
+24 
 	~"shñl.h
 "
 
-24 
+25 
 	~"vÆuñib.h
 "
 
-25 
+26 
 	~"c⁄fig.h
 "
-
-27 
-	#BUF_SIZE
- 2048
-
-	)
 
 29 
 GtkTextIãr
@@ -830,28 +830,28 @@ BUFSIZ
 ];
 
 36 
-gch¨
- 
-	gg_dú
-[64];
-
-37 
 göt
  
 	gcou¡
  = 0;
 
-38 
+37 
 guöt
  
 	g˛ór_cou¡
  = 0;
 
-39 
+38 
 göt
  
 	g≠ùe
 [2] = {0,1};
+
+40 
+gch¨
+ 
+	gg_dú
+[64];
 
 41 **
 ívú⁄
@@ -861,7 +861,11 @@ göt
 öôülize
 ();
 
-44 
+43 
+g_ch™ge_dú
+;
+
+45 
 de°roy
 (
 GtkWidgë
@@ -873,7 +877,7 @@ gpoöãr
 d©a
 );
 
-45 
+46 
 gboﬁón
  
 vútuÆ_keybﬂrd_drive
@@ -891,7 +895,7 @@ gpoöãr
 d©a
 );
 
-47 
+48 
 	$maö
 (
 ¨gc
@@ -899,91 +903,91 @@ d©a
 ¨gv
 [])
 
-49 
+50 
 GtkWidgë
  *
 maö_wödow
 ;
 
-50 
+51 
 GtkWidgë
  *
 ãxt_võw
 ;
 
-51 
+52 
 GtkWidgë
  *
 s¸ﬁÀd_wödow
 ;
 
-52 
+53 
 GtkWidgë
  *
 v_box
 ;
 
-53 
+54 
 GtkWidgë
  *
 míu_vbox
 ;
 
-54 
+55 
 GtkWidgë
  *
 míub¨
 ;
 
-55 
+56 
 GtkWidgë
  *
 fûemíu
 ;
 
-56 
+57 
 GtkWidgë
  *
 √w
 ;
 
-57 
+58 
 GtkWidgë
  *
 fûe
 ;
 
-58 
+59 
 GtkWidgë
  *
 quô
 ;
 
-59 
+60 
 GtkWidgë
  *
 £p
 ;
 
-60 
+61 
 GtkWidgë
  *
 ›ti⁄
 ;
 
-61 
+62 
 GtkWidgë
  *
 edô
 ;
 
-62 
+63 
 GtkWidgë
  *
 hñp
 ;
 
-63 
+64 
 GtkAc˚lGroup
  *
 ac˚l_group
@@ -991,7 +995,7 @@ ac˚l_group
 NULL
 ;
 
-65 
+66 
 	`gtk_öô
 (&
 ¨gc
@@ -999,11 +1003,11 @@ NULL
 ¨gv
 );
 
-66 
+67 
 	`öôülize
 ();
 
-67 
+68 
 maö_wödow
  = 
 	`gtk_wödow_√w
@@ -1011,7 +1015,7 @@ maö_wödow
 GTK_WINDOW_TOPLEVEL
 );
 
-69 
+70 
 	`gtk_sig«l_c⁄√˘
 (
 	`GTK_OBJECT
@@ -1019,7 +1023,7 @@ GTK_WINDOW_TOPLEVEL
 maö_wödow
 ), "destroy",
 
-70 
+71 
 	`G_CALLBACK
 (
 de°roy
@@ -1027,7 +1031,7 @@ de°roy
 NULL
 );
 
-72 
+73 
 	`gtk_wödow_£t_tôÀ
 (
 	`GTK_WINDOW
@@ -1035,7 +1039,7 @@ NULL
 maö_wödow
 ), "Myshell");
 
-73 
+74 
 	`gtk_wödow_£t_posôi⁄
 (
 	`GTK_WINDOW
@@ -1045,7 +1049,7 @@ maö_wödow
 GTK_WIN_POS_CENTER
 );
 
-74 
+75 
 	`gtk_wödow_£t_deÁu…_size
 (
 	`GTK_WINDOW
@@ -1053,7 +1057,7 @@ GTK_WIN_POS_CENTER
 maö_wödow
 ), 730, 533);
 
-75 
+76 
 	`gtk_c⁄èöî_£t_b‹dî_width
 (
 	`GTK_CONTAINER
@@ -1061,7 +1065,7 @@ maö_wödow
 maö_wödow
 ), 5);
 
-76 
+77 
 	`GTK_WINDOW
 (
 maö_wödow
@@ -1071,7 +1075,7 @@ maö_wödow
 TRUE
 ;
 
-79 
+80 
 míu_vbox
  = 
 	`gtk_vbox_√w
@@ -1079,7 +1083,7 @@ míu_vbox
 FALSE
 , 0);
 
-80 
+81 
 	`gtk_c⁄èöî_add
 (
 	`GTK_CONTAINER
@@ -1089,25 +1093,25 @@ maö_wödow
 míu_vbox
 );
 
-82 
+83 
 míub¨
  = 
 	`gtk_míu_b¨_√w
 ();
 
-83 
+84 
 fûemíu
  = 
 	`gtk_míu_√w
 ();
 
-86 
+87 
 ac˚l_group
  = 
 	`gtk_ac˚l_group_√w
 ();
 
-87 
+88 
 	`gtk_wödow_add_ac˚l_group
 (
 	`GTK_WINDOW
@@ -1117,31 +1121,31 @@ maö_wödow
 ac˚l_group
 );
 
-90 
+91 
 fûe
  = 
 	`gtk_míu_ôem_√w_wôh_m√m⁄ic
 ("_File");
 
-91 
+92 
 edô
  = 
 	`gtk_míu_ôem_√w_wôh_m√m⁄ic
 ("_Edit");
 
-92 
+93 
 ›ti⁄
  = 
 	`gtk_míu_ôem_√w_wôh_m√m⁄ic
 ("_Option");
 
-93 
+94 
 hñp
  = 
 	`gtk_míu_ôem_√w_wôh_m√m⁄ic
 ("_Help");
 
-94 
+95 
 √w
  = 
 	`gtk_image_míu_ôem_√w_‰om_°ock
@@ -1151,7 +1155,7 @@ GTK_STOCK_NEW
 NULL
 );
 
-96 
+97 
 quô
  = 
 	`gtk_image_míu_ôem_√w_‰om_°ock
@@ -1161,13 +1165,13 @@ GTK_STOCK_QUIT
 ac˚l_group
 );
 
-98 
+99 
 £p
  = 
 	`gtk_£∑øt‹_míu_ôem_√w
 ();
 
-105 
+106 
 	`gtk_widgë_add_ac˚Àøt‹
 (
 quô
@@ -1175,7 +1179,7 @@ quô
 ac˚l_group
 ,
 
-106 
+107 
 GDK_q
 , 
 GDK_CONTROL_MASK
@@ -1183,7 +1187,7 @@ GDK_CONTROL_MASK
 GTK_ACCEL_VISIBLE
 );
 
-109 
+110 
 	`gtk_míu_ôem_£t_submíu
 (
 	`GTK_MENU_ITEM
@@ -1193,7 +1197,7 @@ fûe
 fûemíu
 );
 
-112 
+113 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1203,7 +1207,7 @@ fûemíu
 √w
 );
 
-113 
+114 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1213,7 +1217,7 @@ fûemíu
 quô
 );
 
-114 
+115 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1223,7 +1227,7 @@ fûemíu
 £p
 );
 
-115 
+116 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1233,7 +1237,7 @@ míub¨
 fûe
 );
 
-116 
+117 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1243,7 +1247,7 @@ míub¨
 edô
 );
 
-117 
+118 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1253,7 +1257,7 @@ míub¨
 ›ti⁄
 );
 
-118 
+119 
 	`gtk_míu_shñl_≠≥nd
 (
 	`GTK_MENU_SHELL
@@ -1263,7 +1267,7 @@ míub¨
 hñp
 );
 
-119 
+120 
 	`gtk_box_∑ck_°¨t
 (
 	`GTK_BOX
@@ -1275,7 +1279,7 @@ míub¨
 FALSE
 , FALSE, 3);
 
-121 
+122 
 	`g_sig«l_c⁄√˘
 (
 	`G_OBJECT
@@ -1283,7 +1287,7 @@ FALSE
 quô
 ), "activate",
 
-122 
+123 
 	`G_CALLBACK
 (
 de°roy
@@ -1291,7 +1295,7 @@ de°roy
 NULL
 );
 
-126 
+127 
 s¸ﬁÀd_wödow
  = 
 	`gtk_s¸ﬁÀd_wödow_√w
@@ -1299,13 +1303,13 @@ s¸ﬁÀd_wödow
 NULL
 , NULL);
 
-127 
+128 
 ãxt_võw
  = 
 	`gtk_ãxt_võw_√w
 ();
 
-128 
+129 
 	`gtk_box_∑ck_°¨t
 (
 	`GTK_BOX
@@ -1317,7 +1321,7 @@ s¸ﬁÀd_wödow
 TRUE
 , TRUE, 5);
 
-129 
+130 
 buf„r
  = 
 	`gtk_ãxt_võw_gë_buf„r
@@ -1327,7 +1331,7 @@ GtkTextVõw
 ãxt_võw
 );
 
-131 
+132 
 	`gtk_ãxt_buf„r_gë_íd_ôî
 (
 buf„r
@@ -1335,7 +1339,7 @@ buf„r
 ôî
 );
 
-132 
+133 
 	`gtk_ãxt_buf„r_ö£π
 (
 buf„r
@@ -1345,7 +1349,7 @@ buf„r
 g_dú
 , -1);
 
-135 
+136 
 	`gtk_sig«l_c⁄√˘
 ((
 GtkObje˘
@@ -1359,7 +1363,7 @@ vútuÆ_keybﬂrd_drive
 NULL
 );
 
-138 
+139 
 	`gtk_c⁄èöî_add
 (
 	`GTK_CONTAINER
@@ -1369,7 +1373,7 @@ s¸ﬁÀd_wödow
 ãxt_võw
 );
 
-139 
+140 
 v_box
  = 
 	`gtk_vbox_√w
@@ -1377,21 +1381,21 @@ v_box
 FALSE
 , 5);
 
-141 
+142 
 	`gtk_widgë_show_Æl
 (
 maö_wödow
 );
 
-142 
+143 
 	`gtk_maö
 ();
 
-145 
+146 
 	}
 }
 
-149 
+150 
 	$de°roy
 (
 GtkWidgë
@@ -1403,19 +1407,19 @@ gpoöãr
 d©a
 )
 
-151 
+152 
 	`g_¥öt
 ("\nended...\n");
 
-152 
+153 
 	`gtk_maö_quô
 ();
 
-153 
+154 
 	}
 }
 
-161 
+162 
 gboﬁón
  
 	$vútuÆ_keybﬂrd_drive
@@ -1433,13 +1437,13 @@ gpoöãr
 d©a
 )
 
-163 
+164 
 gl⁄g
  
 Àn
  = 0;
 
-164 
+165 
 guöt
  
 key
@@ -1449,35 +1453,35 @@ evít
 keyvÆ
 ;
 
-165 i‡(
+166 i‡(
 key
  =
 GDK_Rëu∫
 )
 
-167 
+168 
 g_buf_cmd
 [
 cou¡
 ++] = '\0';
 
-169 i‡(
+170 i‡(
 	`°rcmp
 (
 g_buf_cmd
 , "exit") == 0)
 
-171 
+172 
 	`exô
 (0);
 
-173 
+174 
 	`Shñl_Maö
 (
 g_buf_cmd
 );
 
-175 
+176 
 	`mem£t
 (
 buf
@@ -1485,7 +1489,7 @@ buf
 BUF_SIZE
 );
 
-177 i‡((
+178 i‡((
 Àn
  = 
 	`ªad
@@ -1497,19 +1501,63 @@ buf
 BUF_SIZE
 )) == -1)
 
-179 
+180 
 	`g_¥öt
 ("error,whenÑeading fromÖipe\n");
 
-180 
+181 
 	`exô
 (1);
 
-196 
-cou¡
+185 i‡(
+g_ch™ge_dú
+ == 1)
+
+187 
+	`mem£t
+(
+g_dú
+, '\0', 64);
+
+188 
+	`°r˝y
+(
+g_dú
+, 
+CUR_USER
+);
+
+189 
+	`°rˇt
+(
+g_dú
+, 
+buf
+);
+
+190 
+	`°rˇt
+(
+g_dú
+, "#");
+
+191 
+	`mem£t
+(
+buf
+, '\0', 
+BUF_SIZE
+);
+
+192 
+g_ch™ge_dú
  = 0;
 
 197 
+cou¡
+ = 0;
+
+198 
 	`gtk_ãxt_buf„r_gë_íd_ôî
 (
 buf„r
@@ -1517,7 +1565,7 @@ buf„r
 ôî
 );
 
-198 
+199 
 	`gtk_ãxt_buf„r_ö£π
 (
 buf„r
@@ -1525,7 +1573,7 @@ buf„r
 ôî
 , "\n", -1);
 
-199 
+200 
 	`gtk_ãxt_buf„r_gë_íd_ôî
 (
 buf„r
@@ -1533,7 +1581,7 @@ buf„r
 ôî
 );
 
-200 
+201 
 	`gtk_ãxt_buf„r_ö£π
 (
 buf„r
@@ -1543,7 +1591,7 @@ buf„r
 buf
 , -1);
 
-201 
+202 
 	`mem£t
 (
 buf
@@ -1551,17 +1599,17 @@ buf
 BUF_SIZE
 );
 
-202 
+203 
 	`mem£t
 (
 g_buf_cmd
 , '\0', 512);
 
-205 i‡((
+206 i‡((
 ˛ór_cou¡
 ++) > 10)
 
-207 
+208 
 	`gtk_ãxt_buf„r_gë_bounds
 (
 buf„r
@@ -1571,7 +1619,7 @@ buf„r
 íd_ôî
 );
 
-208 
+209 
 	`gtk_ãxt_buf„r_dñëe
 (
 buf„r
@@ -1581,11 +1629,11 @@ buf„r
 íd_ôî
 );
 
-209 
+210 
 ˛ór_cou¡
  = 0;
 
-211 
+212 
 	`gtk_ãxt_buf„r_gë_íd_ôî
 (
 buf„r
@@ -1593,7 +1641,7 @@ buf„r
 ôî
 );
 
-212 
+213 
 	`gtk_ãxt_buf„r_ö£π
 (
 buf„r
@@ -1603,95 +1651,95 @@ buf„r
 g_dú
 , -1);
 
-216 i‡(
+217 i‡(
 key
  =
 GDK_BackS∑˚
 )
 
-218 i‡(
+219 i‡(
 cou¡
  > 0)
 
-220 
+221 
 g_buf_cmd
 [
 cou¡
 -1] = '\0';
 
-221 
+222 
 cou¡
 --;
 
-223  
+224  
 FALSE
 ;
 
-227 i‡((
+228 i‡((
 key
  =
 GDK_Le·
 )
 
-228 || (
+229 || (
 key
  =
 GDK_A…_L
 )
 
-229 || (
+230 || (
 key
  =
 GDK_Right
 )
 
-230 || (
+231 || (
 key
  =
 GDK_Down
 )
 
-231 || (
+232 || (
 key
  =
 GDK_Up
 )
 
-232 || (
+233 || (
 key
  =
 GDK_Tab
 )
 
-233 || (
+234 || (
 key
  =
 GDK_Shi·_L
 )
 
-234 || (
+235 || (
 key
  =
 GDK_Shi·_R
 )
 
-235 || (
+236 || (
 key
  =
 GDK_C≠s_Lock
 )
 
-236 || (
+237 || (
 key
  =
 GDK_C⁄åﬁ_L
 ))
 
-238  
+239  
 FALSE
 ;
 
-242 
+243 
 g_buf_cmd
 [
 cou¡
@@ -1699,19 +1747,23 @@ cou¡
 key
 ;
 
-245  
+246  
 FALSE
 ;
 
-246 
+247 
 	}
 }
 
-252 
+253 
 	$öôülize
 ()
 
-254 
+255 
+g_ch™ge_dú
+ = 0;
+
+256 
 	`mem£t
 (
 buf
@@ -1719,19 +1771,19 @@ buf
 BUF_SIZE
 );
 
-255 
+257 
 	`mem£t
 (
 g_dú
 , '\0', 64);
 
-256 
+258 
 	`mem£t
 (
 g_buf_cmd
 , '\0', (g_buf_cmd));
 
-257 
+259 
 	`°r˝y
 (
 g_dú
@@ -1739,45 +1791,45 @@ g_dú
 CUR_USER
 );
 
-258 
+260 
 	`°rˇt
 (
 g_dú
 , ".#");
 
-260 
+262 
 	`Env_To_TabÀ
 (
 ívú⁄
 );
 
-262 i‡(
+264 i‡(
 	`pùe
 (
 ≠ùe
 ) == -1)
 
-264 
+266 
 	`g_¥öt
 ("couldn't makeÖipe");
 
-265 
+267 
 	`exô
 (1);
 
-269 
+271 
 	`dup2
 (
 ≠ùe
 [1], 1);
 
-270 
+272 
 	`dup2
 (
 ≠ùe
 [1], 2);
 
-272 
+274 
 	`sig«l
 (
 SIGINT
@@ -1785,7 +1837,7 @@ SIGINT
 SIG_IGN
 );
 
-273 
+275 
 	`sig«l
 (
 SIGQUIT
@@ -1793,7 +1845,7 @@ SIGQUIT
 SIG_IGN
 );
 
-274 
+276 
 	}
 }
 
@@ -1881,6 +1933,10 @@ R_TRUE
 	gœ°_°©e
  = 
 R_FALSE
+;
+
+44 
+g_ch™ge_dú
 ;
 
 53 
@@ -2323,13 +2379,15 @@ R_FALSE
 R_TRUE
 ;
 
-239 
-	`g_¥öt
-("%s", 
-cmd
-[1]);
+241 
+	`sy°em
+("pwd");
 
-241 i‡(
+242 
+g_ch™ge_dú
+ = 1;
+
+245 i‡(
 	`°rcmp
 (
 cmd
@@ -2337,7 +2395,7 @@ cmd
 NULL
 )
 
-243 i‡(
+247 i‡(
 	`chdú
 (
 HOME_DIR
@@ -2345,47 +2403,47 @@ HOME_DIR
 R_FALSE
 )
 
-245 
+249 
 	`ußge
 ();
 
-246  
+250  
 R_FALSE
 ;
 
-248 
+252 
 Êag
  = 
 R_TRUE
 ;
 
-249 
-	`g_¥öt
-("pxunl@lnuxp.#");
-
-251 i‡(
-	`°rcmp
-(
-cmd
-[0], "iset") == 0)
-
-253 
-	`VÆue_Li°
-();
-
-254 
-Êag
- = 
-R_TRUE
-;
+255 
+	`sy°em
+("pwd");
 
 258 i‡(
 	`°rcmp
 (
 cmd
+[0], "iset") == 0)
+
+260 
+	`VÆue_Li°
+();
+
+261 
+Êag
+ = 
+R_TRUE
+;
+
+265 i‡(
+	`°rcmp
+(
+cmd
 [0], "iexport") == 0)
 
-260 i‡((
+267 i‡((
 cmd
 [1] !
 NULL
@@ -2393,7 +2451,7 @@ NULL
 	`Check_Name
 (cmd[1])))
 
-262 
+269 
 Êag
  = 
 	`VÆue_Exp‹t
@@ -2401,27 +2459,27 @@ NULL
 cmd
 [1]);
 
-266 
+273 
 Êag
  = 
 R_FALSE
 ;
 
-270 i‡(
+277 i‡(
 Êag
  =
 R_FALSE
 )
 
-272 
+279 
 	`g_¥öt
 ("Fail.");
 
-276 
+283 
 	`g_¥öt
 ("Succeed.");
 
-280 i‡(
+287 i‡(
 	`°rchr
 (
 cmd
@@ -2429,7 +2487,7 @@ cmd
 NULL
 )
 
-282 
+289 
 Êag
  = 
 	`VÆue_St‹e
@@ -2437,37 +2495,37 @@ NULL
 cmd
 [0]);
 
-284 i‡(
+291 i‡(
 Êag
  =
 R_FALSE
 )
 
-286 
+293 
 	`g_¥öt
 ("Fail.");
 
-290 
+297 
 	`g_¥öt
 ("Succeed.");
 
-293  
+300  
 Êag
 ;
 
-294 
+301 
 	}
 }
 
-296 
+303 
 	$ußge
 ()
 
-298 
+305 
 	`g_¥öt
 ("Usage: cd [OPTIONS] DIRECTORY\nicd --help\n");
 
-299 
+306 
 	}
 }
 
@@ -2649,55 +2707,55 @@ comm™d_löe
 
 	@valuelib.c
 
-17 
+18 
 	~<°dio.h
 >
 
-18 
+19 
 	~<°dlib.h
 >
 
-19 
+20 
 	~<˘y≥.h
 >
 
-20 
+21 
 	~<°rög.h
 >
 
-21 
+22 
 	~<gtk/gtk.h
 >
 
-22 
+23 
 	~"c⁄fig.h
 "
 
-23 
+24 
 	~"shñl.h
 "
 
-24 
+25 
 	~"vÆuñib.h
 "
 
-25 
+26 
 	~"evÆ.h
 "
 
-28 
+29 
 	sVÆue
 
 
-30 *
+31 *
 	m°r
 ;
 
-31 
+32 
 	mglobÆ
 ;
 
-34 
+35 
 VÆue
  
 	gg_VÆue
@@ -2705,7 +2763,7 @@ VÆue
 MAX_ARGS
 ];
 
-41 
+42 
 VÆue
  *
 	$Föd_Iãm
@@ -2713,11 +2771,11 @@ VÆue
 «me
 )
 
-43 
+44 
 i
  = 0;
 
-44 
+45 
 Àn
  = 
 	`°æí
@@ -2725,7 +2783,7 @@ i
 «me
 );
 
-46 (
+47 (
 i
  < 
 MAX_ARGS
@@ -2737,7 +2795,7 @@ g_VÆue
 NULL
 ))
 
-48 i‡(
+49 i‡(
 	`°∫cmp
 (
 g_VÆue
@@ -2751,35 +2809,35 @@ i
 Àn
 ) == 0)
 
-50  &
+51  &
 g_VÆue
 [
 i
 ];
 
-52 
+53 
 i
 ++;
 
-55  &
+56  &
 g_VÆue
 [
 i
 ];
 
-56 
+57 
 	}
 }
 
-63 
+64 
 	$VÆue_Li°
 ()
 
-65 
+66 
 i
 ;
 
-66 
+67 
 i
  = 0; (ò< 
 MAX_ARGS
@@ -2791,7 +2849,7 @@ g_VÆue
 NULL
 ); i++)
 
-68 i‡(
+69 i‡(
 g_VÆue
 [
 i
@@ -2799,7 +2857,7 @@ i
 globÆ
 )
 
-70 
+71 
 	`g_¥öt
 (" * %s\n", 
 g_VÆue
@@ -2809,7 +2867,7 @@ i
 °r
 );
 
-74 
+75 
 	`g_¥öt
 (" %s\n", 
 g_VÆue
@@ -2819,29 +2877,29 @@ i
 °r
 );
 
-77 
+78 
 	}
 }
 
-86 
+87 
 	$VÆue_Exp‹t
 (*
 «me
 )
 
-88 
+89 
 VÆue
  *
 add_ôem
 ;
 
-89 
+90 
 Êag
  = 
 R_FALSE
 ;
 
-91 i‡((
+92 i‡((
 add_ôem
  = 
 	`Föd_Iãm
@@ -2853,27 +2911,27 @@ NULL
 °r
 ))
 
-93 
+94 
 add_ôem
 ->
 globÆ
  = 1;
 
-94 
+95 
 Êag
  = 
 R_TRUE
 ;
 
-97  
+98  
 Êag
 ;
 
-98 
+99 
 	}
 }
 
-104 *
+105 *
 	$Cª©e_V¨
 –*
 «me
@@ -2881,11 +2939,11 @@ R_TRUE
 v¨
  )
 
-106 *
+107 *
 add_v¨
 ;
 
-108 
+109 
 add_v¨
  = 
 	`mÆloc
@@ -2897,13 +2955,13 @@ add_v¨
 v¨
 ) + 2);
 
-109 i‡(
+110 i‡(
 add_v¨
  !
 NULL
 )
 
-110 
+111 
 	`•rötf
 (
 add_v¨
@@ -2913,57 +2971,57 @@ add_v¨
 v¨
 );
 
-111  
+112  
 add_v¨
 ;
 
-112 
+113 
 	}
 }
 
-122 
+123 
 	$VÆue_St‹e
 (*
 v¨
 )
 
-124 i‡(!
+125 i‡(!
 v¨
 )
 
-126  
+127  
 R_FALSE
 ;
 
-129 
+130 
 Êag
  = 
 R_FALSE
 ;
 
-131 *
+132 *
 «me
  = 
 v¨
 ;
 
-132 *
+133 *
 vÆue
  = 
 v¨
 ;
 
-133 *
+134 *
 equÆ
  = 
 NULL
 ;
 
-134 *
+135 *
 √w_v¨
 ;
 
-135 
+136 
 VÆue
  *
 ôem
@@ -2971,7 +3029,7 @@ VÆue
 NULL
 ;
 
-136 
+137 
 equÆ
  = 
 	`°rchr
@@ -2979,7 +3037,7 @@ equÆ
 v¨
 , '=');
 
-137 
+138 
 «me
  = 
 	`¸óã_°r
@@ -2991,13 +3049,13 @@ v¨
 equÆ
 ));
 
-138 
+139 
 vÆue
  = 
 equÆ
  + 1;
 
-140 i‡((!
+141 i‡((!
 «me
 Ë|| (!
 vÆue
@@ -3005,11 +3063,11 @@ vÆue
 	`Check_Name
 (name)))
 
-142  
+143  
 R_FALSE
 ;
 
-145 i‡((
+146 i‡((
 ôem
  = 
 	`Föd_Iãm
@@ -3019,7 +3077,7 @@ R_FALSE
 NULL
 
 
-146 && (
+147 && (
 √w_v¨
  = 
 	`Cª©e_V¨
@@ -3031,13 +3089,13 @@ vÆue
 NULL
 )
 
-148 i‡(
+149 i‡(
 ôem
 ->
 °r
 )
 
-150 
+151 
 	`‰ì
 (
 ôem
@@ -3045,7 +3103,7 @@ NULL
 °r
 );
 
-152 
+153 
 ôem
 ->
 °r
@@ -3053,91 +3111,91 @@ NULL
 √w_v¨
 ;
 
-153 
+154 
 Êag
  = 
 R_TRUE
 ;
 
-156  
+157  
 Êag
 ;
 
-157 
+158 
 	}
 }
 
-167 
+168 
 	$Check_Name
 (*
 «me
 )
 
-169 i‡(!
+170 i‡(!
 «me
 )
 
-171  
+172  
 R_FALSE
 ;
 
-174 * 
+175 * 
 ck
  = 
 «me
 ;
 
-176 i‡(
+177 i‡(
 	`isdigô
 (*
 ck
 ))
 
-178  
+179  
 R_FALSE
 ;
 
-181 *
+182 *
 ck
 )
 
-183 i‡(*
+184 i‡(*
 ck
  =' ' || *ck ='=' || !(
 	`iß um
 (*ck)))
 
-185  
+186  
 R_FALSE
 ;
 
-187 
+188 
 ck
 ++;
 
-189  
+190  
 R_TRUE
 ;
 
-190 
+191 
 	}
 }
 
-200 
+201 
 	$Env_To_TabÀ
 (*
 ív
 [])
 
-202 *
+203 *
 √w_°r
 ;
 
-204 
+205 
 i
  = 0;
 
-205 (
+206 (
 i
  < 
 MAX_ARGS
@@ -3147,7 +3205,7 @@ NULL
 ív
 [i]))
 
-207 
+208 
 √w_°r
  = 
 	`mÆloc
@@ -3159,15 +3217,15 @@ NULL
 i
 ]));
 
-208 i‡(!
+209 i‡(!
 √w_°r
 )
 
-210  
+211  
 R_FALSE
 ;
 
-212 
+213 
 	`°r˝y
 (
 √w_°r
@@ -3177,7 +3235,7 @@ R_FALSE
 i
 ]);
 
-213 
+214 
 g_VÆue
 [
 i
@@ -3187,7 +3245,7 @@ i
 √w_°r
 ;
 
-214 
+215 
 g_VÆue
 [
 i
@@ -3195,11 +3253,11 @@ i
 globÆ
  = 1;
 
-215 
+216 
 i
 ++;
 
-217 
+218 
 g_VÆue
 [
 i
@@ -3209,7 +3267,7 @@ i
 NULL
  ;
 
-218 
+219 
 g_VÆue
 [
 i
@@ -3217,35 +3275,35 @@ i
 globÆ
  = 0;
 
-220  
+221  
 R_TRUE
 ;
 
-221 
+222 
 	}
 }
 
-227 **
+228 **
 	$TabÀ_To_Env
 ()
 
-229 
+230 
 i
 ;
 
-230 
+231 
 j
 ;
 
-231 
+232 
 ˙
 ;
 
-232 **
+233 **
 ívèb
 ;
 
-235  
+236  
 i
  = 0 ; (ò< 
 MAX_ARGS
@@ -3257,7 +3315,7 @@ g_VÆue
 NULL
 ) ; i++ )
 
-237 i‡(
+238 i‡(
 g_VÆue
 [
 i
@@ -3265,11 +3323,11 @@ i
 globÆ
  == 1)
 
-239 
+240 
 ˙
 ++;
 
-244 
+245 
 ívèb
  = (**Ë
 	`mÆloc
@@ -3277,17 +3335,17 @@ globÆ
 ˙
 +1) * (*) );
 
-245 i‡–
+246 i‡–
 ívèb
  =
 NULL
  )
 
-247  
+248  
 NULL
 ;
 
-251 
+252 
 i
  = 0, 
 j
@@ -3301,7 +3359,7 @@ g_VÆue
 NULL
 ) ; i++ )
 
-253 i‡–
+254 i‡–
 g_VÆue
 [
 i
@@ -3309,7 +3367,7 @@ i
 globÆ
  == 1 )
 
-255 
+256 
 ívèb
 [
 j
@@ -3321,7 +3379,7 @@ i
 °r
 ;
 
-258 
+259 
 ívèb
 [
 j
@@ -3329,55 +3387,55 @@ j
 NULL
 ;
 
-259  
+260  
 ívèb
 ;
 
-260 
+261 
 	}
 }
 
 	@valuelib.h
 
-18 #i‚de‡
+16 #i‚de‡
 __VALUELIB_H__
 
 
-19 
+17 
 	#__VALUELIB_H__
 
 
 	)
 
-21 
+19 
 VÆue_Li°
 ();
 
-22 
+20 
 VÆue_Exp‹t
 (*
 «me
 );
 
-23 
+21 
 VÆue_St‹e
 (*
 v¨
 );
 
-24 
+22 
 Check_Name
 (*
 °r
 );
 
-25 
+23 
 Env_To_TabÀ
 (*
 ív
 []);
 
-26 **
+24 **
 TabÀ_To_Env
 ();
 

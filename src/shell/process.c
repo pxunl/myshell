@@ -41,6 +41,8 @@ typedef enum
 static int if_state   = NATRULE;
 static int if_result  = R_TRUE;
 static int last_state = R_FALSE;
+extern int g_change_dir;  /* refers to <mainWindows.c> for marking wheather the current 
+							 directory has been changed */
 
 
 /**
@@ -238,7 +240,8 @@ int Process_Buildin_Cmd(char **cmd)
 		flag = R_TRUE;
 
 		///////////////////////
-		g_print("%s", cmd[1]);
+		system("pwd");
+		g_change_dir = 1;    /* mark , directory changed */
 		//////////////////////
 	}
 	else if (strcmp(cmd[0], "icd") == 0 && cmd[1] == NULL) 
@@ -250,7 +253,7 @@ int Process_Buildin_Cmd(char **cmd)
 		}
 		flag = R_TRUE;
 		///////////////////////
-		g_print("pxunl@lnuxp.#");
+		system("pwd");        /* just show current directory if "icd ." or "icd" */
 		///////////////////////
 	}
 	else if (strcmp(cmd[0], "iset") == 0) 
@@ -274,11 +277,11 @@ int Process_Buildin_Cmd(char **cmd)
 		/* check if succeed*/
 		if (flag == R_FALSE) 
 		{
-			g_print("Fail.");
+			g_print("Fail.\n");
 		}
 		else 
 		{
-			g_print("Succeed.");
+			g_print("Succeed.\n");
 		}
 	}
 	/*if it contains '='*/
@@ -288,11 +291,11 @@ int Process_Buildin_Cmd(char **cmd)
 
 		if (flag == R_FALSE) 
 		{
-			g_print("Fail.");
+			g_print("Fail.\n");
 		}
 		else 
 		{
-			g_print("Succeed.");
+			g_print("Succeed.\n");
 		}
 	}
 	return flag;

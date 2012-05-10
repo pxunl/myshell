@@ -6,7 +6,8 @@
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Tue, March 6, 2012 12:19:02 HKT
- * Description  :  2012-3-6
+ * Description  :  Draw the main window, get input command line string from gtk_text_view
+ * 				   redirect stdout and stdin. Display informations comming from command.
  *
  * History      :
  * Revision     :  none
@@ -24,7 +25,6 @@
 #include "valuelib.h"
 #include "config.h"
 
-#define BUF_SIZE   2048
 
 static GtkTextIter   iter;
 static GtkTextBuffer *buffer;
@@ -33,15 +33,17 @@ static GtkTextIter   end_iter;
 
 static gchar  g_buf_cmd[512];
 static gchar  buf[BUFSIZ];
-static gchar  g_dir[64];
 static gint   count 	   = 0;
 static guint  clear_count  = 0;
 static gint   apipe[2]     = {0,1};
 
+static gchar  g_dir[64];
 extern char **environ;
 void initialize();
+int g_change_dir; /* to mark wheather the current directory has been changed */
 
 static void destroy(GtkWidget *widget, gpointer data);
+static void Submit_Cmd();
 static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data);
 
 int main(int argc, char *argv[])
@@ -160,57 +162,12 @@ static void destroy(GtkWidget *widget, gpointer data)
  */
 static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
-	glong len = 0;
 	guint key = event->keyval;
 	if (key == GDK_Return)
 	{
 		g_buf_cmd[count++] = '\0';
-
-		if (strcmp(g_buf_cmd, "exit") == 0) 
-		{
-			exit(0);
-		}
-		Shell_Main(g_buf_cmd);
-
-		memset(buf, '\0', BUF_SIZE);
-		/* get  object information from stdout*/
-		if ((len = read(apipe[0], buf, BUF_SIZE)) == -1)
-		{
-			g_print("error,when reading from pipe\n");
-			exit(1);
-		}
-		
-		/////////////////////////////////////////////////
-		/*if (strcmp(g_dir, "pxunl@lnuxp.#") != 0)*/
-		/*{*/
-			/*gtk_text_buffer_get_end_iter(buffer, &iter);*/
-			/*gtk_text_buffer_insert(buffer, &iter, g_dir, -1);*/
-			/*count = 0;*/
-			/*memset(buf, '\0', BUF_SIZE);*/
-			/*memset(g_buf_cmd, '\0', 512);*/
-			/*return FALSE;*/
-		/*}*/
-		/////////////////////////////////////////////////
-		
-		/* initialize buffers */
-		count = 0;
-		gtk_text_buffer_get_end_iter(buffer, &iter);
-		gtk_text_buffer_insert(buffer, &iter, "\n", -1);
-		gtk_text_buffer_get_end_iter(buffer, &iter);
-		gtk_text_buffer_insert(buffer, &iter, buf, -1);
-		memset(buf, '\0', BUF_SIZE);
-		memset(g_buf_cmd, '\0', 512);
-
-		/* clear screan */
-		if ((clear_count++) > 10) 
-		{
-			gtk_text_buffer_get_bounds(buffer, &start_iter, &end_iter);
-			gtk_text_buffer_delete(buffer, &start_iter, &end_iter);
-			clear_count = 0;
-		}
-		gtk_text_buffer_get_end_iter(buffer, &iter);
-		gtk_text_buffer_insert(buffer, &iter, g_dir, -1);
-	}
+		Submit_Cmd();
+  	}
 
 	/*delete backward */
 	else if (key == GDK_BackSpace) 
@@ -251,6 +208,7 @@ static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gp
  */
 void initialize()
 {
+	g_change_dir = 0;
 	memset(buf, '\0', BUF_SIZE);
 	memset(g_dir, '\0', 64);
 	memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
@@ -273,3 +231,53 @@ void initialize()
 	signal(SIGQUIT, SIG_IGN);
 }
 
+static void Submit_Cmd()
+{
+	if (strcmp(g_buf_cmd, "exit") == 0) 
+	{
+		exit(0);
+	}
+
+	glong len = 0;
+
+	Shell_Main(g_buf_cmd);
+
+	memset(buf, '\0', BUF_SIZE);
+	/* get  object information from stdout*/
+	if ((len = read(apipe[0], buf, BUF_SIZE)) == -1)
+	{
+		g_print("error,when reading from pipe\n");
+		exit(1);
+	}
+
+	/* if current directory has been changed
+	 * display it */
+	if (g_change_dir == 1)
+	{
+		memset(g_dir, '\0', 64);
+		strcpy(g_dir, CUR_USER);
+		buf[len-1] = '#';
+		strcat(g_dir, buf);
+		memset(buf, '\0', BUF_SIZE);  /* display nothing except for the current directory */
+		g_change_dir = 0;
+	}
+
+	/* initialize buffers */
+	count = 0;
+	gtk_text_buffer_get_end_iter(buffer, &iter);
+	gtk_text_buffer_insert(buffer, &iter, "\n", -1);
+	gtk_text_buffer_get_end_iter(buffer, &iter);
+	gtk_text_buffer_insert(buffer, &iter, buf, -1);
+	memset(buf, '\0', BUF_SIZE);
+	memset(g_buf_cmd, '\0', 512);
+
+	/* clear screan */
+	if ((clear_count++) > 10) 
+	{
+		gtk_text_buffer_get_bounds(buffer, &start_iter, &end_iter);
+		gtk_text_buffer_delete(buffer, &start_iter, &end_iter);
+		clear_count = 0;
+	}
+	gtk_text_buffer_get_end_iter(buffer, &iter);
+	gtk_text_buffer_insert(buffer, &iter, g_dir, -1);
+}

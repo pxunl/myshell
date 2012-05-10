@@ -6,7 +6,8 @@
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Monday, April 16, 2012 03:53:50 HKT
- * Description  :  
+ * Description  :  Functions about operating VALUE of system,
+ * 				   before that, we copy envritions to g_value.
  *
  * History      :
  * Revision     :  none
