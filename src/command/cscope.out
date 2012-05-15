@@ -1,4 +1,4 @@
-cscope 15 $HOME/myshell/src/command               0000528437
+cscope 15 $HOME/myshell/src/command               0000529606
 	@cat/icat.c
 
 17 
@@ -37,95 +37,183 @@ cscope 15 $HOME/myshell/src/command               0000528437
 	~<sys/°©.h
 >
 
-32 
+30 
 	#BUF_SIZE
  128
 
 	)
 
-34 
+32 
 	#¥ogøm_«me
  "iˇt"
 
 	)
 
-36 
+34 
 	#R_TRUE
  0
 
 	)
 
-38 
+36 
 	#R_FALSE
  1
 
 	)
 
-41 
+38 
+ußge
+(
+°©us
+);
+
+39 
+do_ˇt
+(c⁄° *
+fûe
+);
+
+40 
+do_ˇt_wôh_›ti⁄
+(c⁄° *
+fûe
+, c⁄° *
+›ti⁄
+);
+
+41 
+is_dúe˘‹y
+(c⁄° *
+fûe
+);
+
+43 
+	$maö
+(
+¨gc
+, c⁄° *
+¨gv
+[])
+
+46 i‡(
+¨gc
+ != 2 &&árgc != 3)
+
+48 
+	`ußge
+(
+R_TRUE
+);
+
+51 
+i
+;
+
+54 i‡(
+¨gc
+ == 2)
+
+56 
+	`do_ˇt
+(
+¨gv
+[1]);
+
+60 i‡(
+¨gc
+ == 3)
+
+62 
+i
+ = 1; i < 3; i++)
+
+64 i‡(
+	`°Ωbrk
+(
+¨gv
+[
+i
+], "-n"))
+
+68 
+	`do_ˇt_wôh_›ti⁄
+(
+¨gv
+[
+i
+], "-n");
+
+73 
+	}
+}
+
+74 
 	$ußge
 (
 °©us
 )
 
-43 i‡(
+76 i‡(
 °©us
  !
 R_TRUE
 )
 
-44 
+77 
 	`Ârötf
  (
 °dîr
 , ("Try `%s --help' for more information.\n"),
 
-45 
+78 
 ¥ogøm_«me
 );
 
-48 
+81 
 	`¥ötf
  (("Ußge: %†[OPTION]...\n"), 
 ¥ogøm_«me
 );
 
-49 
+82 
 	`¥ötf
 (("\n%s\n%s\n"),"Concatenate FILE(s), or standard input,Åo standard output",
 
-52 
+85 
 	`exô
  (
 °©us
 );
 
-53 
+86 
 	}
 }
 
-55 
+88 
 	$is_dúe˘‹y
 (c⁄° *
 fûe
 )
 
-57 
+90 
 °©
  
 °©_ck
 ;
 
-58 
-	`¥ötf
-("%d\n",
+91 i‡(
 	`°©
 (
 fûe
 , &
 °©_ck
-));
+) == -1)
 
-59 i‡(
+93 
+	`≥º‹
+("stat");
+
+95 i‡(
 	`S_ISDIR
 (
 °©_ck
@@ -133,19 +221,19 @@ fûe
 °_mode
 ))
 
-61  
-R_FALSE
-;
-
-64  
+97  
 R_TRUE
 ;
 
-65 
+99  
+R_FALSE
+;
+
+100 
 	}
 }
 
-67 
+109 
 	$do_ˇt_wôh_›ti⁄
 (c⁄° *
 fûe
@@ -153,7 +241,7 @@ fûe
 ›ti⁄
 )
 
-69 i‡(
+111 i‡(
 fûe
  =
 NULL
@@ -161,7 +249,7 @@ NULL
 ›ti⁄
  == NULL)
 
-74 i‡(
+116 i‡(
 	`is_dúe˘‹y
 (
 fûe
@@ -169,7 +257,7 @@ fûe
 R_TRUE
 )
 
-76 
+118 
 	`¥ötf
 ("%s: %s: I†®dúe˘‹y\n", 
 ¥ogøm_«me
@@ -177,35 +265,35 @@ R_TRUE
 fûe
 );
 
-81 
+123 
 FILE
  *
 Â
 ;
 
-82 *
+124 *
 löe
  = 
 NULL
 ;
 
-83 
+125 
 size_t
  
 Àn
  = 0;
 
-84 
+126 
 ssize_t
  
 n_ªad
 ;
 
-85 
+127 
 löe_num
  = 0;
 
-87 i‡((
+129 i‡((
 Â
  = 
 	`f›í
@@ -215,11 +303,11 @@ fûe
 NULL
 )
 
-89 
+131 
 	`exô
 (1);
 
-92 (
+135 (
 n_ªad
  = 
 	`gëlöe
@@ -231,41 +319,41 @@ löe
 Â
 )) != -1)
 
-94 
+137 
 	`¥ötf
-("%ld%s", 
+("%ld %s", ++
 löe_num
 , 
 löe
 );
 
-97 i‡(
+140 i‡(
 löe
 )
 
-98 
+141 
 	`‰ì
 (
 löe
 );
 
-100 
+143 
 	`f˛o£
 (
 Â
 );
 
-101 
+144 
 	}
 }
 
-103 
+152 
 	$do_ˇt
 (c⁄° *
 fûe
 )
 
-105 i‡(
+154 i‡(
 	`is_dúe˘‹y
 (
 fûe
@@ -273,7 +361,7 @@ fûe
 R_TRUE
 )
 
-107 
+156 
 	`¥ötf
 ("%s: %s: I†®dúe˘‹y\n", 
 ¥ogøm_«me
@@ -281,21 +369,21 @@ R_TRUE
 fûe
 );
 
-111 
+160 
 ªad_size
  = 0;
 
-112 
+161 
 buf
 [
 BUF_SIZE
 ];
 
-113 
+162 
 fd
 ;
 
-114 i‡((
+164 i‡((
 fd
  = 
 	`›í
@@ -305,17 +393,17 @@ fûe
 O_RDONLY
 )) == -1)
 
-116 
+166 
 	`¥ötf
 ("ˇn'àªad %s,ÖÀa£ check it'†≥rmisi⁄\n", 
 fûe
 );
 
-117 
+167 
 	`exô
 (1);
 
-120 (
+170 (
 ªad_size
  = 
 	`ªad
@@ -327,43 +415,25 @@ buf
 BUF_SIZE
 )) != 0)
 
-122 
+172 
 buf
 [
 ªad_size
 ] = '\0';
 
-123 
+173 
 	`¥ötf
 ("%s", 
 buf
 );
 
-125 
+175 
 	`˛o£
 (
 fd
 );
 
-126 
-	}
-}
-
-128 
-	$maö
-(
-¨gc
-, c⁄° *
-¨gv
-[])
-
-136 
-	`do_ˇt_wôh_›ti⁄
-(
-¨gv
-[2],árgv[1]);
-
-139 
+176 
 	}
 }
 
@@ -1925,7 +1995,7 @@ check_«me
 «me
 );
 
-35 
+35 
 do_mkdú
 (*
 dú
@@ -1963,31 +2033,41 @@ R_FALSE
 	`≥º‹
 ("valdlity directoryÇame\n");
 
-50 
+50 i‡(
+R_FALSE
+ =
 	`do_mkdú
 (
 ¨gv
-[1]);
+[1]))
 
-51 
+52 
+	`¥ötf
+("Fail\n");
+
+55 
 	`¥ötf
 ("Finish...\n");
 
-54 
+57 
 	}
 }
 
-62 
+65 
 	$do_mkdú
 (*
 dú
 )
 
-64 i‡(!(*
+67 i‡(!(*
 dú
 ))
 
-68 
+69  
+R_FALSE
+;
+
+71 
 	`mkdú
 (
 dú
@@ -1995,63 +2075,67 @@ dú
 S_IRWXU
 );
 
-69 
+72  
+R_TRUE
+;
+
+73 
 	}
 }
 
-79 
+83 
 	$check_«me
 (*
 «me
 )
 
-81 i‡(!
+85 i‡(!
 «me
 )
 
-83  
+87  
 R_FALSE
 ;
 
-86 * 
+90 * 
 ck
  = 
 «me
 ;
 
-88 i‡(
+92 i‡(
 	`isdigô
 (*
 ck
 ))
 
-90  
+94  
 R_FALSE
 ;
 
-93 *
+97 *
 ck
 )
 
-95 i‡(*
+99 i‡(*
 ck
  =' ' || *ck ='=' || !(
 	`iß um
 (*ck)))
 
-97  
+101  
 R_FALSE
 ;
 
-99 
+103 
 ck
 ++;
 
-101  
+105  
 R_TRUE
 ;
 
-102 
+106 
 	}
 }
 
@@ -2635,7 +2719,9 @@ ußge
 
 78 
 	`ußge
-(1);
+(
+R_TRUE
+);
 
 81 
 i
@@ -3653,13 +3739,13 @@ rm_em±y_Êag
 rm_no_em±y_Êag
  = 0;
 
-90 
+92 
 i
  = 1; i < 
 ¨gc
 ; i++)
 
-92 i‡(
+94 i‡(
 	`°r°r
 (
 ¨gv
@@ -3669,11 +3755,11 @@ i
 NULL
 )
 
-94 
+96 
 rm_em±y_Êag
  = 1;
 
-96 i‡(
+98 i‡(
 	`°r°r
 (
 ¨gv
@@ -3683,17 +3769,17 @@ i
 NULL
 )
 
-98 
+100 
 rm_no_em±y_Êag
  = 1;
 
-102 
+104 
 i
  = 1; i < 
 ¨gc
 ; i++)
 
-104 i‡(
+106 i‡(
 	`°rcmp
 (
 ¨gv
@@ -3701,11 +3787,11 @@ i
 i
 ], "-d") == 0 || strcmp(argv[i], "-D") == 0)
 
-108 i‡(1 =
+112 i‡(1 =
 rm_no_em±y_Êag
 )
 
-110 i‡(
+114 i‡(
 	`do_rm_no_em±y_dús
 (
 ¨gv
@@ -3715,7 +3801,7 @@ i
 R_FALSE
 )
 
-112 
+116 
 	`¥ötf
 ("\nU«bÀÅÿdñëêdúe˘‹y %s\n", 
 ¨gv
@@ -3723,13 +3809,13 @@ R_FALSE
 i
 ]);
 
-115 i‡(0 =
+121 i‡(0 =
 rm_no_em±y_Êag
  && 1 =
 rm_em±y_Êag
 )
 
-117 i‡(
+123 i‡(
 	`do_rm_em±y_dús
 (
 ¨gv
@@ -3739,7 +3825,7 @@ i
 R_FALSE
 )
 
-119 
+125 
 	`¥ötf
 ("\nU«bÀÅÿdñëêdúe˘‹y %s\n", 
 ¨gv
@@ -3747,13 +3833,13 @@ R_FALSE
 i
 ]);
 
-122 i‡(0 =
+128 i‡(0 =
 rm_em±y_Êag
  && 0 =
 rm_no_em±y_Êag
 )
 
-124 i‡(
+130 i‡(
 	`do_rm_fûes
 (
 ¨gv
@@ -3763,7 +3849,7 @@ i
 R_TRUE
 )
 
-126 
+132 
 	`¥ötf
 ("u«bÀÅÿdñëêfûê%s\n", 
 ¨gv
@@ -3771,13 +3857,988 @@ R_TRUE
 i
 ]);
 
-131 
+137 
 	`¥ötf
 ("Finish...\n");
+
+139 
+	}
+}
+
+	@uname/exitfail.h
+
+20 vﬁ©ûê
+exô_Áûuª
+;
+
+	@uname/iuname.c
+
+22 
+	~<c⁄fig.h
+>
+
+23 
+	~<°dio.h
+>
+
+24 
+	~<sys/ty≥s.h
+>
+
+25 
+	~<sys/ut¢ame.h
+>
+
+26 
+	~<gë›t.h
+>
+
+27 
+	~<°dio.h
+>
+
+28 
+	~<°dlib.h
+>
+
+31 #i‡
+HAVE_SYSINFO
+ && 
+HAVE_SYS_SYSTEMINFO_H
+
+
+32 
+	~<sys/sy°emöfo.h
+>
+
+35 #i‡
+HAVE_SYSCTL
+ && 
+HAVE_SYS_SYSCTL_H
+
+
+36 
+	~<sys/∑øm.h
+>
+
+37 
+	~<sys/sys˘l.h
+>
+
+38 #ifde‡
+HW_MODEL
+
+
+39 #ifde‡
+HW_MACHINE_ARCH
+
+
+41 
+	#UNAME_HARDWARE_PLATFORM
+ 
+HW_MODEL
+
+
+	)
+
+42 
+	#UNAME_PROCESSOR
+ 
+HW_MACHINE_ARCH
+
+
+	)
+
+45 
+	#UNAME_PROCESSOR
+ 
+HW_MODEL
+
+
+	)
+
+50 
+	~"sy°em.h
+"
+
+51 
+	~"îr‹.h
+"
+
+54 
+	#PROGRAM_NAME
+ "u«me"
+
+	)
+
+56 
+	#AUTHORS
+ "David MacKízõ"
+
+	)
+
+60 
+	#PRINT_KERNEL_NAME
+ 1
+
+	)
+
+63 
+	#PRINT_NODENAME
+ 2
+
+	)
+
+66 
+	#PRINT_KERNEL_RELEASE
+ 4
+
+	)
+
+69 
+	#PRINT_KERNEL_VERSION
+ 8
+
+	)
+
+72 
+	#PRINT_MACHINE
+ 16
+
+	)
+
+75 
+	#PRINT_PROCESSOR
+ 32
+
+	)
+
+78 
+	#PRINT_HARDWARE_PLATFORM
+ 64
+
+	)
+
+81 
+	#PRINT_OPERATING_SYSTEM
+ 128
+
+	)
+
+84 *
+	g¥ogøm_«me
+;
+
+86 
+›ti⁄
+ c⁄° 
+	gl⁄g_›ti⁄s
+[] =
+
+88 {"Æl", 
+no_¨gumít
+, 
+NULL
+, 'a'},
+
+89 {"kî√l-«me", 
+no_¨gumít
+, 
+NULL
+, 's'},
+
+90 {"sy¢ame", 
+no_¨gumít
+, 
+NULL
+, 's'},
+
+91 {"nodíame", 
+no_¨gumít
+, 
+NULL
+, 'n'},
+
+92 {"kî√l-ªÀa£", 
+no_¨gumít
+, 
+NULL
+, 'r'},
+
+93 {"ªÀa£", 
+no_¨gumít
+, 
+NULL
+, 'r'},
+
+94 {"kî√l-vîsi⁄", 
+no_¨gumít
+, 
+NULL
+, 'v'},
+
+95 {"machöe", 
+no_¨gumít
+, 
+NULL
+, 'm'},
+
+96 {"¥o˚ss‹", 
+no_¨gumít
+, 
+NULL
+, 'p'},
+
+97 {"h¨dw¨e-∂©f‹m", 
+no_¨gumít
+, 
+NULL
+, 'i'},
+
+98 {"›î©ög-sy°em", 
+no_¨gumít
+, 
+NULL
+, 'o'},
+
+99 {
+GETOPT_HELP_OPTION_DECL
+},
+
+100 {
+GETOPT_VERSION_OPTION_DECL
+},
+
+101 {
+NULL
+, 0, NULL, 0}
+
+105 
+	$ußge
+ (
+°©us
+)
+
+107 i‡(
+°©us
+ !
+EXIT_SUCCESS
+)
+
+108 
+	`Ârötf
+ (
+°dîr
+, 
+	`_
+("Try `%s --help' for more information.\n"),
+
+109 
+¥ogøm_«me
+);
+
+112 
+	`¥ötf
+ (
+	`_
+("Ußge: %†[OPTION]...\n"), 
+¥ogøm_«me
+);
+
+113 
+	`Âuts
+ (
+	`_
+("\
+ cîèö sy°em inf‹m©i⁄. WôhÇÿOPTION, samêa†-s.\n\
+\n\
+-a, --Æ»ÖröàÆ»öf‹m©i⁄, i¿thêfﬁlowög ordî:\n\
+-s, --kî√l-«mêÖröàthêkî√»«me\n\
+-n, --nodíamêÖröàthê√tw‹kÇodêho°«me\n\
+-r, --kî√l-ªÀa£Öröàthêkî√»ªÀa£\n\
+"), 
+°dout
+);
+
+121 
+	`Âuts
+ (
+	`_
+("\
+-v, --kî√l-vîsi⁄Öröàthêkî√»vîsi⁄\n\
+-m, --machöêÖröàthêmachöêh¨dw¨ê«me\n\
+-p, --¥o˚ss‹Öröàthê¥o˚ss‹Åy≥\n\
+-i, --h¨dw¨e-∂©f‹mÖröàthêh¨dw¨ê∂©f‹m\n\
+-o, --›î©ög-sy°emÖröàthê›î©ög sy°em\n\
+"), 
+°dout
+);
+
+128 
+	`Âuts
+ (
+HELP_OPTION_DESCRIPTION
+, 
+°dout
+);
+
+129 
+	`Âuts
+ (
+VERSION_OPTION_DESCRIPTION
+, 
+°dout
+);
+
+130 
+	`¥ötf
+ (
+	`_
+("\nRï‹àbug†tÿ<%s>.\n"), 
+PACKAGE_BUGREPORT
+);
+
+132 
+	`exô
+ (
+°©us
+);
 
 133 
 	}
 }
+
+139 
+	$¥öt_ñemít
+ (c⁄° *
+ñemít
+)
+
+141 
+¥öãd
+;
+
+142 i‡(
+¥öãd
+++)
+
+143 
+	`putch¨
+ (' ');
+
+144 
+	`Âuts
+ (
+ñemít
+, 
+°dout
+);
+
+145 
+	}
+}
+
+148 
+	$maö
+ (
+¨gc
+, **
+¨gv
+)
+
+150 
+c
+;
+
+151 c⁄° 
+unknown
+[] = "unknown";
+
+154 
+t›röt
+ = 0;
+
+156 
+	`öôülize_maö
+ (&
+¨gc
+, &
+¨gv
+);
+
+157 
+¥ogøm_«me
+ = 
+¨gv
+[0];
+
+158 
+	`£éoˇÀ
+ (
+LC_ALL
+, "");
+
+159 
+	`bödãxtdomaö
+ (
+PACKAGE
+, 
+LOCALEDIR
+);
+
+160 
+	`ãxtdomaö
+ (
+PACKAGE
+);
+
+162 
+	`©exô
+ (
+˛o£_°dout
+);
+
+164 (
+c
+ = 
+	`gë›t_l⁄g
+ (
+¨gc
+, 
+¨gv
+, "a¢rvmpio", 
+l⁄g_›ti⁄s
+, 
+NULL
+)) != -1)
+
+166 
+c
+)
+
+172 
+t›röt
+ = -1;
+
+176 
+t›röt
+ |
+PRINT_KERNEL_NAME
+;
+
+180 
+t›röt
+ |
+PRINT_NODENAME
+;
+
+184 
+t›röt
+ |
+PRINT_KERNEL_RELEASE
+;
+
+188 
+t›röt
+ |
+PRINT_KERNEL_VERSION
+;
+
+192 
+t›röt
+ |
+PRINT_MACHINE
+;
+
+196 
+t›röt
+ |
+PRINT_PROCESSOR
+;
+
+200 
+t›röt
+ |
+PRINT_HARDWARE_PLATFORM
+;
+
+204 
+t›röt
+ |
+PRINT_OPERATING_SYSTEM
+;
+
+207 
+ˇ£_GETOPT_HELP_CHAR
+;
+
+209 
+	`ˇ£_GETOPT_VERSION_CHAR
+ (
+PROGRAM_NAME
+, 
+AUTHORS
+);
+
+212 
+	`ußge
+ (
+EXIT_FAILURE
+);
+
+216 i‡(
+¨gc
+ < 
+›töd
+)
+
+218 
+	`îr‹
+ (0, 0, 
+	`_
+("too manyárguments"));
+
+219 
+	`ußge
+ (
+EXIT_FAILURE
+);
+
+222 i‡(
+t›röt
+ == 0)
+
+223 
+t›röt
+ = 
+PRINT_KERNEL_NAME
+;
+
+225 i‡(
+t›röt
+
+
+226 & (
+PRINT_KERNEL_NAME
+ | 
+PRINT_NODENAME
+ | 
+PRINT_KERNEL_RELEASE
+
+
+227 | 
+PRINT_KERNEL_VERSION
+ | 
+PRINT_MACHINE
+))
+
+229 
+ut¢ame
+ 
+«me
+;
+
+231 i‡(
+	`u«me
+ (&
+«me
+) == -1)
+
+232 
+	`îr‹
+ (
+EXIT_FAILURE
+, 
+î∫o
+, 
+	`_
+("cannot get systemÇame"));
+
+234 i‡(
+t›röt
+ & 
+PRINT_KERNEL_NAME
+)
+
+235 
+	`¥öt_ñemít
+ (
+«me
+.
+sy¢ame
+);
+
+236 i‡(
+t›röt
+ & 
+PRINT_NODENAME
+)
+
+237 
+	`¥öt_ñemít
+ (
+«me
+.
+nodíame
+);
+
+238 i‡(
+t›röt
+ & 
+PRINT_KERNEL_RELEASE
+)
+
+239 
+	`¥öt_ñemít
+ (
+«me
+.
+ªÀa£
+);
+
+240 i‡(
+t›röt
+ & 
+PRINT_KERNEL_VERSION
+)
+
+241 
+	`¥öt_ñemít
+ (
+«me
+.
+vîsi⁄
+);
+
+242 i‡(
+t›röt
+ & 
+PRINT_MACHINE
+)
+
+243 
+	`¥öt_ñemít
+ (
+«me
+.
+machöe
+);
+
+246 i‡(
+t›röt
+ & 
+PRINT_PROCESSOR
+)
+
+248 c⁄° *
+ñemít
+ = 
+unknown
+;
+
+249 #i‡
+HAVE_SYSINFO
+ && 
+deföed
+ 
+SI_ARCHITECTURE
+
+
+251 
+¥o˚ss‹
+[257];
+
+252 i‡(0 <
+	`sysöfo
+ (
+SI_ARCHITECTURE
+, 
+¥o˚ss‹
+, Örocessor))
+
+253 
+ñemít
+ = 
+¥o˚ss‹
+;
+
+256 #ifde‡
+UNAME_PROCESSOR
+
+
+257 i‡(
+ñemít
+ =
+unknown
+)
+
+259 
+¥o˚ss‹
+[257];
+
+260 
+size_t
+ 
+s
+ =  
+¥o˚ss‹
+;
+
+261 
+mib
+[] = { 
+CTL_HW
+, 
+UNAME_PROCESSOR
+ };
+
+262 i‡(
+	`sys˘l
+ (
+mib
+, 2, 
+¥o˚ss‹
+, &
+s
+, 0, 0) >= 0)
+
+263 
+ñemít
+ = 
+¥o˚ss‹
+;
+
+266 
+	`¥öt_ñemít
+ (
+ñemít
+);
+
+269 i‡(
+t›röt
+ & 
+PRINT_HARDWARE_PLATFORM
+)
+
+271 c⁄° *
+ñemít
+ = 
+unknown
+;
+
+272 #i‡
+HAVE_SYSINFO
+ && 
+deföed
+ 
+SI_PLATFORM
+
+
+274 
+h¨dw¨e_∂©f‹m
+[257];
+
+275 i‡(0 <
+	`sysöfo
+ (
+SI_PLATFORM
+,
+
+276 
+h¨dw¨e_∂©f‹m
+,  hardware_platform))
+
+277 
+ñemít
+ = 
+h¨dw¨e_∂©f‹m
+;
+
+280 #ifde‡
+UNAME_HARDWARE_PLATFORM
+
+
+281 i‡(
+ñemít
+ =
+unknown
+)
+
+283 
+h¨dw¨e_∂©f‹m
+[257];
+
+284 
+size_t
+ 
+s
+ =  
+h¨dw¨e_∂©f‹m
+;
+
+285 
+mib
+[] = { 
+CTL_HW
+, 
+UNAME_HARDWARE_PLATFORM
+ };
+
+286 i‡(
+	`sys˘l
+ (
+mib
+, 2, 
+h¨dw¨e_∂©f‹m
+, &
+s
+, 0, 0) >= 0)
+
+287 
+ñemít
+ = 
+h¨dw¨e_∂©f‹m
+;
+
+290 
+	`¥öt_ñemít
+ (
+ñemít
+);
+
+293 i‡(
+t›röt
+ & 
+PRINT_OPERATING_SYSTEM
+)
+
+294 
+	`¥öt_ñemít
+ (
+HOST_OPERATING_SYSTEM
+);
+
+296 
+	`putch¨
+ ('\n');
+
+298 
+	`exô
+ (
+EXIT_SUCCESS
+);
+
+299 
+	}
+}
+
+	@uname/pathmax.h
+
+18 #i‚de‡
+_PATHMAX_H
+
+
+19 
+	#_PATHMAX_H
+
+
+	)
+
+21 #i‡
+HAVE_UNISTD_H
+
+
+22 
+	~<uni°d.h
+>
+
+28 #i‡
+deföed
+ 
+_POSIX_VERSION
+ || !deföed 
+__GNUC__
+
+
+29 
+	~<limôs.h
+>
+
+32 #i‚de‡
+_POSIX_PATH_MAX
+
+
+33 
+	#_POSIX_PATH_MAX
+ 255
+
+	)
+
+36 #i‡!
+deföed
+ 
+PATH_MAX
+ && deföed 
+_PC_PATH_MAX
+
+
+37 
+	#PATH_MAX
+ (
+	`∑thc⁄f
+ ("/", 
+_PC_PATH_MAX
+) < 1 ? 1024 \
+
+38 : 
+	`∑thc⁄f
+ ("/", 
+_PC_PATH_MAX
+))
+
+	)
+
+42 #i‡
+deföed
+ 
+HAVE_SYS_PARAM_H
+ && !deföed 
+PATH_MAX
+ && !deföed 
+MAXPATHLEN
+
+
+43 
+	~<sys/∑øm.h
+>
+
+46 #i‡!
+deföed
+ 
+PATH_MAX
+ && deföed 
+MAXPATHLEN
+
+
+47 
+	#PATH_MAX
+ 
+MAXPATHLEN
+
+
+	)
+
+50 #i‚de‡
+PATH_MAX
+
+
+51 
+	#PATH_MAX
+ 
+_POSIX_PATH_MAX
+
+
+	)
 
 	@uname/system.h
 
@@ -6902,859 +7963,6 @@ EOVERFLOW
 , -1))
 
 	)
-
-	@uname/uname.c
-
-22 
-	~<c⁄fig.h
->
-
-23 
-	~<°dio.h
->
-
-24 
-	~<sys/ty≥s.h
->
-
-25 
-	~<sys/ut¢ame.h
->
-
-26 
-	~<gë›t.h
->
-
-28 #i‡
-HAVE_SYSINFO
- && 
-HAVE_SYS_SYSTEMINFO_H
-
-
-29 
-	~<sys/sy°emöfo.h
->
-
-32 #i‡
-HAVE_SYSCTL
- && 
-HAVE_SYS_SYSCTL_H
-
-
-33 
-	~<sys/∑øm.h
->
-
-34 
-	~<sys/sys˘l.h
->
-
-35 #ifde‡
-HW_MODEL
-
-
-36 #ifde‡
-HW_MACHINE_ARCH
-
-
-38 
-	#UNAME_HARDWARE_PLATFORM
- 
-HW_MODEL
-
-
-	)
-
-39 
-	#UNAME_PROCESSOR
- 
-HW_MACHINE_ARCH
-
-
-	)
-
-42 
-	#UNAME_PROCESSOR
- 
-HW_MODEL
-
-
-	)
-
-47 
-	~"sy°em.h
-"
-
-48 
-	~"îr‹.h
-"
-
-51 
-	#PROGRAM_NAME
- "u«me"
-
-	)
-
-53 
-	#AUTHORS
- "David MacKízõ"
-
-	)
-
-57 
-	#PRINT_KERNEL_NAME
- 1
-
-	)
-
-60 
-	#PRINT_NODENAME
- 2
-
-	)
-
-63 
-	#PRINT_KERNEL_RELEASE
- 4
-
-	)
-
-66 
-	#PRINT_KERNEL_VERSION
- 8
-
-	)
-
-69 
-	#PRINT_MACHINE
- 16
-
-	)
-
-72 
-	#PRINT_PROCESSOR
- 32
-
-	)
-
-75 
-	#PRINT_HARDWARE_PLATFORM
- 64
-
-	)
-
-78 
-	#PRINT_OPERATING_SYSTEM
- 128
-
-	)
-
-81 *
-	g¥ogøm_«me
-;
-
-83 
-›ti⁄
- c⁄° 
-	gl⁄g_›ti⁄s
-[] =
-
-85 {"Æl", 
-no_¨gumít
-, 
-NULL
-, 'a'},
-
-86 {"kî√l-«me", 
-no_¨gumít
-, 
-NULL
-, 's'},
-
-87 {"sy¢ame", 
-no_¨gumít
-, 
-NULL
-, 's'},
-
-88 {"nodíame", 
-no_¨gumít
-, 
-NULL
-, 'n'},
-
-89 {"kî√l-ªÀa£", 
-no_¨gumít
-, 
-NULL
-, 'r'},
-
-90 {"ªÀa£", 
-no_¨gumít
-, 
-NULL
-, 'r'},
-
-91 {"kî√l-vîsi⁄", 
-no_¨gumít
-, 
-NULL
-, 'v'},
-
-92 {"machöe", 
-no_¨gumít
-, 
-NULL
-, 'm'},
-
-93 {"¥o˚ss‹", 
-no_¨gumít
-, 
-NULL
-, 'p'},
-
-94 {"h¨dw¨e-∂©f‹m", 
-no_¨gumít
-, 
-NULL
-, 'i'},
-
-95 {"›î©ög-sy°em", 
-no_¨gumít
-, 
-NULL
-, 'o'},
-
-96 {
-GETOPT_HELP_OPTION_DECL
-},
-
-97 {
-GETOPT_VERSION_OPTION_DECL
-},
-
-98 {
-NULL
-, 0, NULL, 0}
-
-102 
-	$ußge
- (
-°©us
-)
-
-104 i‡(
-°©us
- !
-EXIT_SUCCESS
-)
-
-105 
-	`Ârötf
- (
-°dîr
-, 
-	`_
-("Try `%s --help' for more information.\n"),
-
-106 
-¥ogøm_«me
-);
-
-109 
-	`¥ötf
- (
-	`_
-("Ußge: %†[OPTION]...\n"), 
-¥ogøm_«me
-);
-
-110 
-	`Âuts
- (
-	`_
-("\
- cîèö sy°em inf‹m©i⁄. WôhÇÿOPTION, samêa†-s.\n\
-\n\
--a, --Æ»ÖröàÆ»öf‹m©i⁄, i¿thêfﬁlowög ordî:\n\
--s, --kî√l-«mêÖröàthêkî√»«me\n\
--n, --nodíamêÖröàthê√tw‹kÇodêho°«me\n\
--r, --kî√l-ªÀa£Öröàthêkî√»ªÀa£\n\
-"), 
-°dout
-);
-
-118 
-	`Âuts
- (
-	`_
-("\
--v, --kî√l-vîsi⁄Öröàthêkî√»vîsi⁄\n\
--m, --machöêÖröàthêmachöêh¨dw¨ê«me\n\
--p, --¥o˚ss‹Öröàthê¥o˚ss‹Åy≥\n\
--i, --h¨dw¨e-∂©f‹mÖröàthêh¨dw¨ê∂©f‹m\n\
--o, --›î©ög-sy°emÖröàthê›î©ög sy°em\n\
-"), 
-°dout
-);
-
-125 
-	`Âuts
- (
-HELP_OPTION_DESCRIPTION
-, 
-°dout
-);
-
-126 
-	`Âuts
- (
-VERSION_OPTION_DESCRIPTION
-, 
-°dout
-);
-
-127 
-	`¥ötf
- (
-	`_
-("\nRï‹àbug†tÿ<%s>.\n"), 
-PACKAGE_BUGREPORT
-);
-
-129 
-	`exô
- (
-°©us
-);
-
-130 
-	}
-}
-
-136 
-	$¥öt_ñemít
- (c⁄° *
-ñemít
-)
-
-138 
-¥öãd
-;
-
-139 i‡(
-¥öãd
-++)
-
-140 
-	`putch¨
- (' ');
-
-141 
-	`Âuts
- (
-ñemít
-, 
-°dout
-);
-
-142 
-	}
-}
-
-145 
-	$maö
- (
-¨gc
-, **
-¨gv
-)
-
-147 
-c
-;
-
-148 c⁄° 
-unknown
-[] = "unknown";
-
-151 
-t›röt
- = 0;
-
-153 
-	`öôülize_maö
- (&
-¨gc
-, &
-¨gv
-);
-
-154 
-¥ogøm_«me
- = 
-¨gv
-[0];
-
-155 
-	`£éoˇÀ
- (
-LC_ALL
-, "");
-
-156 
-	`bödãxtdomaö
- (
-PACKAGE
-, 
-LOCALEDIR
-);
-
-157 
-	`ãxtdomaö
- (
-PACKAGE
-);
-
-159 
-	`©exô
- (
-˛o£_°dout
-);
-
-161 (
-c
- = 
-	`gë›t_l⁄g
- (
-¨gc
-, 
-¨gv
-, "a¢rvmpio", 
-l⁄g_›ti⁄s
-, 
-NULL
-)) != -1)
-
-163 
-c
-)
-
-169 
-t›röt
- = -1;
-
-173 
-t›röt
- |
-PRINT_KERNEL_NAME
-;
-
-177 
-t›röt
- |
-PRINT_NODENAME
-;
-
-181 
-t›röt
- |
-PRINT_KERNEL_RELEASE
-;
-
-185 
-t›röt
- |
-PRINT_KERNEL_VERSION
-;
-
-189 
-t›röt
- |
-PRINT_MACHINE
-;
-
-193 
-t›röt
- |
-PRINT_PROCESSOR
-;
-
-197 
-t›röt
- |
-PRINT_HARDWARE_PLATFORM
-;
-
-201 
-t›röt
- |
-PRINT_OPERATING_SYSTEM
-;
-
-204 
-ˇ£_GETOPT_HELP_CHAR
-;
-
-206 
-	`ˇ£_GETOPT_VERSION_CHAR
- (
-PROGRAM_NAME
-, 
-AUTHORS
-);
-
-209 
-	`ußge
- (
-EXIT_FAILURE
-);
-
-213 i‡(
-¨gc
- < 
-›töd
-)
-
-215 
-	`îr‹
- (0, 0, 
-	`_
-("too manyárguments"));
-
-216 
-	`ußge
- (
-EXIT_FAILURE
-);
-
-219 i‡(
-t›röt
- == 0)
-
-220 
-t›röt
- = 
-PRINT_KERNEL_NAME
-;
-
-222 i‡(
-t›röt
-
-
-223 & (
-PRINT_KERNEL_NAME
- | 
-PRINT_NODENAME
- | 
-PRINT_KERNEL_RELEASE
-
-
-224 | 
-PRINT_KERNEL_VERSION
- | 
-PRINT_MACHINE
-))
-
-226 
-ut¢ame
- 
-«me
-;
-
-228 i‡(
-	`u«me
- (&
-«me
-) == -1)
-
-229 
-	`îr‹
- (
-EXIT_FAILURE
-, 
-î∫o
-, 
-	`_
-("cannot get systemÇame"));
-
-231 i‡(
-t›röt
- & 
-PRINT_KERNEL_NAME
-)
-
-232 
-	`¥öt_ñemít
- (
-«me
-.
-sy¢ame
-);
-
-233 i‡(
-t›röt
- & 
-PRINT_NODENAME
-)
-
-234 
-	`¥öt_ñemít
- (
-«me
-.
-nodíame
-);
-
-235 i‡(
-t›röt
- & 
-PRINT_KERNEL_RELEASE
-)
-
-236 
-	`¥öt_ñemít
- (
-«me
-.
-ªÀa£
-);
-
-237 i‡(
-t›röt
- & 
-PRINT_KERNEL_VERSION
-)
-
-238 
-	`¥öt_ñemít
- (
-«me
-.
-vîsi⁄
-);
-
-239 i‡(
-t›röt
- & 
-PRINT_MACHINE
-)
-
-240 
-	`¥öt_ñemít
- (
-«me
-.
-machöe
-);
-
-243 i‡(
-t›röt
- & 
-PRINT_PROCESSOR
-)
-
-245 c⁄° *
-ñemít
- = 
-unknown
-;
-
-246 #i‡
-HAVE_SYSINFO
- && 
-deföed
- 
-SI_ARCHITECTURE
-
-
-248 
-¥o˚ss‹
-[257];
-
-249 i‡(0 <
-	`sysöfo
- (
-SI_ARCHITECTURE
-, 
-¥o˚ss‹
-, Örocessor))
-
-250 
-ñemít
- = 
-¥o˚ss‹
-;
-
-253 #ifde‡
-UNAME_PROCESSOR
-
-
-254 i‡(
-ñemít
- =
-unknown
-)
-
-256 
-¥o˚ss‹
-[257];
-
-257 
-size_t
- 
-s
- =  
-¥o˚ss‹
-;
-
-258 
-mib
-[] = { 
-CTL_HW
-, 
-UNAME_PROCESSOR
- };
-
-259 i‡(
-	`sys˘l
- (
-mib
-, 2, 
-¥o˚ss‹
-, &
-s
-, 0, 0) >= 0)
-
-260 
-ñemít
- = 
-¥o˚ss‹
-;
-
-263 
-	`¥öt_ñemít
- (
-ñemít
-);
-
-266 i‡(
-t›röt
- & 
-PRINT_HARDWARE_PLATFORM
-)
-
-268 c⁄° *
-ñemít
- = 
-unknown
-;
-
-269 #i‡
-HAVE_SYSINFO
- && 
-deföed
- 
-SI_PLATFORM
-
-
-271 
-h¨dw¨e_∂©f‹m
-[257];
-
-272 i‡(0 <
-	`sysöfo
- (
-SI_PLATFORM
-,
-
-273 
-h¨dw¨e_∂©f‹m
-,  hardware_platform))
-
-274 
-ñemít
- = 
-h¨dw¨e_∂©f‹m
-;
-
-277 #ifde‡
-UNAME_HARDWARE_PLATFORM
-
-
-278 i‡(
-ñemít
- =
-unknown
-)
-
-280 
-h¨dw¨e_∂©f‹m
-[257];
-
-281 
-size_t
- 
-s
- =  
-h¨dw¨e_∂©f‹m
-;
-
-282 
-mib
-[] = { 
-CTL_HW
-, 
-UNAME_HARDWARE_PLATFORM
- };
-
-283 i‡(
-	`sys˘l
- (
-mib
-, 2, 
-h¨dw¨e_∂©f‹m
-, &
-s
-, 0, 0) >= 0)
-
-284 
-ñemít
- = 
-h¨dw¨e_∂©f‹m
-;
-
-287 
-	`¥öt_ñemít
- (
-ñemít
-);
-
-290 i‡(
-t›röt
- & 
-PRINT_OPERATING_SYSTEM
-)
-
-291 
-	`¥öt_ñemít
- (
-HOST_OPERATING_SYSTEM
-);
-
-293 
-	`putch¨
- ('\n');
-
-295 
-	`exô
- (
-EXIT_SUCCESS
-);
-
-296 
-	}
-}
 
 	@who/iwho.c
 
@@ -93135,8 +93343,8 @@ __BITS_PER_LONG
 .
 1
 /usr/include
-148
-3715
+150
+3749
 cat/icat.c
 cd/icd.c
 cp/icp.c
@@ -93151,8 +93359,10 @@ more/more.c
 proc/iproc.c
 pwd/ipwd.c
 rm/irm.c
+uname/exitfail.h
+uname/iuname.c
+uname/pathmax.h
 uname/system.h
-uname/uname.c
 who/iwho.c
 /usr/include/alloca.h
 /usr/include/ctype.h

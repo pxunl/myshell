@@ -6,7 +6,7 @@
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Monday, May 07, 2012 01:31:10 HKT
- * Description  :  rm removes each pecified file.  By default, it does not remove directories.
+ * Description  :  rm removes each pecified file.  By default, it also remove empty directories.
  * 				   with -d Remove the DIRECTORY(ies), if they are empty.
  * 				   with -D Remove the DIRECTORY(ies), no matter wheater they are empty or not.
  * History      :
@@ -39,6 +39,9 @@ int do_rm_files(char *file)
 	{
 		return R_FALSE;
 	}
+
+	/* remove() will calls unlinks() for files
+	 * and calls rmdir() for empty directories */
 	return remove(file);
 }
 
@@ -87,6 +90,8 @@ int main(int argc, char *argv[])
 	int i;
 	int rm_empty_flag = 0;
 	int rm_no_empty_flag = 0;
+
+	/* if there is argument '-d' or '-D' */
 	for (i = 1; i < argc; i++) 
 	{
 		if (strstr(argv[i], "-d") != NULL) 
@@ -105,6 +110,8 @@ int main(int argc, char *argv[])
 		{
 			continue;
 		}
+
+		/* rm directories even if they are not empty */
 		if (1 == rm_no_empty_flag) 
 		{
 			if (do_rm_no_empty_dirs(argv[i]) == R_FALSE)
@@ -112,6 +119,8 @@ int main(int argc, char *argv[])
 				printf("\nUnable to delete directory %s\n", argv[i]);
 			}
 		}
+
+		/* rm empty directory or files only */
 		else if (0 == rm_no_empty_flag && 1 == rm_empty_flag) 
 		{
 			if (do_rm_empty_dirs(argv[i]) == R_FALSE)
@@ -123,10 +132,9 @@ int main(int argc, char *argv[])
 		{
 			if (do_rm_files(argv[i]) != R_TRUE) 
 			{
-				printf("unable to delete file %s\n", argv[i]);
+				printf("unable to delete file %s, maybe it's a none empty directory\n", argv[i]);
 			}
 		}
-		
 	}
 	printf("Finish...\n");
 	return 0;

@@ -32,7 +32,7 @@ typedef enum
 }Exit_Code;
 
 int check_name(char *name);
-void do_mkdir(char *dir);
+int do_mkdir(char *dir);
 
 int main(int argc, char *argv[])
 {
@@ -47,9 +47,12 @@ int main(int argc, char *argv[])
 		perror("valdlity directory name\n");
 		return 0;
 	}
-	do_mkdir(argv[1]);
+	if (R_FALSE == do_mkdir(argv[1])) 
+	{
+		printf("Fail\n");
+		return 0;
+	}
 	printf("Finish...\n");
-	
 	return 0;
 }
 
@@ -59,13 +62,14 @@ int main(int argc, char *argv[])
  * @dir: directory name
  * @return: FAIL or SUCCEED
  **/
-void do_mkdir(char *dir)
+int do_mkdir(char *dir)
 {
 	if (!(*dir)) 
 	{
-		return;
+		return R_FALSE;
 	}
 	mkdir(dir, S_IRWXU);
+	return R_TRUE;
 }
 
 /*

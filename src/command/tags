@@ -8,8 +8,8 @@ ASSIGN_STRDUPA	uname/system.h	928;"	d
 ASSIGN_STRDUPA	uname/system.h	931;"	d
 ATTRIBUTE_NORETURN	uname/system.h	920;"	d
 ATTRIBUTE_UNUSED	uname/system.h	924;"	d
-AUTHORS	uname/uname.c	53;"	d	file:
-BUF_SIZE	cat/icat.c	32;"	d	file:
+AUTHORS	uname/iuname.c	56;"	d	file:
+BUF_SIZE	cat/icat.c	30;"	d	file:
 BUF_SIZE	cp/icp.c	29;"	d	file:
 BUF_SIZE	proc/iproc.c	46;"	d	file:
 CC	cat/Makefile	/^CC = gcc$/;"	m
@@ -21,6 +21,7 @@ CC	more/Makefile	/^CC = gcc$/;"	m
 CC	proc/Makefile	/^CC = gcc$/;"	m
 CC	pwd/Makefile	/^CC = gcc$/;"	m
 CC	rm/Makefile	/^CC = gcc$/;"	m
+CC	uname/Makefile	/^CC = gcc$/;"	m
 CC	who/Makefile	/^CC = gcc$/;"	m
 CFLAGS	cat/Makefile	/^CFLAGS = -g -Wall$/;"	m
 CFLAGS	cd/Makefile	/^CFLAGS = -g -Wall$/;"	m
@@ -31,6 +32,7 @@ CFLAGS	more/Makefile	/^CFLAGS = -g -Wall$/;"	m
 CFLAGS	proc/Makefile	/^CFLAGS = -g -Wall$/;"	m
 CFLAGS	pwd/Makefile	/^CFLAGS = -g -Wall$/;"	m
 CFLAGS	rm/Makefile	/^CFLAGS = -g -Wall$/;"	m
+CFLAGS	uname/Makefile	/^CFLAGS = -g -Wall$/;"	m
 CFLAGS	who/Makefile	/^CFLAGS = -g -Wall$/;"	m
 CHAR_BIT	uname/system.h	810;"	d
 CHAR_MAX	uname/system.h	831;"	d
@@ -79,6 +81,7 @@ INCLUDE	more/Makefile	/^INCLUDE = .$/;"	m
 INCLUDE	proc/Makefile	/^INCLUDE = .$/;"	m
 INCLUDE	pwd/Makefile	/^INCLUDE = .$/;"	m
 INCLUDE	rm/Makefile	/^INCLUDE = .$/;"	m
+INCLUDE	uname/Makefile	/^INCLUDE = .$/;"	m
 INCLUDE	who/Makefile	/^INCLUDE = .$/;"	m
 INT_MAX	uname/system.h	855;"	d
 INT_MIN	uname/system.h	859;"	d
@@ -118,6 +121,7 @@ OBJS	more/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 OBJS	proc/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 OBJS	pwd/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 OBJS	rm/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+OBJS	uname/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 OBJS	who/Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
 OFF_T_MAX	uname/system.h	891;"	d
 OFF_T_MIN	uname/system.h	887;"	d
@@ -130,15 +134,18 @@ O_NONBLOCK	uname/system.h	201;"	d
 O_TEXT	uname/system.h	193;"	d
 O_TEXT	uname/system.h	211;"	d
 O_TEXT	uname/system.h	235;"	d
+PATH_MAX	uname/pathmax.h	37;"	d
+PATH_MAX	uname/pathmax.h	47;"	d
+PATH_MAX	uname/pathmax.h	51;"	d
 PID_T_MAX	uname/system.h	903;"	d
-PRINT_HARDWARE_PLATFORM	uname/uname.c	75;"	d	file:
-PRINT_KERNEL_NAME	uname/uname.c	57;"	d	file:
-PRINT_KERNEL_RELEASE	uname/uname.c	63;"	d	file:
-PRINT_KERNEL_VERSION	uname/uname.c	66;"	d	file:
-PRINT_MACHINE	uname/uname.c	69;"	d	file:
-PRINT_NODENAME	uname/uname.c	60;"	d	file:
-PRINT_OPERATING_SYSTEM	uname/uname.c	78;"	d	file:
-PRINT_PROCESSOR	uname/uname.c	72;"	d	file:
+PRINT_HARDWARE_PLATFORM	uname/iuname.c	78;"	d	file:
+PRINT_KERNEL_NAME	uname/iuname.c	60;"	d	file:
+PRINT_KERNEL_RELEASE	uname/iuname.c	66;"	d	file:
+PRINT_KERNEL_VERSION	uname/iuname.c	69;"	d	file:
+PRINT_MACHINE	uname/iuname.c	72;"	d	file:
+PRINT_NODENAME	uname/iuname.c	63;"	d	file:
+PRINT_OPERATING_SYSTEM	uname/iuname.c	81;"	d	file:
+PRINT_PROCESSOR	uname/iuname.c	75;"	d	file:
 PRIdMAX	uname/system.h	562;"	d
 PRIdMAX	uname/system.h	563;"	d
 PRIoMAX	uname/system.h	566;"	d
@@ -156,15 +163,16 @@ PROGRAM	more/Makefile	/^PROGRAM = imore $/;"	m
 PROGRAM	proc/Makefile	/^PROGRAM = iproc $/;"	m
 PROGRAM	pwd/Makefile	/^PROGRAM = ipwd $/;"	m
 PROGRAM	rm/Makefile	/^PROGRAM = irm $/;"	m
+PROGRAM	uname/Makefile	/^PROGRAM = iuname$/;"	m
 PROGRAM	who/Makefile	/^PROGRAM = iwho$/;"	m
-PROGRAM_NAME	uname/uname.c	51;"	d	file:
+PROGRAM_NAME	uname/iuname.c	54;"	d	file:
 RETSIGTYPE	uname/system.h	543;"	d
-R_FALSE	cat/icat.c	38;"	d	file:
+R_FALSE	cat/icat.c	36;"	d	file:
 R_FALSE	mkdir/imkdir.c	/^	R_FALSE$/;"	e	enum:__anon4	file:
 R_FALSE	proc/iproc.c	42;"	d	file:
 R_FALSE	rm/irm.c	28;"	d	file:
 R_OK	uname/system.h	185;"	d
-R_TRUE	cat/icat.c	36;"	d	file:
+R_TRUE	cat/icat.c	34;"	d	file:
 R_TRUE	mkdir/imkdir.c	/^	R_TRUE,$/;"	e	enum:__anon4	file:
 R_TRUE	proc/iproc.c	40;"	d	file:
 R_TRUE	rm/irm.c	27;"	d	file:
@@ -194,6 +202,7 @@ SRC	more/Makefile	/^SRC = more.c$/;"	m
 SRC	proc/Makefile	/^SRC = iproc.c$/;"	m
 SRC	pwd/Makefile	/^SRC = ipwd.c$/;"	m
 SRC	rm/Makefile	/^SRC = irm.c$/;"	m
+SRC	uname/Makefile	/^SRC = iuname.c$/;"	m
 SRC	who/Makefile	/^SRC = iwho.c$/;"	m
 SSIZE_MAX	uname/system.h	879;"	d
 STDERR_FILENO	uname/system.h	53;"	d
@@ -286,13 +295,15 @@ UID_T_MAX	uname/system.h	895;"	d
 UINTMAX_MAX	uname/system.h	883;"	d
 UINT_MAX	uname/system.h	863;"	d
 ULONG_MAX	uname/system.h	871;"	d
-UNAME_HARDWARE_PLATFORM	uname/uname.c	38;"	d	file:
-UNAME_PROCESSOR	uname/uname.c	39;"	d	file:
-UNAME_PROCESSOR	uname/uname.c	42;"	d	file:
+UNAME_HARDWARE_PLATFORM	uname/iuname.c	41;"	d	file:
+UNAME_PROCESSOR	uname/iuname.c	42;"	d	file:
+UNAME_PROCESSOR	uname/iuname.c	45;"	d	file:
 VERSION_OPTION_DESCRIPTION	uname/system.h	788;"	d
 W_OK	uname/system.h	184;"	d
 X_OK	uname/system.h	183;"	d
 _	uname/system.h	663;"	d
+_PATHMAX_H	uname/pathmax.h	19;"	d
+_POSIX_PATH_MAX	uname/pathmax.h	33;"	d
 __attribute__	uname/system.h	915;"	d
 actime	uname/system.h	/^  long actime;$/;"	m	struct:utimbuf	access:public
 action_table	proc/iproc.c	/^void (*action_table[NUM_CMD])() = {info_cpu, info_mem,$/;"	v
@@ -307,14 +318,16 @@ copy_file	cp/icp.c	/^void copy_file(char *src, char *dest)$/;"	f	signature:(char
 copy_file	cp/icp.c	/^void copy_file(char *src, char *dest);$/;"	p	file:	signature:(char *src, char *dest)
 dirent	uname/system.h	242;"	d
 do_cat	cat/icat.c	/^void do_cat(const char *file)$/;"	f	signature:(const char *file)
+do_cat	cat/icat.c	/^void do_cat(const char *file);$/;"	p	file:	signature:(const char *file)
 do_cat_with_option	cat/icat.c	/^void do_cat_with_option(const char *file, const char *option)$/;"	f	signature:(const char *file, const char *option)
+do_cat_with_option	cat/icat.c	/^void do_cat_with_option(const char *file, const char *option);$/;"	p	file:	signature:(const char *file, const char *option)
 do_copy	cp/icp.c	/^int do_copy(char *src, char *dest)$/;"	f	signature:(char *src, char *dest)
 do_copy	cp/icp.c	/^int do_copy(char *src, char *dest);$/;"	p	file:	signature:(char *src, char *dest)
 do_echo	echo/iecho.c	/^void do_echo(const char *output, int flag)$/;"	f	signature:(const char *output, int flag)
 do_ls	ls/ils.c	/^void do_ls(const char dirname[], int flag)$/;"	f	signature:(const char dirname[], int flag)
 do_ls	ls/ils.c	/^void do_ls(const char dirname[], int flag);$/;"	p	file:	signature:(const char dirname[], int flag)
-do_mkdir	mkdir/imkdir.c	/^void do_mkdir(char *dir)$/;"	f	signature:(char *dir)
-do_mkdir	mkdir/imkdir.c	/^void do_mkdir(char *dir);$/;"	p	file:	signature:(char *dir)
+do_mkdir	mkdir/imkdir.c	/^int do_mkdir(char *dir)$/;"	f	signature:(char *dir)
+do_mkdir	mkdir/imkdir.c	/^int do_mkdir(char *dir);$/;"	p	file:	signature:(char *dir)
 do_more	more/more.c	/^void do_more(FILE *);  $/;"	p	file:	signature:(FILE *)
 do_more	more/more.c	/^void do_more(FILE *fp)  $/;"	f	signature:(FILE *fp)
 do_rm_empty_dirs	rm/irm.c	/^int do_rm_empty_dirs(char *dir)$/;"	f	signature:(char *dir)
@@ -356,7 +369,8 @@ initialize_main	uname/system.h	329;"	d
 inum_to_name	pwd/ipwd.c	/^void    inum_to_name(ino_t , char *, int );$/;"	p	file:	signature:(ino_t , char *, int )
 inum_to_name	pwd/ipwd.c	/^void inum_to_name(ino_t inode_to_find , char *namebuf, int buflen)$/;"	f	signature:(ino_t inode_to_find , char *namebuf, int buflen)
 is_directory	cat/icat.c	/^int is_directory(const char *file)$/;"	f	signature:(const char *file)
-long_options	uname/uname.c	/^static struct option const long_options[] =$/;"	v	file:
+is_directory	cat/icat.c	/^int is_directory(const char *file);$/;"	p	file:	signature:(const char *file)
+long_options	uname/iuname.c	/^static struct option const long_options[] =$/;"	v	file:
 lseek	uname/system.h	/^off_t lseek ();$/;"	p	signature:()
 main	cat/icat.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
 main	cd/icd.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
@@ -371,7 +385,7 @@ main	more/more.c	/^int main (int argc, char *argv[])  $/;"	f	signature:(int argc
 main	proc/iproc.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
 main	pwd/ipwd.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
 main	rm/irm.c	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
-main	uname/uname.c	/^main (int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
+main	uname/iuname.c	/^main (int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
 main	who/iwho.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
 major	uname/system.h	89;"	d
 makedev	uname/system.h	91;"	d
@@ -388,12 +402,12 @@ noneprint	more/more.c	/^void noneprint(int flag)  $/;"	f	signature:(int flag)
 noneprint	more/more.c	/^void noneprint(int); \/* To control the terminal echo *\/  $/;"	p	file:	signature:(int)
 pr_winsize	more/more.c	/^static void pr_winsize(int fd)  $/;"	f	file:	signature:(int fd)
 pr_winsize	more/more.c	/^static void pr_winsize(int);  $/;"	p	file:	signature:(int)
-print_element	uname/uname.c	/^print_element (char const *element)$/;"	f	file:	signature:(char const *element)
+print_element	uname/iuname.c	/^print_element (char const *element)$/;"	f	file:	signature:(char const *element)
 printpathto	pwd/ipwd.c	/^void    printpathto(ino_t);$/;"	p	file:
 printpathto	pwd/ipwd.c	/^void printpathto( ino_t this_inode )$/;"	f	signature:( ino_t this_inode )
-program_name	cat/icat.c	34;"	d	file:
+program_name	cat/icat.c	32;"	d	file:
 program_name	proc/iproc.c	38;"	d	file:
-program_name	uname/uname.c	/^char *program_name;$/;"	v
+program_name	uname/iuname.c	/^char *program_name;$/;"	v
 realloc	uname/system.h	/^char *realloc ();$/;"	p	signature:()
 see_more	more/more.c	/^int see_more(FILE *);  $/;"	p	file:	signature:(FILE *)
 see_more	more/more.c	/^int see_more(FILE *cmd)  $/;"	f	signature:(FILE *cmd)
@@ -416,10 +430,11 @@ ttyname	uname/system.h	/^char *ttyname ();$/;"	p	signature:()
 uid_to_name	ls/ils.c	/^char *uid_to_name( uid_t );$/;"	p	file:
 uid_to_name	ls/ils.c	/^char *uid_to_name(uid_t uid)$/;"	f	signature:(uid_t uid)
 usage	cat/icat.c	/^void usage(int status)$/;"	f	signature:(int status)
+usage	cat/icat.c	/^void usage(int status);$/;"	p	file:	signature:(int status)
 usage	cd/icd.c	/^void usage()$/;"	f
 usage	proc/iproc.c	/^void usage(int status)$/;"	f	signature:(int status)
 usage	proc/iproc.c	/^void usage(int status);$/;"	p	file:	signature:(int status)
-usage	uname/uname.c	/^usage (int status)$/;"	f	signature:(int status)
+usage	uname/iuname.c	/^usage (int status)$/;"	f	signature:(int status)
 utimbuf	uname/system.h	/^struct utimbuf$/;"	s
 utimbuf::actime	uname/system.h	/^  long actime;$/;"	m	struct:utimbuf	access:public
 utimbuf::modtime	uname/system.h	/^  long modtime;$/;"	m	struct:utimbuf	access:public
