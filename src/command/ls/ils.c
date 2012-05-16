@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  com.c
  * Version      :  1.0
@@ -37,49 +35,52 @@ char *gid_to_name( gid_t );
 int main(int argc, const char *argv[])
 {
 	int i = 0;
-	int flag = 0;
-	struct dirent *dir_p;
+	int flag = 0;   /* mark wheather to print detials */
+	/*struct dirent *dir_p;*/
 
 	if ( argc == 1 )
 	{
 		do_ls( ".", 0);
 		return 0;
 	}
-	else
+	/* has "-a" or not */
+	while (argv[i] != NULL)
 	{
-		/* has "-a" or not */
-		while (argv[i] != NULL)
+		if (strcmp(argv[i++], "-a") == 0) 
 		{
-			if (strcmp(argv[i++], "-a") == 0) 
-			{
-				flag = 1;
-				break;
-			}
+			flag = 1;
+			break;
 		}
-		
-		/* "ils -a" */
-		if (argc == 2 && flag == 1) 
-		{
-			do_ls( ".", 1);
-			return 0;
-		}
-		
-		while ( --argc )
-		{
-			do_ls( *(++argv), flag);
-		}
+	}
+
+	/* "ils -a" */
+	if (argc == 2 && flag == 1) 
+	{
+		do_ls( ".", 1);
+		return 0;
+	}
+
+	while ( --argc )
+	{
+		do_ls( *(++argv), flag);
 	}
 	return 0;
 }
 
-/*
- *	list files in directory called dirname
+
+
+/**
+ * @do_ls: list dirctory "dirname"
+ *
+ * @dirname[]: directory name
+ * @flag: wheather to list detials,
+ * 		  1-yes, 0-no
  */
 void do_ls(const char dirname[], int flag)
 {
 	DIR	  *dir_ptr;
 	struct dirent	*direntp;		/* each entry	 */
-	struct stat     state_buf;
+	/*struct stat     state_buf;*/
 	
 	if (strcmp(dirname, "-a") == 0) 
 	{
@@ -107,6 +108,12 @@ void do_ls(const char dirname[], int flag)
 	}
 }
 
+
+/**
+ * @do_stat: list filename(or directories) detials
+ *
+ * @filename: a filename or a directory
+ */
 void do_stat( char *filename)
 {
 	struct stat info;
@@ -121,9 +128,11 @@ void do_stat( char *filename)
 	}
 }
 
-/*
- * display the info about 'filename'. 
- * The info is stored in struct at *info_p
+/**
+ * @show_file_info: display the info about 'filename'. 
+ * 					The info is stored in struct at *info_p
+ *  		
+ * @filename: which file to show(it should not be a directory)
  */
 void show_file_info( char *filename, struct stat *info_p )
 {
@@ -146,13 +155,11 @@ void show_file_info( char *filename, struct stat *info_p )
 }
 
 /*
- * @mode_to_letters: 
- * This function takes a mode value and a char array
- * and puts into the char array the file type and the 
- * nine letters that correspond to the bits in mode.
- * NOTE: It does not code setuid, setgid, and sticky codes
- * @mode
- * @str[]
+ * @mode_to_letters: This function takes a mode value and a char array
+ *  				 and puts into the char array the file type and the 
+ * 					 nine letters that correspond to the bits in mode.
+ * Note: It does not code setuid, setgid, and sticky codes
+ * @mode: mode open by opendir.
  */
 void mode_to_letters( int mode, char str[] )
 {
@@ -176,9 +183,10 @@ void mode_to_letters( int mode, char str[] )
 }
 
 
-/* 
- *	returns pointer to username associated with uid, uses getpw()
- */	
+/**
+ * @uid_to_name: get name base on uid
+ *@return: pointer to username associated with uid, uses getpw()
+ */
 char *uid_to_name(uid_t uid)
 {
 	struct	passwd   *getpwuid();
