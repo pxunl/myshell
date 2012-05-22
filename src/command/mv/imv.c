@@ -132,7 +132,6 @@ int do_copy(char *src, char *dest)
 
 					mkdir(dest_str, S_IRWXU);
 
-					/*chdir(src);*/
 					strcat(src_str, "/");
 					strcat(src_str, entry->d_name);
 
@@ -150,7 +149,7 @@ int do_copy(char *src, char *dest)
 					strcat(src_str, "/");
 					strcat(src_str, entry->d_name);
 
-					chdir("..");  /* before we copy files, wo should go back to previous
+					chdir("..");  /* before wo copy files, wo should go back to previous
 				   					 directory, so that we can use relative path.
 									 otherwise, copy_file function can find src_str files
 									 or dest_str files*/
@@ -176,11 +175,8 @@ int do_copy(char *src, char *dest)
  */
 void copy_file(char *src, char *dest)
 {
-	FILE *src_fp  = fopen(src, "r");
-	
 	char *new_file = NULL;
 	
-	/* get new file name */
 	if ((new_file = strrchr(src, '/')) == NULL)
 	{
 		strcat(dest, "/");
@@ -193,19 +189,5 @@ void copy_file(char *src, char *dest)
 		strcat(dest, new_file);
 	}
 	
-	FILE *dest_fp = fopen(dest, "w+");
-	char *buf[BUF_SIZE];
-	int  rev_size = 0;
-
-	if (src_fp == NULL || dest_fp == NULL) 
-	{
-		printf("can't open file %s", src);
-		printf(" or %s", dest);
-		return;
-	}
-
-	while ((rev_size = fread(buf, BUF_SIZE, 1, src_fp)) > 0)
-	{
-		fwrite(buf, BUF_SIZE, rev_size, dest_fp);
-	}
+	rename(src, dest);
 }
