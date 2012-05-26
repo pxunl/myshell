@@ -1,0 +1,29 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -g -Wall$/;"	m
+INCLUDE	Makefile	/^INCLUDE = .$/;"	m
+OBJS	Makefile	/^OBJS = $(SRC:.c=.o)$/;"	m
+PROGRAM	Makefile	/^PROGRAM = ils $/;"	m
+SRC	Makefile	/^SRC = ils.c$/;"	m
+do_ls	ils.c	/^void do_ls(const char dirname[])$/;"	f	signature:(const char dirname[])
+do_ls	ils.c	/^void do_ls(const char[]);$/;"	p	file:	signature:(const char[])
+do_stat	ils.c	/^void do_stat( char *filename )$/;"	f	signature:( char *filename )
+do_stat	ils.c	/^void do_stat(char *);$/;"	p	file:	signature:(char *)
+gid_to_name	ils.c	/^char *gid_to_name( gid_t );$/;"	p	file:
+gid_to_name	ils.c	/^char *gid_to_name( gid_t gid )$/;"	f	signature:( gid_t gid )
+main	fileinfo.c	/^int main(int ac, char *av[])$/;"	f	signature:(int ac, char *av[])
+main	filesize.c	/^int main()$/;"	f
+main	ils.c	/^int main(int argc, const char *argv[])$/;"	f	signature:(int argc, const char *argv[])
+mode_to_letters	ils.c	/^void mode_to_letters( int , char [] );$/;"	p	file:	signature:( int , char [] )
+mode_to_letters	ils.c	/^void mode_to_letters( int mode, char str[] )$/;"	f	signature:( int mode, char str[] )
+show_file_info	ils.c	/^void show_file_info( char *, struct stat *);$/;"	p	file:	signature:( char *, struct stat *)
+show_file_info	ils.c	/^void show_file_info( char *filename, struct stat *info_p )$/;"	f	signature:( char *filename, struct stat *info_p )
+show_stat_info	fileinfo.c	/^void show_stat_info(char *, struct stat *);$/;"	p	file:	signature:(char *, struct stat *)
+show_stat_info	fileinfo.c	/^void show_stat_info(char *fname, struct stat *buf)$/;"	f	signature:(char *fname, struct stat *buf)
+uid_to_name	ils.c	/^char *uid_to_name( uid_t );$/;"	p	file:
+uid_to_name	ils.c	/^char *uid_to_name(uid_t uid)$/;"	f	signature:(uid_t uid)

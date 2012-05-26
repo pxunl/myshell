@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014  dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename      :  process.h
  * Version       :  1.0
@@ -25,5 +23,6 @@ void Syntax_Error(char *ckstr);
 int Process_Buildin_Cmd(char **cmd);
 int Process(char **input);
 int IS_Buildin_Cmd(char **input);
+void usage();
 
 #endif

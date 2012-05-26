@@ -1,0 +1,22 @@
+*ls
+*who
+*pwd
+#cp
+*mkdir
+*rm
+mv
+*echo
+free
+----ps
+#more
+*proc
+*cat
+man
+
+{
+	iset
+	iexport
+	=
+	icd
+	iclear
+}

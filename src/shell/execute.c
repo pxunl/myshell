@@ -1,14 +1,12 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  execute.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 11:13:00 HKT
- * Description  :  
+ * Description  :  Execute command by fork a new process
  *
  * History      :
  * Revision     :  none
@@ -21,11 +19,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <gtk/gtk.h>
 #include <signal.h>
 #include <sys/types.h>
-#include "config.h"
-#include "valuelib.h"
+#include "general.h"
 
+#include "config.h"
+#include "shell.h"
+
+#include "valuelib.h"
 
 /**
  * @execute 
@@ -58,8 +63,6 @@ int Execute(char *argv[])
 		perror("illegal command!\n");
 		exit(1);	
 	}
-
-	/*father process*/
 	else
 	{	
 		if (wait(&chlid_in) == -1)

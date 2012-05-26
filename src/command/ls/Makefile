@@ -33,11 +33,6 @@ CFLAGS = -g -Wall
 #Include 
 INCLUDE = .
 
-#Libs
-#LIBS= --libs gtk+-2.0
-
-#CFLAGS = `pkg-config --cflags ${LIBS}` -g -Wall
-
 
 ##########################################################
 #dependency files (.o)
@@ -53,6 +48,5 @@ ${OBJS}:%.o:%.c
 .PHONY:c
 c:
 	-rm *.o
-
 
 r: clean all

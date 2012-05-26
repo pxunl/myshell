@@ -16,13 +16,13 @@
 #
 
 #Source file
-SRC = mainWindow.c shell.c eval.c execute.c process.c valuelib.c
+SRC = mainWindow.c shell.c eval.c execute.c process.c valuelib.c redirection.c
 
 #Object file
 OBJS = $(SRC:.c=.o)
 
 #Output execution file
-PROGRAM = shell
+PROGRAM = mshell
 
 #Compiler
 CC = gcc
@@ -38,6 +38,9 @@ LIBS= --libs gtk+-2.0
 
 CFLAGS = `pkg-config --cflags ${LIBS}` -g -Wall
 
+INSTALL_DIR = /usr/bin
+SRC_SHELL_DIR = .
+SRC_CMD_DIR = ../command
 
 ##########################################################
 #dependency files (.o)
@@ -56,3 +59,15 @@ clean:
 
 
 r: clean all
+
+install:
+	cp ${SRC_SHELL_DIR}/mshell ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/ls/ils ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/cat/icat ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/mkdir/imkdir ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/more/imore ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/mv/imv ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/proc/iproc ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/pwd/ipwd ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/rm/irm ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/who/iwho ${INSTALL_DIR}

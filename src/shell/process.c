@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  process.c
  * Version      :  1.0
@@ -22,18 +20,21 @@
 #include <string.h>
 #include <ctype.h>
 #include <gtk/gtk.h>
+#include <dirent.h>
 #include "valuelib.h"
 #include "process.h"
 #include "config.h"
+#include "general.h"
 #include "eval.h"
 #include "execute.h"
+#include "redirection.h"
 
+#define HOME_DIR   "/home/pxunl/myshell/src/shell/"
 
 typedef enum 
 {
 	NATRULE,
 	WANT_THEN,
-#include <gtk/gtk.h>
 	THEN_BLOCK
 } States;
 
@@ -42,6 +43,8 @@ typedef enum
 static int if_state   = NATRULE;
 static int if_result  = R_TRUE;
 static int last_state = R_FALSE;
+extern int g_change_dir;  /* refers to <mainWindows.c> for marking wheather the current 
+							 directory has been changed */
 
 
 /**
@@ -58,6 +61,26 @@ int Process(char **input)
 	{
 		return R_FALSE;
 	}
+	
+	////////////////////////////
+	/*Redirection process*/
+#ifdef REDIRECTION_ON
+	if ((Need_Redirection(input) == R_TRUE) && Check_Redirection_Validity(input) == R_TRUE) 
+	{
+		flag = Process_Redirection(input);
+		if (flag == R_TRUE) 
+		{
+			g_print("\nredirected..\n");
+		}
+		else 
+		{
+			Redirection_Usage();
+		}
+		return flag;
+	}
+#endif
+	///////////////////////////
+	
 	else if (Is_Control_Cmd(input[0]) == R_TRUE) 
 	{
 		flag = Do_Control_Cmd(input);
@@ -212,7 +235,8 @@ int IS_Buildin_Cmd(char **input)
 	
 	if ((strcmp(input[0], "iset") == 0) 
 		|| (strchr(input[0], '=') != NULL) 
-		|| (strcmp(input[0], "iexport") == 0))
+		|| (strcmp(input[0], "iexport") == 0)
+		|| (strcmp(input[0], "icd") == 0))
 	{ 
 		return R_TRUE;
 	} 
@@ -228,12 +252,38 @@ int IS_Buildin_Cmd(char **input)
 int Process_Buildin_Cmd(char **cmd)
 {
 	int flag = R_FALSE;
-	if (strcmp(cmd[0], "iset") == 0) 
+	if (strcmp(cmd[0], "icd") == 0 && cmd[1] != NULL) 
+	{
+		if (chdir(cmd[1]) == R_FALSE)
+		{
+			usage();
+			return R_FALSE;
+		}
+		flag = R_TRUE;
+
+		///////////////////////
+		system("pwd");
+		g_change_dir = 1;    /* mark , directory changed */
+		//////////////////////
+	}
+	else if (strcmp(cmd[0], "icd") == 0 && cmd[1] == NULL) 
+	{
+		if (chdir(HOME_DIR) == R_FALSE)
+		{
+			usage();
+			return R_FALSE;
+		}
+		flag = R_TRUE;
+		///////////////////////
+		system("pwd");        /* just show current directory if "icd ." or "icd" */
+		///////////////////////
+	}
+	else if (strcmp(cmd[0], "iset") == 0) 
 	{
 		Value_List();
 		flag = R_TRUE;
 	}
-
+	
 	/*we can only export a name not include the it's var*/
 	else if (strcmp(cmd[0], "iexport") == 0) 
 	{
@@ -249,11 +299,11 @@ int Process_Buildin_Cmd(char **cmd)
 		/* check if succeed*/
 		if (flag == R_FALSE) 
 		{
-			g_print("Fail.");
+			g_print("Fail.\n");
 		}
 		else 
 		{
-			g_print("Succeed.");
+			g_print("Succeed.\n");
 		}
 	}
 	/*if it contains '='*/
@@ -263,12 +313,17 @@ int Process_Buildin_Cmd(char **cmd)
 
 		if (flag == R_FALSE) 
 		{
-			g_print("Fail.");
+			g_print("Fail.\n");
 		}
 		else 
 		{
-			g_print("Succeed.");
+			g_print("Succeed.\n");
 		}
 	}
 	return flag;
+}
+
+void usage()
+{
+	g_print("Usage: cd [OPTIONS] DIRECTORY\nicd --help\n");
 }

@@ -1,14 +1,13 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  eval.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 10:13:00 HKT
  * Description  :  To read the command line and spilt them.
+ * 				   recommand basic funuctions for process.c
  *
  * History      :
  * Revision     :  none
@@ -22,6 +21,7 @@
 #include <unistd.h>
 #include "eval.h"
 #include "config.h"
+#include "general.h"
 #include "shell.h"
 
 

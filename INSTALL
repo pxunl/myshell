@@ -1,1 +1,14 @@
-#2012-3-4
+#2012/05/26 14:36:53
+
+Building and installing it
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To install from the Subverion repository:
+	
+	1. clone the code from github.com with 
+	git@github.com:pxunl/myshell.git
+
+	2. ./configure
+
+	3. make
+
+	4. (sudo)make install

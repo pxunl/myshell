@@ -1,14 +1,13 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  valuelib.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Monday, April 16, 2012 03:53:50 HKT
- * Description  :  
+ * Description  :  Functions about operating VALUE of system,
+ * 				   before that, we copy envritions to g_value.
  *
  * History      :
  * Revision     :  none
@@ -23,6 +22,7 @@
 #include <gtk/gtk.h>
 #include "config.h"
 #include "shell.h"
+#include "general.h"
 #include "valuelib.h"
 #include "eval.h"
 
@@ -130,14 +130,13 @@ int Value_Store(char *var)
 	
 	int flag = R_FALSE;
 
-	char *name = var;
+	char *name  = var;
 	char *value = var;
 	char *equal = NULL;
-	struct Value *item = NULL;
 	char *new_var;
-
+	struct Value *item = NULL;
 	equal = strchr(var, '=');
-	name = create_str(var, strlen(var) - strlen(equal));
+	name  = create_str(var, strlen(var) - strlen(equal));
 	value = equal + 1;
 
 	if ((!name) || (!value) || (!Check_Name(name))) 

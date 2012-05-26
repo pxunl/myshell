@@ -1,15 +1,13 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
- * Filename     :  commit.c
+ * Filename     :  shell.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 12:13:00 HKT
- * Description  :  the main function of my shell 
- *
+ * Description  :  the main function of my shell, Shell_Main() call function Process to
+ * 				   process command lines(string), spilt command line through function spiltline
  * History      :
  * Revision     :  none
  * Compiler     :  gcc
@@ -24,6 +22,7 @@
 #include "config.h"
 #include "eval.h"
 #include "shell.h"
+#include "general.h"
 #include "valuelib.h"
 #include "process.h"
 
@@ -31,28 +30,13 @@ void Shell_Main(char *command_line)
 {
 	if (!command_line) 
 	{
+		printf("error, no commanline!");
 		return;
 	}
 	char **arglist;
-	int  result = 0;
+	int  result = R_FALSE;
 
-	/*read command and execute them*/
-	/*while ((command_line = read_command(stdin)) != NULL)
-	{	
-		if ((arglist = spiltline(command_line)) != NULL)
-		{	
-			while (*arglist != NULL)
-			{
-				printf("%s\n",*arglist);
-				arglist++;
-			}
-			printf("%s\n",*(arglist+1));
-			result = execute(arglist);
-			result = Process(arglist);
-			free_list(arglist);
-		}
-		free(command_line);
-	}*/
+	/* unused result.... (bugs) */
 	if ((arglist = spiltline(command_line)) != NULL)
 	{	
 		result = Process(arglist);
