@@ -1,8 +1,6 @@
 /*
  ************************************************************************************
- *
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
- *
  ************************************************************************************
  * Filename     :  eval.c
  * Version      :  1.0
@@ -23,6 +21,7 @@
 #include <unistd.h>
 #include "eval.h"
 #include "config.h"
+#include "general.h"
 #include "shell.h"
 
 

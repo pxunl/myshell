@@ -23,8 +23,10 @@
 #include <gdk/gdkkeysyms.h>
 #include "shell.h"
 #include "valuelib.h"
+#include "general.h"
 #include "config.h"
 
+#define  BUF_SIZ     2304
 
 static GtkTextIter   iter;
 static GtkTextBuffer *buffer;
@@ -32,10 +34,10 @@ static GtkTextIter   start_iter;
 static GtkTextIter   end_iter;
 
 static gchar  g_buf_cmd[512];
-static gchar  buf[BUFSIZ];
+static gchar  buf[BUF_SIZ];
 static gint   count 	   = 0;
 static guint  clear_count  = 0;
-static gint   apipe[2]     = {0,1};
+gint   apipe[2]    		   = {0,1};
 
 static gchar  g_dir[64];
 extern char **environ;
@@ -209,7 +211,7 @@ static gboolean virtual_keyboard_drive(GtkWidget *widget, GdkEventKey *event, gp
 void initialize()
 {
 	g_change_dir = 0;
-	memset(buf, '\0', BUF_SIZE);
+	memset(buf, '\0', BUF_SIZ);
 	memset(g_dir, '\0', 64);
 	memset(g_buf_cmd, '\0', sizeof(g_buf_cmd));
 	strcpy(g_dir, CUR_USER);
@@ -242,9 +244,9 @@ static void Submit_Cmd()
 
 	Shell_Main(g_buf_cmd);
 
-	memset(buf, '\0', BUF_SIZE);
+	memset(buf, '\0', BUF_SIZ);
 	/* get  object information from stdout*/
-	if ((len = read(apipe[0], buf, BUF_SIZE)) == -1)
+	if ((len = read(apipe[0], buf, BUF_SIZ)) == -1)
 	{
 		g_print("error,when reading from pipe\n");
 		exit(1);
@@ -258,17 +260,17 @@ static void Submit_Cmd()
 		strcpy(g_dir, CUR_USER);
 		buf[len-1] = '#';
 		strcat(g_dir, buf);
-		memset(buf, '\0', BUF_SIZE);  /* display nothing except for the current directory */
+		memset(buf, '\0', BUF_SIZ);  /* display nothing except for the current directory */
 		g_change_dir = 0;
 	}
 
 	/* initialize buffers */
-	count = 0;
+	count = 0;   
 	gtk_text_buffer_get_end_iter(buffer, &iter);
 	gtk_text_buffer_insert(buffer, &iter, "\n", -1);
 	gtk_text_buffer_get_end_iter(buffer, &iter);
 	gtk_text_buffer_insert(buffer, &iter, buf, -1);
-	memset(buf, '\0', BUF_SIZE);
+	memset(buf, '\0', BUF_SIZ);
 	memset(g_buf_cmd, '\0', 512);
 
 	/* clear screan */

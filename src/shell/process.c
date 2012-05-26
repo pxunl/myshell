@@ -24,8 +24,10 @@
 #include "valuelib.h"
 #include "process.h"
 #include "config.h"
+#include "general.h"
 #include "eval.h"
 #include "execute.h"
+#include "redirection.h"
 
 #define HOME_DIR   "/home/pxunl/myshell/src/shell/"
 
@@ -59,6 +61,26 @@ int Process(char **input)
 	{
 		return R_FALSE;
 	}
+	
+	////////////////////////////
+	/*Redirection process*/
+#ifdef REDIRECTION_ON
+	if ((Need_Redirection(input) == R_TRUE) && Check_Redirection_Validity(input) == R_TRUE) 
+	{
+		flag = Process_Redirection(input);
+		if (flag == R_TRUE) 
+		{
+			g_print("\nredirected..\n");
+		}
+		else 
+		{
+			Redirection_Usage();
+		}
+		return flag;
+	}
+#endif
+	///////////////////////////
+	
 	else if (Is_Control_Cmd(input[0]) == R_TRUE) 
 	{
 		flag = Do_Control_Cmd(input);

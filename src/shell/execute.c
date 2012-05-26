@@ -19,11 +19,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <gtk/gtk.h>
 #include <signal.h>
 #include <sys/types.h>
-#include "config.h"
-#include "valuelib.h"
+#include "general.h"
 
+#include "config.h"
+#include "shell.h"
+
+#include "valuelib.h"
 
 /**
  * @execute 

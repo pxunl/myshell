@@ -1,0 +1,10 @@
+
+	1. 2012/04/26 12:40:31
+	Support buildin commands.
+
+	2. 2012/05/26 16:42:16
+	I/O input and output redirections
+
+	3. 2012/05/26 16:44:09
+	Build this project by creating configure and Makefile through autoconf
+	and automake.

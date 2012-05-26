@@ -2,7 +2,7 @@
  ************************************************************************************
  * Copyright (c),  2011-2014 dd.pangxie@gmail.com
  ************************************************************************************
- * Filename     :  commit.c
+ * Filename     :  shell.c
  * Version      :  1.0
  * Author       :  Jason Zhong 
  * Created      :  Saturday, March 03, 2012 12:13:00 HKT
@@ -22,6 +22,7 @@
 #include "config.h"
 #include "eval.h"
 #include "shell.h"
+#include "general.h"
 #include "valuelib.h"
 #include "process.h"
 
@@ -33,8 +34,9 @@ void Shell_Main(char *command_line)
 		return;
 	}
 	char **arglist;
-	int  result = 0;
+	int  result = R_FALSE;
 
+	/* unused result.... (bugs) */
 	if ((arglist = spiltline(command_line)) != NULL)
 	{	
 		result = Process(arglist);

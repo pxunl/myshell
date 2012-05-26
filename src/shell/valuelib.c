@@ -22,6 +22,7 @@
 #include <gtk/gtk.h>
 #include "config.h"
 #include "shell.h"
+#include "general.h"
 #include "valuelib.h"
 #include "eval.h"
 

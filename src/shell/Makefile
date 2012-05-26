@@ -16,7 +16,7 @@
 #
 
 #Source file
-SRC = mainWindow.c shell.c eval.c execute.c process.c valuelib.c
+SRC = mainWindow.c shell.c eval.c execute.c process.c valuelib.c redirection.c
 
 #Object file
 OBJS = $(SRC:.c=.o)

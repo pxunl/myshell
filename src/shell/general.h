@@ -2,27 +2,24 @@
  ************************************************************************************
  * Copyright (c),  2011-2014  dd.pangxie@gmail.com
  ************************************************************************************
- * Filename      :  process.h
+ * Filename      :  general.h
  * Version       :  1.0
  * Author        :  Jason Zhong
- * Created       :  Wednesday, April 25, 2012 09:44:37 HKT
- * Description   :  
+ * Created       :  Saturday, May 26, 2012 04:07:42 HKT
+ * Description   :  general file contains Macros that will be used
+ * 					by any 'source.c' file.
  *
  * History       :
  * Revision		 :  none
  * Compiler      :  gcc
  ************************************************************************************
  */
-#ifndef __PROCESS_H__
-#define __PROCESS_H__
+#ifndef __GENERAL_H__
+#define __GENERAL_H__
 
-int Is_Control_Cmd(char *input);
-int Do_Control_Cmd(char **);
-int Ok_Execute();
-void Syntax_Error(char *ckstr);
-int Process_Buildin_Cmd(char **cmd);
-int Process(char **input);
-int IS_Buildin_Cmd(char **input);
-void usage();
+#define DEF_PROMPT   "#"
+#define CUR_USER     "pxunl@lnuxp"
+#define R_TRUE       1
+#define R_FALSE      -1
 
 #endif
