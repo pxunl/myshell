@@ -7,7 +7,7 @@
  * Author       :  Jason Zhong 
  * Created      :  Tuesday, May 08, 2012 04:54:50 HKT
  * Description  :  The  proc  file  system is a pseudo-file system which is used as an
- *      		   interface to kernel data structures.  It  is  commonly  mounted  at
+ *      		   interface to kernel data structures.  It is commonly mounted at
  *     			   /proc.
  *     			   iproc will read information about current system from the file "/proc"
  *     			   -c(--cpu: information about cpu
@@ -86,6 +86,10 @@ int main(int argc, const char *argv[])
 			{
 				action_table[j]();
 			}
+		}
+		if (j >= NUM_CMD) 
+		{
+			usage(R_FALSE);
 		}
 	}
 	return 0;

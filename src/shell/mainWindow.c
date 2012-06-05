@@ -228,7 +228,6 @@ void initialize()
 	/* dup stdout and stderr to apipe[1] to get ouput for gtk_text_view */
 	dup2(apipe[1], 1);
 	dup2(apipe[1], 2);
-	/*close(1);*/
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 }

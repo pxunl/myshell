@@ -71,3 +71,4 @@ install:
 	cp ${SRC_CMD_DIR}/pwd/ipwd ${INSTALL_DIR}
 	cp ${SRC_CMD_DIR}/rm/irm ${INSTALL_DIR}
 	cp ${SRC_CMD_DIR}/who/iwho ${INSTALL_DIR}
+	cp ${SRC_CMD_DIR}/cp/icp ${INSTALL_DIR}

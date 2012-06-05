@@ -42,18 +42,20 @@
 #define  EXPECT_DOUBLE_SYMBOL    3
 #define  EXPECT_CMD 			 4
 #define  EXPECT_ANYTHING         5
-#define  REDIRECTION_NUM         3
+#define  REDIRECTION_NUM         4
 
 #define  STD_IN 				 0
 #define  STD_OUT				 1
 #define  STD_OUT_ERR 			 2
+#define  oops(msg, x)   {perror(msg); exit(x);}
 /*extern gint apipe[2];  [> from mainWindow.c <]*/
 
 int (*redirect_table[REDIRECTION_NUM])(char **program, struct REDIRECT *redirection) = {do_redirect_output,
 																					do_redirect_input,
-																					do_redirect_double_output
+																					do_redirect_double_output,
+																					do_redirect_pipe
 																					};
-char *redirection_descriptor[REDIRECTION_NUM] = {">", "<", ">>"};
+char *redirection_descriptor[REDIRECTION_NUM] = {">", "<", ">>", "|"};
 
 
 char **get_program(char **cmd)
@@ -67,7 +69,7 @@ char **get_program(char **cmd)
 	
 	/* copy orignal command line from cmd to program_parameters */
 	/* before we use program_parameters as a character array,
-	 * we should allocate some memory so that we can use index
+	 * we should allocate some memory so that we can use indexs
 	 * ,that will make it look like character array.
 	 * so, we have to know how many index numbers we need before allocating.
 	 */
@@ -92,10 +94,13 @@ char **get_program(char **cmd)
 
 /**
  * @get_redirection_list
- * @description: get redirection link
+ * @description: get redirection link for '>' '<' '>>'.
+ * 				 If there is '|' in it, we just create one REDIRECT node to
+ * 				 record something necessary information about pipe.
+ * 				 This node will contains a program name which is on 
+ * 				 the right of the '|' in re_file.
  *
  * @cmd: orignal command lines that have redirection descriptors.
- *
  * @return: head that point to the link of redirection link.
  */
 struct REDIRECT *get_redirection_list(char ** cmd)
@@ -131,6 +136,7 @@ struct REDIRECT *get_redirection_list(char ** cmd)
 	}
 	program_parameters[i] = NULL;
 	
+
 	int j = 0;
 	struct REDIRECT *phead = (struct REDIRECT *)malloc(sizeof(struct REDIRECT));
 	struct REDIRECT *ptail= (struct REDIRECT *)malloc(sizeof(struct REDIRECT));
@@ -180,6 +186,11 @@ struct REDIRECT *get_redirection_list(char ** cmd)
 		{
 			travel->red_type = Re_double_out;
 		}
+		else if (strcmp(travel->word, redirection_descriptor[3]) == 0) 
+		{
+			travel->red_type = Re_pipe;
+		}
+		
 		travel = travel->next;
 	}
 
@@ -253,63 +264,60 @@ int is_in_descriptor_table(char * str)
  * @Check_Redirection_Validity 
  * @description: check if the command lines that contain 'redirection chars'
  * 	   		     is legal or not.
- * 			     Legal: cmd > file, cmd>file, cmd > file > another.
- * 			     Illegal: cmd > file_1 file_2, cmd > > file.
- *
- * 			     any situation that is not listed above will be just given to
- * 			     system(). of cour
+ * 			     Legal: cmd > file, cmd>file, cmd > file > another,
+ * 			     program_left | program_right.
+ * 			     Illegal: cmd > file_1 file_2, cmd > > file,
+ * 			     program_left |program_right ... and so on.
+ * @Note: Any situation that is not listed above will be just given to system(). 
  * @cmd: command lines
  *
  * @return: R_TRUE or R_FALSE.
  */
 int Check_Redirection_Validity(char **cmd)
 {
-	/*int flag = R_FALSE;*/
-	/*if (cmd[0] == NULL || strchr(cmd[0], '>') != NULL)*/
-	/*{*/
-		/*Usage_Redirection(EXPECT_CMD);*/
-		/*return R_FALSE;*/
-	/*}*/
+	int flag = R_TRUE;
+	if ((cmd[0] == NULL)
+			|| (strchr(cmd[0], '>') != NULL) 
+			|| (strchr(cmd[0], '|') != NULL)
+			|| (strchr(cmd[0], '<') != NULL)
+			|| (strstr(cmd[0], ">>") != NULL))
+	{
+		Usage_Redirection(EXPECT_CMD);
+		return R_FALSE;
+	}
 	
-	/*int i = 1;*/
-	/*int need_first_symbol = 1;*/
-
-	/*//bugs: what about "ls s> > g"*/
-	/*//and this is not so much perfect.*/
-	/*while (cmd[i] != NULL)*/
-	/*{*/
-		/*[> if it's not '>' and we need it come up. <]*/
-		/*if (need_first_symbol == 1 && strcmp(cmd[i], ">") != 0)*/
-		/*{*/
-			/* Check it's name, it should't contain '>'
-			 * or other special descriptors */
-			/*if (Check_File_Name(cmd[i]) == R_TRUE) */
-			/*{*/
-				/*i++;*/
-				/*continue;*/
-			/*}*/
-			/*else */
-			/*{*/
-				/*return R_FALSE;*/
-			/*}*/
-		/*}*/
-		
-		/* just "> file" is allowed
-		 * notice that it should be ' > '
-		 * file name should't contains '>' */
-		/*if ((strcmp(cmd[i], ">") == 0) */
-			/*&& (cmd[i+1] != NULL)*/
-			/*&& (Check_File_Name(cmd[i+1]) == R_TRUE))*/
-		/*{*/
-			/*flag = R_TRUE;*/
-			/*need_first_symbol = 0;*/
-			/*i += 2;*/
-			/*continue;*/
-		/*}*/
-		/*i++;*/
-	/*}*/
-	/*return flag;*/
-	return R_TRUE;
+	int i = 1;
+	while (cmd[i] != NULL)
+	{
+		if (is_in_descriptor_table(cmd[i]) == R_TRUE)
+		{
+			if ((cmd[i+1] != NULL) 
+					&& (is_in_descriptor_table(cmd[i+1]) == R_FALSE) 
+				    && (Check_File_Name(cmd[i+1]) == R_TRUE))
+			{
+				i += 2;
+				continue;
+			}
+			/* Illegal: program > >
+			 * 		    program | |
+			 * 		    ... */
+			else  
+			{
+				return R_FALSE;
+			}
+			
+		}
+		else 
+		{
+			if (Check_File_Name(cmd[i]) == R_FALSE)
+			{
+				return R_FALSE;
+			}
+		}
+		i++;
+	}
+	
+	return flag;
 }
 
 /*
@@ -416,6 +424,11 @@ int Process_Redirection(char **cmd)
 				break;
 			case Re_double_out:
 				flag = redirect_table[2](program, ph);
+				break;
+			case Re_pipe:
+				flag = redirect_table[3](program, ph);
+				/*dup2(apipe[1], 1);*/
+				/*dup2(apipe[1], 2);*/
 				break;
 			default: Redirection_Usage();
 					 break;
@@ -576,4 +589,76 @@ int do_redirect_double_output(char **program, struct REDIRECT *redirection)
 void Redirection_Usage()
 {
 	g_print("\n------Finished------\n");
+}
+
+int do_redirect_pipe(char **program, struct REDIRECT *redirection)
+{
+	if (program == NULL || redirection == NULL) 
+	{
+		return R_FALSE;
+	}
+	
+	int re_pipe[2] = {0, 0};
+	int pid_f;
+	int r_parent = R_TRUE;
+	int r_chind = R_TRUE;
+	char **right_program = NULL;
+	
+	right_program = (char **)malloc(2 * sizeof(char *));
+	right_program[0] = (char *)malloc((strlen(redirection->re_file) + 1) * sizeof(char));
+	strcpy(right_program[0], redirection->re_file);
+	right_program[1] = NULL;
+	
+	if (pipe(re_pipe) == -1) 
+	{
+		oops("Can't get a new pipe", 1);
+	}
+	
+	if ((pid_f = fork()) == -1)
+	{
+		oops("Can't fork!", 2);
+		return R_FALSE;
+	}
+
+	/*child process exec program[1] and writes
+	 * into pipe. But it does't read from pipe */
+	else if (pid_f == 0)
+	{
+		if ((pid_f = fork()) == -1)
+		{
+			oops("Can't fork!", 2);
+			return R_FALSE;
+		}
+
+		close(re_pipe[0]);
+		if (dup2(re_pipe[1], 1) == -1)
+		{
+			oops("Cloud't redirect stdout", 3);
+		}
+		close(re_pipe[1]);
+		r_chind = (execvp(program[0], program) == -1)? R_FALSE : R_TRUE;
+		oops(program[0], 3);
+
+		if (pid_f == 0)
+		{
+			close(re_pipe[1]);
+			if (dup2(re_pipe[0], 0) == -1)
+			{
+				oops("Cloud't redirect stdout", 3);
+			}
+			close(re_pipe[0]);
+
+			if ((redirection->red_type == Re_pipe) && (strcmp(redirection->word, redirection_descriptor[3]) == 0))
+			{
+				r_parent = (execvp(right_program[0], right_program) == -1)? R_FALSE : R_TRUE;
+			}
+			oops(right_program[0], 3);
+		}
+	}
+
+	/* parent prcocess will read from pipe and exec program[0],
+	 * but it does't write to pipe. */
+
+	free_temp_cmd(right_program);
+	return ((r_chind == R_TRUE) && (r_parent == R_TRUE))? R_TRUE : R_FALSE;
 }

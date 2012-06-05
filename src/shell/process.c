@@ -43,8 +43,6 @@ typedef enum
 static int if_state   = NATRULE;
 static int if_result  = R_TRUE;
 static int last_state = R_FALSE;
-extern int g_change_dir;  /* refers to <mainWindows.c> for marking wheather the current 
-							 directory has been changed */
 
 
 /**
@@ -263,7 +261,6 @@ int Process_Buildin_Cmd(char **cmd)
 
 		///////////////////////
 		system("pwd");
-		g_change_dir = 1;    /* mark , directory changed */
 		//////////////////////
 	}
 	else if (strcmp(cmd[0], "icd") == 0 && cmd[1] == NULL) 

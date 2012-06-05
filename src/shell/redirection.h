@@ -19,9 +19,10 @@
 
 enum Redirection_types
 {
-	Re_singal_out,   /* reidrect '<' */
-	Re_singal_in,    /* redirect '>' */
-	Re_double_out 	 /* redirect '>>' */
+	Re_singal_out,   /* reidrect '<'  */
+	Re_singal_in,    /* redirect '>'  */
+	Re_double_out, 	 /* redirect '>>' */
+	Re_pipe       	 /* pipe for '|'  */
 };
 
 
@@ -50,6 +51,7 @@ int Check_File_Name(char *file);
 int do_redirect_output(char **program, struct REDIRECT *redirection);
 int do_redirect_input(char **program, struct REDIRECT *redirection);
 int do_redirect_double_output(char **program, struct REDIRECT *redirection);
+int do_redirect_pipe(char **program, struct REDIRECT *redirection);
 void Redirection_Usage();
 struct REDIRECT *get_redirection_list(char ** cmd);
 
